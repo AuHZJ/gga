@@ -1,0 +1,40 @@
+<!--pages/personalData/personalData.wxml-->
+
+<!--背景begin-->
+<image src="../../images/backgroundImage.jpg" class="backgroundImage"></image>
+<!--背景end-->
+
+<view class="headImage">
+  <text>头像</text>
+  <image src="{{headImagePaths}}" bindtap='changeHeadImage'></image>
+</view>
+
+<view class="IDPanel">
+  <text>ID</text>
+  <text class="ID">gga123456789</text>
+</view>
+
+<view class="namePanel">
+  <text>昵称</text>
+  <text class="name">小飞侠</text>
+</view>
+
+<view class="sexPanel">
+  <text>性别</text>
+  <text class="sex">男</text>
+</view>
+
+<view class="typePanel">
+  <text>用户类型</text>
+  <text class="type">志愿者</text>
+</view>
+
+<view class="addressPanel">
+  <text>地区</text>
+  <text class="address">江西 吉安</text>
+</view>
+
+<view class="personalitySignaturePanel">
+  <text>个性签名</text>
+  <text class="personalitySignature">hello world!</text>
+</view>

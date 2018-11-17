@@ -1,0 +1,93 @@
+/* pages/personal/personal.wxss */
+.backgroundImage{
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  position: fixed;
+}
+.top{
+  background-color: rgba(235,58,58,0.5);
+  width: 100%;
+  height: 95px;
+}
+.top-left{
+  vertical-align: middle;
+  display: inline-block;
+  margin-left: 10px;
+}
+.top-left image{
+  width: 95px;
+  height: 95px;
+}
+.top-middle{
+  vertical-align: middle;
+  display: inline-block;
+  margin-left: 10px;
+  margin-top: 15px;
+}
+.top-middle-id{
+  display: block;
+  font-weight: 600;
+  font-size: 17px;
+  color: rgba(0,0,0,0.5);
+}
+.top-middle-type{
+  display: block;
+  font-weight: 600;
+  font-size: 13px;
+  margin-top: 10px;
+  color: rgba(0,0,0,0.5);
+}
+.top-middle-unLogin{
+  display: block;
+  font-weight: 500;
+  font-size: 20px;
+  color: white;
+}
+.top-right{
+  vertical-align: middle;
+  display: inline-block;
+  position: absolute;
+  right: 20px;
+
+}
+.top-right-setting{
+  display: block;
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  right: 0px;
+  top: 10px;
+}
+.top-right-go{
+  display: block;
+  position: absolute;
+  top: 55px;
+  right: 5px;
+  width: 20px;
+  height: 20px;
+}
+.clearance{
+  width: 100%;
+  height: 15px;
+  background: rgba(0,0,0,0.06);
+}
+.account,.recharge,.enterpriseEntry,.info,.feedback{
+  position: relative;
+  width: 100%;
+  height: 55px;
+  line-height: 55px;
+  font-size: 17px;
+  color: rgba(0,0,0,0.5);
+  padding-left: 20px;
+}
+.account,.enterpriseEntry,.feedback{
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+.huijiantou{
+  position: absolute;
+  right: 45px;
+  top: 30%;
+  width: 20px;
+  height: 20px;
+}

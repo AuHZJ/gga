@@ -1,0 +1,19 @@
+<!--pages/setting/setting.wxml-->
+
+<!--背景begin-->
+<image src="../../images/backgroundImage.jpg" class="backgroundImage"></image>
+<!--背景end-->
+
+<view class="privacy">
+  <text>隐私</text>
+</view>
+
+<view class="currency">
+  <text>通用</text>
+</view>
+
+<view class="about">
+  <text>关于光光爱</text>
+</view>
+
+<button>退出当前账户</button>

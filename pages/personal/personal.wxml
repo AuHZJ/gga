@@ -1,0 +1,54 @@
+<!--pages/personal/personal.wxml-->
+
+<!--背景begin-->
+<image src="../../images/backgroundImage.jpg" class="backgroundImage"></image>
+<!--背景end-->
+
+<view class="top">
+  <view class="top-left" bindtap='personalData'>
+    <image src="{{headImage}}"></image>
+  </view>
+
+  <view class="top-middle" hidden='{{boolean}}' bindtap='personalData'>
+    <text class="top-middle-id">ID:{{ID}}</text>
+    <text class="top-middle-type">用户类型:{{type}}</text>
+  </view>
+
+  <view class="top-middle" hidden='{{!boolean}}'>
+    <text class="top-middle-unLogin" bindtap="login">点击登录</text>
+  </view>
+
+  <view class="top-right">
+    <image src="../../images/setting.png" class="top-right-setting" bindtap="tapSetting"></image>
+    <image src="../../images/whitejiantou.png" class="top-right-go" bindtap='personalData'></image>
+  </view>
+</view>
+
+<view class="account" bindtap='accountDetails'>
+  <text>账户明细</text>
+  <image src="../../images/huijiantou.png" class="huijiantou"></image>
+</view>
+
+<view class="recharge" bindtap='recharge'>
+  <text>充值</text>
+  <image src="../../images/huijiantou.png" class="huijiantou"></image>
+</view>
+
+<view class="clearance"></view>
+
+<view class="enterpriseEntry" bindtap='enterpriseEntry'>
+  <text>企业入驻</text>
+  <image src="../../images/huijiantou.png" class="huijiantou"></image>
+</view>
+
+<view class="info" bindtap='info'>
+  <text>发布信息</text>
+  <image src="../../images/huijiantou.png" class="huijiantou"></image>
+</view>
+
+<view class="clearance"></view>
+
+<view class="feedback" bindtap='feedback'>
+  <text>反馈</text>
+  <image src="../../images/huijiantou.png" class="huijiantou"></image>
+</view>

@@ -1,0 +1,49 @@
+{
+  "pages": [
+    "pages/homepage/homepage",
+    "pages/accountDetails/accountDetails",
+    "pages/recharge/recharge",
+    "pages/enterpriseEntry/enterpriseEntry",
+    "pages/info/info",
+    "pages/feedback/feedback",
+    "pages/personalData/personalData",
+    "pages/setting/setting",
+    "pages/personal/personal",
+    "pages/donation/donation",
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#ff6b69",
+    "navigationBarTitleText": "光光爱", 
+    "navigationBarTextStyle": "white", 
+    "enablePullDownRefresh": true,
+    "backgroundTextStyle": "light"
+  },
+  "tabBar": {
+    "color": "#000000",
+    "selectedColor": "red",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "#000000",
+    "list": [
+      {
+        "text": "主页",
+        "pagePath": "pages/homepage/homepage",
+        "iconPath": "images/主页按钮.png",
+        "selectedIconPath": "images/主页按钮（红）.png"
+      },
+      {
+        "text": "捐赠",
+        "pagePath": "pages/donation/donation",
+        "iconPath": "images/捐赠按钮.png",
+        "selectedIconPath": "images/捐赠按钮（红）.png"
+      },
+      {
+        "text": "个人",
+        "pagePath": "pages/personal/personal",
+        "iconPath": "images/个人按钮.png",
+        "selectedIconPath": "images/个人按钮（红）.png"
+      }
+    ]
+  }
+}
