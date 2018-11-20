@@ -46,15 +46,17 @@ Page({
       wx.login({
         success :res=> {
           if (res.code) {
+            var myData = [{ code: res.code }] 
             //发起网络请求
             wx.request({
-              url: 'http://localhost:8080/login', //服务器地址
+              url: 'http://localhost:8080/gga/login', //服务器地址
               data: {
-                code: res.code
+                'code': JSON.stringify(myData)
               },
               header: {
                 'content-type': 'application/json'
               },
+              dataType: 'json',
               method: 'POST',
               success :res1=> {
                 //从数据库获取用户信息
