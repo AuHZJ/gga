@@ -35,7 +35,7 @@ Page({
 
   bindGetUserInfo: function (e) {
     if (e.detail.userInfo) {//用户按了允许授权按钮
-      // var that = this;
+      var that = this;
       // getApp().globalData.avatarUrl = e.detail.userInfo.avatarUrl;
       // getApp().globalData.nickName = e.detail.userInfo.nickName;
       // getApp().globalData.userGender = e.detail.userInfo.userGender;
