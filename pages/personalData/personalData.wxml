@@ -6,7 +6,8 @@
 
 <view class="headImage">
   <text>头像</text>
-  <image src="{{headImagePaths}}" bindtap='changeHeadImage'></image>
+  <!-- <image src="{{headImagePaths}}" bindtap='changeHeadImage'></image> -->
+  <open-data type="userAvatarUrl"></open-data>
 </view>
 
 <view class="IDPanel">
@@ -32,7 +33,11 @@
 
 <view class="addressPanel">
   <text>地区</text>
-  <open-data type="userCity" lang="zh_CN" class="address"></open-data>
+  <view class="address">
+    <open-data type="userCountry" lang="zh_CN"></open-data>
+    <open-data type="userProvince" lang="zh_CN"></open-data>
+    <open-data type="userCity" lang="zh_CN"></open-data>
+  </view>
 </view>
 
 <view class="personalitySignaturePanel">

@@ -13,6 +13,8 @@ App({
     nickName: "",//用户昵称
     userGender: "", //性别
     userCity: "", //城市
+    userProvince: "", //省份
+    userCountry: "" //国家
     // userInfo: null,
     // wx_url_1: 'https://api.weixin.qq.com/sns/jscode2session?appid=wx31130462872316f3&secret=675a814cceaa2ea111f2ee4528c54149&js_code=',
     // wx_url_2: '&grant_type=authorization_code'

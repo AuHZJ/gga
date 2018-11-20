@@ -40,6 +40,9 @@ Page({
       getApp().globalData.nickName = e.detail.userInfo.nickName;
       getApp().globalData.userGender = e.detail.userInfo.userGender;
       getApp().globalData.userCity = e.detail.userInfo.userCity;
+      getApp().globalData.userProvince = e.detail.userInfo.userProvince;
+      getApp().globalData.userCountry = e.detail.userInfo.userCountry;
+      
       // wx.switchTab({
       //   url: '../homepage/homepage'
       // })
@@ -62,12 +65,13 @@ Page({
               },
               success :res1=> {
                 //从数据库获取用户信息
+                console.log(res1.data); //测试，打印从后台收到的数据
                 that.queryUsreInfo();
                 console.log("插入小程序登录用户信息成功！");
                 //授权并返回成功后，跳转进入小程序首页
-                // wx.switchTab({
-                //   url: '../homepage/homepage'
-                // })
+                wx.switchTab({
+                  url: '../homepage/homepage'
+                })
               }
             })
           } else {
