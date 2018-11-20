@@ -55,6 +55,7 @@ Page({
               header: {
                 'content-type': 'application/json'
               },
+              method: 'POST',
               success :res1=> {
                 //从数据库获取用户信息
                 console.log(res1.data); //测试，打印从后台收到的数据
