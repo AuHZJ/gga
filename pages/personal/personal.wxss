@@ -38,12 +38,7 @@
   margin-top: 10px;
   color: rgba(0,0,0,0.5);
 }
-.top-middle-unLogin{
-  display: block;
-  font-weight: 500;
-  font-size: 20px;
-  color: white;
-}
+
 .top-right{
   vertical-align: middle;
   display: inline-block;

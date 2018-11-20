@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/login/login",
     "pages/homepage/homepage",
     "pages/accountDetails/accountDetails",
     "pages/recharge/recharge",
@@ -10,7 +11,6 @@
     "pages/setting/setting",
     "pages/personal/personal",
     "pages/donation/donation",
-    "pages/index/index",
     "pages/logs/logs"
   ],
   "window": {

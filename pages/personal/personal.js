@@ -1,12 +1,10 @@
 // pages/personal/personal.js
 Page({
-
+  
   /**
    * 页面的初始数据
    */
   data: {
-    boolean: true,
-    headImage: '../../images/headImage.png',
     ID: '小飞侠',
     type: '志愿者'
   },
@@ -53,11 +51,6 @@ Page({
     })
   },
 
-  login: function () { //点击登录
-    this.setData({
-      boolean: false
-    })
-  },
 
   /**
    * 生命周期函数--监听页面加载

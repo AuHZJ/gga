@@ -16,12 +16,13 @@
 
 <view class="namePanel">
   <text>昵称</text>
-  <text class="name">小飞侠</text>
+  <text class="name"><open-data type="userGender" lang="zh_CN"></open-data></text>
 </view>
 
 <view class="sexPanel">
   <text>性别</text>
-  <text class="sex">男</text>
+  <text class="sex"><open-data type="userCity" lang="zh_CN"></open-data></text>
+  <open-data type="userGender" lang="zh_CN" class="sex"></open-data>
 </view>
 
 <view class="typePanel">
@@ -31,7 +32,7 @@
 
 <view class="addressPanel">
   <text>地区</text>
-  <text class="address">江西 吉安</text>
+  <open-data type="userCity" lang="zh_CN" class="address"></open-data>
 </view>
 
 <view class="personalitySignaturePanel">

@@ -6,16 +6,13 @@
 
 <view class="top">
   <view class="top-left" bindtap='personalData'>
-    <image src="{{headImage}}"></image>
+    <!-- <image src="{{headImage}}"></image> -->
+    <open-data type="userAvatarUrl"></open-data>
   </view>
 
-  <view class="top-middle" hidden='{{boolean}}' bindtap='personalData'>
-    <text class="top-middle-id">ID:{{ID}}</text>
+  <view class="top-middle"  bindtap='personalData'>
+    <text class="top-middle-id">ID:<open-data type="userGender" lang="zh_CN"></open-data></text>
     <text class="top-middle-type">用户类型:{{type}}</text>
-  </view>
-
-  <view class="top-middle" hidden='{{!boolean}}'>
-    <text class="top-middle-unLogin" bindtap="login">点击登录</text>
   </view>
 
   <view class="top-right">
