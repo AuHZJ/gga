@@ -7,11 +7,11 @@
 <view class="top">
   <view class="top-left" bindtap='personalData'>
     <!-- <image src="{{headImage}}"></image> -->
-    <open-data type="userAvatarUrl"></open-data>
+    <open-data type="userAvatarUrl" class="top-left-headImage"></open-data>
   </view>
 
   <view class="top-middle"  bindtap='personalData'>
-    <text class="top-middle-id">ID:<open-data type="userGender" lang="zh_CN"></open-data></text>
+    <open-data type="userNickName" lang="zh_CN" class="top-middle-id"></open-data>
     <text class="top-middle-type">用户类型:{{type}}</text>
   </view>
 

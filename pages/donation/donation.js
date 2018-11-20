@@ -6,7 +6,7 @@ Page({
    */
   data: {
     alreadyDonated: 593.26,  //已捐赠数量
-    province: '江西', //搜索栏地址
+    province: getApp().globalData.userCity, //搜索栏地址
     info: [
       { 
         headImage: '../../images/headImage.png', 

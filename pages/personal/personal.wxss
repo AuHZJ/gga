@@ -14,10 +14,14 @@
   vertical-align: middle;
   display: inline-block;
   margin-left: 10px;
+  width: 90px;
+  height: 90px;
+  border-radius: 45px;
+  overflow: hidden;
 }
-.top-left image{
-  width: 95px;
-  height: 95px;
+.top-left .top-left-headImage{
+  width: 90px;
+  height: 90px;
 }
 .top-middle{
   vertical-align: middle;
