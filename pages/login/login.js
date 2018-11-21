@@ -14,65 +14,55 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
+    wx.login({
+      success: res => {
+        if (res.code) {
+          wx.request({//发起网络请求
+            url: 'http://local.zhouxi.me/login',
+            data: {
+              code: res.code
+            },
+            method: 'POST',
+            header: {
+              'content-type': 'application/json'
+            },
+            dataType: 'json',
+            success: res1 => {
+              console.log(res1.data); //测试，打印从后台收到的数据
+              wx.setStorageSync("sessionid", res1.data.data);
+              that.queryUsreInfo();
+            }
+          })
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
+    })
     //查看是否授权
-    // wx.getSetting({
-    //   success: function (res) {
-    //     if (res.authSetting['scope.userInfo']) {
-    //       wx.getUserInfo({
-    //         success: function (res) {
-    //           //从数据库获取用户信息
-    //           that.queryUsreInfo();
-    //           //用户已经授权过
-    //           wx.switchTab({
-    //             url: '../homepage/homepage'
-    //           })
-    //         }
-    //       });
-    //     }
-    //   }
-    // })
+    wx.getSetting({
+      success: function (res) {
+        if (res.authSetting['scope.userInfo']) {
+          wx.getUserInfo({
+            success: function (res) {
+              //从数据库获取用户信息
+              that.queryUsreInfo();
+              //用户已经授权过
+              wx.switchTab({// 授权并返回成功后，跳转进入小程序首页
+                url: '../homepage/homepage'
+              })
+            }
+          });
+        }
+      }
+    })
   },
 
   bindGetUserInfo: function (e) {
     if (e.detail.userInfo) {//用户按了允许授权按钮
       var that = this;
-      // getApp().globalData.avatarUrl = e.detail.userInfo.avatarUrl;
-      // getApp().globalData.nickName = e.detail.userInfo.nickName;
-      // getApp().globalData.userGender = e.detail.userInfo.userGender;
-      // getApp().globalData.userCity = e.detail.userInfo.userCity;
-      // getApp().globalData.userProvince = e.detail.userInfo.userProvince;
-      // getApp().globalData.userCountry = e.detail.userInfo.userCountry;
-      
-      wx.login({
-        success :res=> {
-          if (res.code) {
-            var myData = [{ code: res.code }] 
-            //发起网络请求
-            wx.request({
-              url: 'http://localhost:8080/gga/login', //服务器地址
-              data: {
-                'code': JSON.stringify(myData)
-              },
-              header: {
-                'content-type': 'application/json'
-              },
-              dataType: 'json',
-              method: 'POST',
-              success :res1=> {
-                //从数据库获取用户信息
-                console.log(res1.data); //测试，打印从后台收到的数据
-                that.queryUsreInfo();
-                console.log("插入小程序登录用户信息成功！");
-                // 授权并返回成功后，跳转进入小程序首页
-                wx.switchTab({
-                  url: '../homepage/homepage'
-                })
-              }
-            })
-          } else {
-            console.log('登录失败！' + res.errMsg)
-          }
-        }
+      getApp().globalData.avatarUrl = e.detail.userInfo.avatarUrl,
+      wx.switchTab({
+        url: '../homepage/homepage'
       })
     } else {
       //用户按了拒绝按钮
@@ -91,19 +81,23 @@ Page({
   },
   //获取用户信息接口
   queryUsreInfo: function () {
-    // wx.request({
-    //   url: '',
-    //   data: {
-    //     // openid: getApp().globalData.openid
-    //   },
-    //   header: {
-    //     'content-type': 'application/json'
-    //   },
-    //   success: function (res) {
-    //     console.log(res.data);
-    //     getApp().globalData.userInfo = res.data;
-    //   }
-    // });
+    console.log(wx.getStorageSync("sessionid"))
+    wx.request({
+      url: 'http://local.zhouxi.me/test',
+      data: {
+      },
+      method: 'GET',
+      header: {
+        'cookie': 'JSESSIONID=' + wx.getStorageSync("sessionid"),
+        'content-type': 'application/json'
+      },
+      dataType: 'json',
+
+      success: res => {
+        //从数据库获取用户信息
+        console.log(res.data); //测试，打印从后台收到的数据
+      }
+    })
   },
 
   /**
