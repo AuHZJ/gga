@@ -28,7 +28,7 @@ Page({
             },
             dataType: 'json',
             success: res1 => {
-              console.log(res1.data); //测试，打印从后台收到的数据
+              console.log("登录返回的信息：",res1.data); //测试，打印从后台收到的数据
               wx.setStorageSync("sessionid", res1.data.data);
               that.queryUsreInfo();
             }
@@ -45,7 +45,7 @@ Page({
           wx.getUserInfo({
             success: function (res) {
               //从数据库获取用户信息
-              that.queryUsreInfo();
+              // that.queryUsreInfo();
               //用户已经授权过
               wx.switchTab({// 授权并返回成功后，跳转进入小程序首页
                 url: '../homepage/homepage'
@@ -81,7 +81,7 @@ Page({
   },
   //获取用户信息接口
   queryUsreInfo: function () {
-    console.log(wx.getStorageSync("sessionid"))
+    // console.log(wx.getStorageSync("sessionid"))
     wx.request({
       url: 'http://local.zhouxi.me/test',
       data: {
@@ -95,7 +95,7 @@ Page({
 
       success: res => {
         //从数据库获取用户信息
-        console.log(res.data); //测试，打印从后台收到的数据
+        console.log("test返回的信息：",res.data); //测试，打印从后台收到的数据
       }
     })
   },
