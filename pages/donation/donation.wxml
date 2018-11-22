@@ -11,7 +11,7 @@
   <view class="top-right">查看记录</view>
   <view style="position: relative">
     <icon type="search" size="20" color="white"/>
-    <input type="text" placeholder="{{province}}" placeholder-style="color: white;font-size: 15px;"/>
+    <input type="text" placeholder="{{province}}" placeholder-style="color: white;font-size: 15px;" confirm-type="next"/>
   </view>
 </view>
 <!--顶部end-->

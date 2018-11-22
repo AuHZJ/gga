@@ -1,0 +1,27 @@
+<!--pages/addPovertyInfo/addPovertyInfo.wxml-->
+
+<!--背景begin-->
+<image src="../../images/backgroundImage.jpg" class="backgroundImage"></image>
+<!--背景end-->
+<view class="body">
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="input">
+      <input type="text" name="title" placeholder="标题" />
+    </view>
+
+    <view class="input">
+      <input type="text" name="content" placeholder="内容" />
+    </view>
+
+    <view class="input">
+      <input type="number" name="neadMoney" placeholder="需要资金" />
+    </view>
+
+    <image src="{{tempFilePaths}}" bindtap='chooseImage' class="image"></image>
+
+    <view>
+      <button formType="submit">提交</button>
+      <button formType="reset">重置</button>
+    </view>
+  </form>
+</view>

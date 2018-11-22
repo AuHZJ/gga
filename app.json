@@ -2,6 +2,9 @@
   "pages": [
     "pages/login/login",
     "pages/homepage/homepage",
+    "pages/addPovertyInfo/addPovertyInfo",
+    
+    
     "pages/accountDetails/accountDetails",
     "pages/recharge/recharge",
     "pages/enterpriseEntry/enterpriseEntry",
@@ -18,7 +21,7 @@
     "navigationBarTitleText": "光光爱", 
     "navigationBarTextStyle": "white", 
     "enablePullDownRefresh": true,
-    "backgroundTextStyle": "light"
+    "backgroundTextStyle": "dark" 
   },
   "tabBar": {
     "color": "#000000",

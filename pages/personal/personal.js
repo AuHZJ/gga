@@ -6,7 +6,7 @@ Page({
    */
   data: {
     ID: '小飞侠',
-    type: '志愿者'
+    type: getApp().globalData.userType
   },
 
   personalData: function () { //个人资料
