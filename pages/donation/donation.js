@@ -17,11 +17,18 @@ Page({
         title: '“我们需要更好的环境!”', 
         totalAmount: 10000, 
         surplus:6150,
-        sw: 120,
-        activeColor: 'rgba(255,255,255,0.5)',
-        bgcolor: 'rgba(255,255,255,0)',
-        isActive: true,
-        isSi: false
+        width: ''
+      },
+      {
+        headImage: '../../images/headImage.png',
+        type: '贫困户',
+        city: '江西省吉安市',
+        realName: '已实名',
+        img: '../../images/2.jpg',
+        title: '“我们需要更好的环境!”',
+        totalAmount: 20000,
+        surplus: 8850,
+        width: ''
       }
     ]
 
@@ -41,10 +48,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
+    var that = this
+    that.setData({
       province: getApp().globalData.userProvince,
-      alreadyDonated: getApp().globalData.donated
+      alreadyDonated: getApp().globalData.donated,
     })
+    for (var item in that.data.info){  // 设置进度条宽度
+      var w = 'info[' + item + '].width'
+      that.setData({
+        [w]: 100 * (that.data.info[item]['surplus']) / that.data.info[item]['totalAmount'] + '%'
+      })
+    }
   },
 
   /**

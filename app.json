@@ -1,9 +1,9 @@
 {
   "pages": [
-    "pages/login/login",
     "pages/homepage/homepage",
+    "pages/personal/personal",
+    "pages/login/login",
     "pages/addPovertyInfo/addPovertyInfo",
-    
     "pages/messages/messages",
     "pages/viewRecord/viewRecord",
     "pages/accountDetails/accountDetails",
@@ -12,7 +12,6 @@
     "pages/feedback/feedback",
     "pages/personalData/personalData",
     "pages/setting/setting",
-    "pages/personal/personal",
     "pages/donation/donation",
     "pages/logs/logs"
   ],

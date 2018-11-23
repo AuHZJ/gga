@@ -9,7 +9,8 @@
   <view class="top-left">已捐赠</view>
   <view class="top-number">{{alreadyDonated}}</view>
   <view class="top-right" bindtap='viewRecord'>查看记录</view>
-  <view style="position: relative">
+  <!-- <image src="/images/border.png" style="width:130px;height:80px;position:absolute;right: 0%;bottom: 21%;"></image> -->
+  <view style="position: absolute;bottom: 10%;left: 0%;width:100%;">
     <icon type="search" size="20" color="white"/>
     <input type="text" placeholder="{{province}}" placeholder-style="color: white;font-size: 15px;" confirm-type="search" bindconfirm="test"/>
   </view>
@@ -28,7 +29,7 @@
   </view>
   <view class="img">
     <image src="{{item.img}}"></image>
-    <progress class="progress" percent="{{(item.totalAmount-item.surplus)*100/item.totalAmount}}" show-info="{{item.isSi}}" stroke-width="{{item.sw}}" activeColor="{{item.activeColor}}" backgroundColor="{{item.bgcolor}}" active="{{item.isActive}}" active-mode="item.forwards"></progress>
+    <view class="progress" style="width:{{item.width}}"></view> <!--进度条-->
     <text class="img-title">{{item.title}}</text>
     <text class="img-totalAmount">发起总金额：{{item.totalAmount}}元</text>
     <text class="img-surplus">剩余所需：{{item.surplus}}元</text>

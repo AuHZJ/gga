@@ -17,17 +17,25 @@
   font-size: 17px;
   position: absolute;
   top: 5px;
-  left: 10px;
+  left: 4%;
   color: rgba(0,0,0,0.5);
 }
 .top-number{
   color: white;
   font-size: 40px;
+  position: absolute;
+  left: 35%;
+  bottom: 35%;
 }
 .top-right{
+  border: 1px solid rgba(255,255,255,0.5);
+  border-radius: 12.5px;
+  width: auto;
+  height: 21px;
+  line-height: 21px;
   position: absolute;
-  right: 10px;
-  bottom: 45%;
+  right: 4%;
+  bottom: 43%;
   font-size: 17px;
   color: white;
 }
@@ -41,7 +49,7 @@ input{
   box-sizing: border-box;
   background-color: rgb(245,205,205);
   width: 92%;
-  height: 25px;
+  height: 27px;
   border-radius: 12.5px;
   margin: auto;
   color: white;
@@ -107,11 +115,12 @@ text{
   left: 0;
   z-index: 2;
 }
-.img progress{
+.img .progress{
   position: absolute;
+  right: 0;
   z-index: 3;
-  width: 100%;
   height: 100%;
+  background: rgba(255,255,255,0.3);
 }
 .img-title{
   z-index: 4;

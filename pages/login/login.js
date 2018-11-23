@@ -33,41 +33,44 @@ Page({
 
   login: function () {
     var that = this;
-    wx.login({
-      success: res => {
-        if (res.code) {
-          wx.request({//发起网络请求
-            url: 'http://local.zhouxi.me/login',
-            // url: 'http://localhost:8080/gga/login', 
-            data: { code: res.code },
-            method: 'POST',
-            header: { 'content-type': 'application/json;charset=utf-8' },
-            dataType: 'json',
-            success: res1 => {
-              console.log("login返回的信息：", res1.data); //测试，打印从后台收到的数据
-              wx.setStorageSync("sessionid", res1.data.data);
-              if (res1.statusCode == '200') {
-                wx.switchTab({// 授权并返回成功后，跳转进入小程序首页
-                  url: '/pages/homepage/homepage'
-                })
-              } else { // 无网络
-                that.comfirm('提示', '请检查您的网络', false, '确定', '用户点击确定') //
-              }
-            },
-            fail: res1 =>{
-              console.log('请求失败！')
-            }
-          })
-        } else {
-          console.log('登录失败！' + res.errMsg)
-        }
-      }
-    })
+    // wx.login({
+    //   success: res => {
+    //     if (res.code) {
+    //       wx.request({//发起网络请求
+    //         url: 'http://local.zhouxi.me/login',
+    //         // url: 'http://localhost:8080/gga/login', 
+    //         data: { code: res.code },
+    //         method: 'POST',
+    //         header: { 'content-type': 'application/json;charset=utf-8' },
+    //         dataType: 'json',
+    //         success: res1 => {
+    //           console.log("login返回的信息：", res1.data); //测试，打印从后台收到的数据
+    //           wx.setStorageSync("sessionid", res1.data.data);
+    //           if (res1.statusCode == '200') {
+    //             wx.switchTab({// 授权并返回成功后，跳转进入小程序首页
+    //               url: '/pages/homepage/homepage'
+    //             })
+    //           } else { // 无网络
+    //             that.comfirm('提示', '请检查您的网络', false, '确定', '用户点击确定') //
+    //           }
+    //         },
+    //         fail: res1 =>{
+    //           console.log('请求失败！')
+    //         }
+    //       })
+    //     } else {
+    //       console.log('登录失败！' + res.errMsg)
+    //     }
+    //   }
+    // })
   },
 
   bindGetUserInfo: function (e) {
     var that = this;
     if (e.detail.userInfo) {//用户按了允许授权按钮
+      wx.switchTab({// 授权并返回成功后，跳转进入小程序首页
+        url: '/pages/homepage/homepage'
+      })
       getApp().globalData.userProvince = e.detail.userInfo.province
       that.login(); // 登录
       that.queryUsreInfo()

@@ -34,10 +34,17 @@
   display: block;
   font-family: FangSong_GB2312;
   font-size: 18px;
-  color: white;
+  color: rgba(41, 68, 40, 0.418);
 }
 .logo{
-  margin-top: 50px;
+  margin-top: 10px;
   width: 250px;
   height: 250px;
+}
+.tip{
+  display: block;
+  margin-top: -15px;
+  font-family: FangSong_GB2312;
+  font-size: 18px;
+  color: rgba(41, 68, 40, 0.418);
 }

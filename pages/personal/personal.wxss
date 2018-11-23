@@ -83,6 +83,11 @@
 .account,.enterpriseEntry,.feedback{
   border-bottom: 1px solid rgba(0,0,0,0.1);
 }
+.icon{
+  vertical-align: middle;
+  width: 25px;
+  height: 25px;
+}
 .huijiantou{
   position: absolute;
   right: 45px;

@@ -22,30 +22,45 @@
 </view>
 
 <view class="account" bindtap='accountDetails'>
-  <text>账户明细</text>
+  <view>
+    <image src="/images/account.png" class="icon"></image>
+    <text decode="{{true}}">&nbsp;&nbsp;账户明细</text>
+  </view>
   <image src="../../images/huijiantou.png" class="huijiantou"></image>
 </view>
 
 <view class="recharge" bindtap='recharge'>
-  <text>充值</text>
+  <view>
+    <image src="/images/recharge.png" class="icon"></image>
+    <text decode="{{true}}">&nbsp;&nbsp;充值</text>
+  </view>
   <image src="../../images/huijiantou.png" class="huijiantou"></image>
 </view>
 
 <view class="clearance"></view>
 
 <view class="enterpriseEntry" bindtap='enterpriseEntry'>
-  <text>企业入驻</text>
+  <view>
+    <image src="/images/enterpriseEntry.png" class="icon"></image>
+    <text decode="{{true}}">&nbsp;&nbsp;企业入驻</text>
+  </view>
   <image src="../../images/huijiantou.png" class="huijiantou"></image>
 </view>
 
 <view class="info" bindtap='info'>
-  <text>发布信息</text>
+  <view>
+    <image src="/images/releaseInformation.png" class="icon"></image>
+    <text decode="{{true}}">&nbsp;&nbsp;发布信息</text>
+  </view>
   <image src="../../images/huijiantou.png" class="huijiantou"></image>
 </view>
 
 <view class="clearance"></view>
 
 <view class="feedback" bindtap='feedback'>
-  <text>反馈</text>
+  <view>
+    <image src="/images/feedback.png" class="icon"></image>
+    <text decode="{{true}}">&nbsp;&nbsp;反馈</text>
+  </view>
   <image src="../../images/huijiantou.png" class="huijiantou"></image>
 </view>

@@ -7,4 +7,5 @@
   </view>
   <text class="title">「盘光知粒粒辛苦，光盘道百年新风」</text>
   <image src="{{tempFilePaths}}" class="logo" bindtap="chooseImage"></image>
+  <text class="tip">点击拍照</text>
 </view>
