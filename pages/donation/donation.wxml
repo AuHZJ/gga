@@ -8,10 +8,10 @@
 <view class="top">
   <view class="top-left">已捐赠</view>
   <view class="top-number">{{alreadyDonated}}</view>
-  <view class="top-right">查看记录</view>
+  <view class="top-right" bindtap='viewRecord'>查看记录</view>
   <view style="position: relative">
     <icon type="search" size="20" color="white"/>
-    <input type="text" placeholder="{{province}}" placeholder-style="color: white;font-size: 15px;" confirm-type="next"/>
+    <input type="text" placeholder="{{province}}" placeholder-style="color: white;font-size: 15px;" confirm-type="search" bindconfirm="test"/>
   </view>
 </view>
 <!--顶部end-->

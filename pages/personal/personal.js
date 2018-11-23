@@ -6,7 +6,7 @@ Page({
    */
   data: {
     ID: '小飞侠',
-    type: getApp().globalData.userType
+    type: ''
   },
 
   personalData: function () { //个人资料
@@ -35,7 +35,7 @@ Page({
 
   info: function () { //发布信息
     wx.navigateTo({
-      url: '../info/info'
+      url: '/pages/addPovertyInfo/addPovertyInfo'
     })
   },
 
@@ -56,6 +56,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      type: getApp().globalData.userType
+    })
   
   },
 

@@ -5,16 +5,20 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tempFilePaths: '../../images/logo.png'
+    tempFilePaths: '../../images/logo.png',
+    showRedDot: false //右上角的红点显示否
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
 
-  addInfo: function () {
+  showInfo: function () {
+    this.setData({
+      showRedDot: true
+    })
     wx.navigateTo({
-      url: '../addPovertyInfo/addPovertyInfo'
+      url: '/pages/messages/messages'
     })
   },
 
@@ -45,12 +49,29 @@ Page({
         that.setData({
           tempFilePaths: res.tempFilePaths[0],
         })
+        wx.uploadFile({
+          url: 'http:localhost:8080/gga/login',
+          filePath: that.data.tempFilePaths,
+          name: '盘子照片',
+          success: function () {
+            wx.showModal({
+              title: '提示',
+              content: '上传成功！',
+              showCancel: false,
+              confirmText: '确定',
+              success: function (res1) {
+                if (res1.confirm) {
+                  console.log('用户点击了确定')
+                }
+              }
+            })
+          }
+        })
       }
     })
   },
 
   onLoad: function (options) {
-  
   },
 
   /**

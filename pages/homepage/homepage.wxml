@@ -1,8 +1,9 @@
 <!--pages/homepage/homepage.wxml-->
 <image src="../../images/backgroundImage.jpg" class="backgroundImage"></image>
 <view class="body">
-  <view class="info">
+  <view class="info" bindtap="showInfo">
     <image src="../../images/info.png"></image>
+    <view class="redDot" hidden='{{showRedDot}}'></view>
   </view>
   <text class="title">「盘光知粒粒辛苦，光盘道百年新风」</text>
   <image src="{{tempFilePaths}}" class="logo" bindtap="chooseImage"></image>

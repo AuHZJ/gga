@@ -20,10 +20,9 @@ Page({
         if (res.authSetting['scope.userInfo']) {
           wx.getUserInfo({
             success: function (res) { //用户已经授过权
-              getApp().globalData.avatarUrl = res.userInfo.avatarUrl,
               getApp().globalData.userProvince = res.userInfo.province
-              // that.login();
-              // that.queryUsreInfo();
+              that.login();
+              that.queryUsreInfo();
               //用户已经授权过
             }
           });
@@ -39,32 +38,24 @@ Page({
         if (res.code) {
           wx.request({//发起网络请求
             url: 'http://local.zhouxi.me/login',
-            // url: 'http://localhost:8080/gga/login',
+            // url: 'http://localhost:8080/gga/login', 
             data: { code: res.code },
             method: 'POST',
-            header: { 'content-type': 'application/json' },
+            header: { 'content-type': 'application/json;charset=utf-8' },
             dataType: 'json',
             success: res1 => {
               console.log("login返回的信息：", res1.data); //测试，打印从后台收到的数据
               wx.setStorageSync("sessionid", res1.data.data);
-              if (res1.data.code == '200') {
+              if (res1.statusCode == '200') {
                 wx.switchTab({// 授权并返回成功后，跳转进入小程序首页
-                  url: '../homepage/homepage'
+                  url: '/pages/homepage/homepage'
                 })
               } else { // 无网络
-                // that.comfirm('提示', '请检查您的网络', false, '确定', '用户点击确定')
-                wx.showModal({
-                  title: '提示',
-                  content: '请检查您的网络',
-                  showCancel: false,
-                  confirmText: '确定',
-                  success: function (res) {
-                    if (res.confirm) {
-                      console.log('用户点击了确定')
-                    }
-                  }
-                })
+                that.comfirm('提示', '请检查您的网络', false, '确定', '用户点击确定') //
               }
+            },
+            fail: res1 =>{
+              console.log('请求失败！')
             }
           })
         } else {
@@ -75,26 +66,14 @@ Page({
   },
 
   bindGetUserInfo: function (e) {
+    var that = this;
     if (e.detail.userInfo) {//用户按了允许授权按钮
-      var that = this;
-      getApp().globalData.avatarUrl = e.detail.userInfo.avatarUrl,
-      getApp().globalData.userProvince = e.detail.userInfo.province,
+      getApp().globalData.userProvince = e.detail.userInfo.province
       that.login(); // 登录
       that.queryUsreInfo()
     } else {
       //用户按了拒绝按钮
-      // that.comfirm('警告', '您点击了拒绝授权，将无法进入小程序，请授权之后再进入!', false, '返回授权', '用户点击了“返回授权”')
-      wx.showModal({
-        title: '警告',
-        content: '您点击了拒绝授权，将无法进入小程序，请授权之后再进入!',
-        showCancel: false,
-        confirmText: '返回授权',
-        success: function (res) {
-          if (res.confirm) {
-            console.log('用户点击了“返回授权”')
-          }
-        }
-      })
+      that.comfirm('警告', '您点击了拒绝授权，将无法进入小程序，请授权之后再进入!', false, '返回授权', '用户点击了“返回授权”')
     }
   },
 
@@ -102,23 +81,25 @@ Page({
   queryUsreInfo: function () {
     // console.log(wx.getStorageSync("sessionid"))
     // wx.request({
-    //   url: 'http://local.zhouxi.me/test',
+    //   // url: 'http://local.zhouxi.me/test',
+    //   url: 'http://localhost:8080/gga/login',
     //   data: {
     //   },
     //   method: 'GET',
     //   header: {
     //     'cookie': 'JSESSIONID=' + wx.getStorageSync("sessionid"),
-    //     'content-type': 'application/json'
+    //     'content-type': 'application/json;charset=utf-8',
     //   },
     //   dataType: 'json',
     //   success: res => {
     //     //从数据库获取用户信息
     //     console.log("test返回的信息：",res.data); //测试，打印从后台收到的数据
+    //     getApp().globalData.userType = res.data.data
     //   }
     // })
   },
 
-  comfirm: function (title, content, showCancel, confirmText, info) {
+  comfirm: function (title, content, showCancel, confirmText, info) { //封装提示框
     wx.showModal({ // 提示框
       title: title,
       content: content,

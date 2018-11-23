@@ -41,9 +41,9 @@ input{
   box-sizing: border-box;
   background-color: rgb(245,205,205);
   width: 92%;
-  margin: auto;
   height: 25px;
   border-radius: 12.5px;
+  margin: auto;
   color: white;
   padding-left: 40px;
   padding-right: 40px;

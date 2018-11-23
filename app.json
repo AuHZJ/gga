@@ -4,11 +4,11 @@
     "pages/homepage/homepage",
     "pages/addPovertyInfo/addPovertyInfo",
     
-    
+    "pages/messages/messages",
+    "pages/viewRecord/viewRecord",
     "pages/accountDetails/accountDetails",
     "pages/recharge/recharge",
     "pages/enterpriseEntry/enterpriseEntry",
-    "pages/info/info",
     "pages/feedback/feedback",
     "pages/personalData/personalData",
     "pages/setting/setting",
