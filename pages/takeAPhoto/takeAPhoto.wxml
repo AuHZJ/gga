@@ -6,4 +6,4 @@
 
 <image src="{{MealsPaths[0]}}" bindtap="chooseImage" data-a="0"></image>
 <image src="{{MealsPaths[1]}}" bindtap="chooseImage" data-a="1"></image>
-<button bindtap='uploadFile'>提交照片</button>
+<button bindtap='uploadFile' loading='{{loading}}'>{{submit}}</button>

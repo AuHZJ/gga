@@ -16,18 +16,15 @@ Page({
     var that = this;
     //查看是否授权
     wx.getSetting({
-      // success: function (res) {
-      //   if (res.authSetting['scope.userInfo']) {
-      //     wx.getUserInfo({
-      //       success: function (res) { //用户已经授过权
-      //         getApp().globalData.userProvince = res.userInfo.province
-      //         that.login();
-      //         that.queryUsreInfo();
-      //         //用户已经授权过
-      //       }
-      //     });
-      //   }
-      // }
+      success: function (res) {
+        if (res.authSetting['scope.userInfo']) {
+          that.login();
+          that.queryUsreInfo();
+          // wx.switchTab({// 授权后，跳转进入小程序首页
+          //   url: '/pages/homepage/homepage'
+          // })
+        }
+      }
     })
   },
 
@@ -37,9 +34,9 @@ Page({
       success: res => {
         if (res.code) {
           wx.request({//发起网络请求
-            // url: 'http://local.zhouxi.me/login',
+            url: 'http://local.zhouxi.me/login',
             // url: 'http://localhost:8080/gga/login', 
-            url: 'http://www.auhzj.com:8080/gga/login',
+            // url: 'http://www.auhzj.com:8080/gga/login',
             data: { code: res.code },
             method: 'POST',
             header: { 'content-type': 'application/json;charset=utf-8' },

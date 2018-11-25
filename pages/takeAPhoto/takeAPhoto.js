@@ -5,6 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    loading: false,
+    submit: '提交照片',
     MealsPaths: [
       '../../images/logo.png', //餐前照片路径
       '../../images/logo.png' //餐后照片路径
@@ -45,28 +47,44 @@ Page({
   },
 
   uploadFile: function() {
+    var that = this
     this.uploadImage(this.data.MealsPaths[0])
     this.uploadImage(this.data.MealsPaths[1])
   },
 
   uploadImage: function (path) {
     var that = this
+    that.setData({
+      loading: true,
+      submit: '上传中，请稍等'
+    })
     wx.uploadFile({
       url: 'https://www.baidu.com',
       filePath: path,
       name: '盘子照片',
+      header: { 'cookie': 'JSESSIONID=' + wx.getStorageSync("sessionid"), },
       success: function () {
-        wx.showModal({
-          title: '提示',
-          content: '上传成功！',
-          showCancel: false,
-          confirmText: '确定',
-          success: function (res1) {
-            if (res1.confirm) {
-              console.log('用户点击了确定')
-            }
-          }
+        that.setData({
+          loading: false,
+          submit: '提交照片'
         })
+        if (path == that.data.MealsPaths[1]){  //两张图片全部上传完成
+          that.showModal('提示', '上传成功！', false, '确定','用户点击了确定')
+        }
+      }
+    })
+  },
+
+  showModal: function (title, content, showCancel, confirmText, info) { //封装提示框
+    wx.showModal({ // 提示框
+      title: title,
+      content: content,
+      showCancel: showCancel,
+      confirmText: confirmText,
+      success: function (res) {
+        if (res.confirm) {
+          console.log(info)
+        }
       }
     })
   },
