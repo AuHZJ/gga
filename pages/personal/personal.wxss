@@ -88,6 +88,9 @@
   width: 25px;
   height: 25px;
 }
+text{
+  vertical-align: middle;
+}
 .huijiantou{
   position: absolute;
   right: 45px;

@@ -29,7 +29,7 @@
   </view>
   <view class="img">
     <image src="{{item.img}}"></image>
-    <view class="progress" style="width:{{item.width}}"></view> <!--进度条-->
+    <view class="progress" style="width:{{item.width}}" animation="{{item.animation}}"></view> <!--进度条-->
     <text class="img-title">{{item.title}}</text>
     <text class="img-totalAmount">发起总金额：{{item.totalAmount}}元</text>
     <text class="img-surplus">剩余所需：{{item.surplus}}元</text>

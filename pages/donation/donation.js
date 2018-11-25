@@ -9,15 +9,16 @@ Page({
     alreadyDonated: '',  //已捐赠数量
     info: [
       { 
-        headImage: '../../images/headImage.png', 
-        type: '贫困户', 
-        city: '江西省南昌市', 
-        realName: '已实名', 
-        img: '../../images/1.jpg', 
-        title: '“我们需要更好的环境!”', 
-        totalAmount: 10000, 
-        surplus:6150,
-        width: ''
+        headImage: '../../images/headImage.png',  //头像
+        type: '贫困户',  // 用户类型
+        city: '江西省南昌市',  //地区
+        realName: '已实名', //是否实名
+        img: '../../images/1.jpg',  //封面图
+        title: '“我们需要更好的环境!”', //标题
+        totalAmount: 10000, //总共需要资金
+        surplus:6150, //剩余所需
+        width: '100%', //进度条宽度
+        animation: '' //动画
       },
       {
         headImage: '../../images/headImage.png',
@@ -28,7 +29,8 @@ Page({
         title: '“我们需要更好的环境!”',
         totalAmount: 20000,
         surplus: 8850,
-        width: ''
+        width: '100%',
+        animation: '',
       }
     ]
 
@@ -54,9 +56,14 @@ Page({
       alreadyDonated: getApp().globalData.donated,
     })
     for (var item in that.data.info){  // 设置进度条宽度
-      var w = 'info[' + item + '].width'
+      var width = 100 * (that.data.info[item]['surplus']) / that.data.info[item]['totalAmount'] + '%'
+      var animation = 'info[' + item + '].animation'
+      var _animation = wx.createAnimation({ //创建动画
+        duration: 500, //持续时间（毫秒为单位）
+      })
+      _animation.width(width).step();
       that.setData({
-        [w]: 100 * (that.data.info[item]['surplus']) / that.data.info[item]['totalAmount'] + '%'
+        [animation]: _animation.export()
       })
     }
   },

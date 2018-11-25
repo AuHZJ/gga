@@ -1,8 +1,11 @@
 {
   "pages": [
-    "pages/homepage/homepage",
-    "pages/personal/personal",
     "pages/login/login",
+    "pages/homepage/homepage",
+    "pages/takeAPhoto/takeAPhoto",
+    
+    "pages/personal/personal",
+    
     "pages/addPovertyInfo/addPovertyInfo",
     "pages/messages/messages",
     "pages/viewRecord/viewRecord",

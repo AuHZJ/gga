@@ -6,14 +6,17 @@
 
 <view class="privacy">
   <text>隐私</text>
+  <image src="../../images/huijiantou.png" class="huijiantou"></image>
 </view>
 
 <view class="currency">
   <text>通用</text>
+  <image src="../../images/huijiantou.png" class="huijiantou"></image>
 </view>
 
 <view class="about">
   <text>关于光光爱</text>
+  <image src="../../images/huijiantou.png" class="huijiantou"></image>
 </view>
 
 <button>退出当前账户</button>
