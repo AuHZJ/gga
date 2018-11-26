@@ -4,6 +4,21 @@
 <image src="../../images/backgroundImage.jpg" class="backgroundImage"></image>
 <!--背景end-->
 
-<image src="{{MealsPaths[0]}}" bindtap="chooseImage" data-a="0"></image>
-<image src="{{MealsPaths[1]}}" bindtap="chooseImage" data-a="1"></image>
-<button bindtap='uploadFile' loading='{{loading}}'>{{submit}}</button>
+<view class="body">
+
+  <view class="tip" bindtap='openTip' style="z-index:{{zIndex}}">
+    <image src="/images/questionMark.png"></image>
+    <text decode='true'>&nbsp;查看拍照攻略</text>
+  </view>
+
+  <image class="before" src="{{MealsPaths[0]}}" bindtap="chooseImage" data-a="0"></image>
+  <image class="after" src="{{MealsPaths[1]}}" bindtap="chooseImage" data-a="1"></image>
+
+  <button bindtap='uploadFile' loading='{{loading}}' class="submit">{{submit}}</button>
+
+</view>
+
+<view class="tipPanel" style="display:{{display}}">
+  <image src="/images/close.png" class="close" bindtap='closeTip'></image>
+  <image src="/images/tip.png" class="tipImage"></image>
+</view>

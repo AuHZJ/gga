@@ -1,8 +1,10 @@
 {
   "pages": [
     "pages/login/login",
-    "pages/personal/personal",
     "pages/homepage/homepage",
+    
+    "pages/personal/personal",
+    
     "pages/takeAPhoto/takeAPhoto",
     "pages/addPovertyInfo/addPovertyInfo",
     "pages/messages/messages",

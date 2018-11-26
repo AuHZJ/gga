@@ -5,12 +5,27 @@ Page({
    * 页面的初始数据
    */
   data: {
+    display: 'block',
     loading: false,
-    submit: '提交照片',
+    submit: '开始识别',
     MealsPaths: [
-      '../../images/logo.png', //餐前照片路径
-      '../../images/logo.png' //餐后照片路径
+      '../../images/before.png', //餐前照片路径
+      '../../images/after.png' //餐后照片路径
     ],
+  },
+
+  closeTip: function () { //点击关闭
+    console.log('用户点击关闭拍照攻略')
+    this.setData({
+      display: 'none'
+    })
+  },
+
+  openTip: function () { // 点击查看拍照攻略
+    console.log('用户点击查看拍照攻略')
+    this.setData({
+      display: 'block'
+    })
   },
 
   chooseImage: function (event) {
@@ -48,28 +63,48 @@ Page({
 
   uploadFile: function() {
     var that = this
-    this.uploadImage(this.data.MealsPaths[0])
-    this.uploadImage(this.data.MealsPaths[1])
+    if (that.data.MealsPaths[0] == '../../images/before.png'){
+      that.showModal('提示', '请上传餐前照片！', false, '确定', '用户点击了确定')
+      return
+    }
+    if (that.data.MealsPaths[1] == '../../images/after.png') {
+      that.showModal('提示', '请上传餐后照片！', false, '确定', '用户点击了确定')
+      return
+    }
+    that.uploadImage(that.data.MealsPaths[0],'before')
+    that.uploadImage(that.data.MealsPaths[1],'after')
   },
 
-  uploadImage: function (path) {
+  uploadImage: function (path,time) {
     var that = this
     that.setData({
       loading: true,
-      submit: '上传中，请稍等'
+      submit: '上传中'
     })
     wx.uploadFile({
-      url: 'https://www.baidu.com',
+      url: 'http://local.zhouxi.me/compare',
       filePath: path,
-      name: '盘子照片',
+      name: time,
       header: { 'cookie': 'JSESSIONID=' + wx.getStorageSync("sessionid"), },
-      success: function () {
-        that.setData({
-          loading: false,
-          submit: '提交照片'
-        })
+      success: function (res) {
         if (path == that.data.MealsPaths[1]){  //两张图片全部上传完成
-          that.showModal('提示', '上传成功！', false, '确定','用户点击了确定')
+          if(res.data.code == 200){
+            that.showModal('提示', '上传成功！', false, '确定','用户点击了确定')
+          }else{
+            that.showModal('提示', '服务器错误！', false, '确定', '用户点击了确定')
+          }
+        }
+        console.log(res.data)
+      },
+      fail: function () {
+        that.showModal('提示', '上传失败，请检查网络是否连通！', false, '确定', '用户点击了确定')
+      },
+      complete: function () {
+        if (path == that.data.MealsPaths[1]) {
+          that.setData({
+            loading: false,
+            submit: '开始识别'
+          })
         }
       }
     })

@@ -34,7 +34,7 @@
   display: block;
   font-family: FangSong_GB2312;
   font-size: 18px;
-  color: rgba(41, 68, 40, 0.418);
+  color: #d29c9c;
 }
 .logo{
   margin-top: 10px;

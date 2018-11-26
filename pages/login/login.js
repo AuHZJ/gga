@@ -20,9 +20,9 @@ Page({
         if (res.authSetting['scope.userInfo']) {
           that.login();
           that.queryUsreInfo();
-          // wx.switchTab({// 授权后，跳转进入小程序首页
-          //   url: '/pages/homepage/homepage'
-          // })
+          wx.switchTab({// 授权后，跳转进入小程序首页
+            url: '/pages/homepage/homepage'
+          })
         }
       }
     })

@@ -5,3 +5,74 @@
   z-index: -1;
   position: fixed;
 }
+.body{
+  position: absolute;
+  z-index: 0;
+  box-sizing: border-box;
+  padding-top: 15px;
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+}
+.tip{
+  position: relative;
+  width:130px;
+  height: 30px;
+  line-height: 30px;
+  margin-left: auto;
+  margin-right: 15px;
+}
+.tip image{
+  width: 23px;
+  height: 23px;
+  vertical-align: middle;
+}
+.tip text{
+  vertical-align: middle;
+  color: #e57b51;
+  font-size: 15px;
+}
+.before,.after{
+  margin-bottom: 8%;
+  height: 33%;
+  width: 80%;
+  border-radius: 20px;
+}
+.submit{
+  background: #ff6b69;
+  color: white;
+  width:120px;
+  box-shadow: 4px 4px 5px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  border: none;
+  outline: none;
+}
+.tipPanel{
+  box-sizing: border-box;
+  transition: 0.5s;
+  position: relative;
+  z-index: 2;
+  background: rgba(0,0,0,0.7);
+  width: 100vw;
+  height: 100vh;
+}
+.tipPanel .close{
+  position: absolute;
+  z-index: 4;
+  width: 8vw;
+  height: 8vw;
+  top: 50%;
+  right: 50%;
+  margin-top: -58vw;
+  margin-right: -40vw;
+}
+.tipPanel .tipImage{
+  position: absolute;
+  width: 84vw;
+  height: 120vw;
+  z-index: 3;
+  top:50%;
+  left: 50%;
+  margin-top: -60vw;
+  margin-left: -42vw;
+}

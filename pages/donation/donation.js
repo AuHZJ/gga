@@ -59,7 +59,7 @@ Page({
       var width = 100 * (that.data.info[item]['surplus']) / that.data.info[item]['totalAmount'] + '%'
       var animation = 'info[' + item + '].animation'
       var _animation = wx.createAnimation({ //创建动画
-        duration: 500, //持续时间（毫秒为单位）
+        duration: 700, //持续时间（毫秒为单位）
       })
       _animation.width(width).step();
       that.setData({
