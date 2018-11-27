@@ -55,7 +55,7 @@ Page({
               }
             },
             fail: res1 =>{
-              console.log('请求失败！')
+              console.log('发起登录请求失败！')
             }
           })
         } else {
