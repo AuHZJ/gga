@@ -46,6 +46,7 @@ Page({
               console.log("login返回的信息：", res1.data); //测试，打印从后台收到的数据
               wx.setStorageSync("sessionid", res1.data.data);
               if (res1.statusCode == '200') {
+                console.log('登录成功！');
                 wx.switchTab({// 授权并返回成功后，跳转进入小程序首页
                   url: '/pages/homepage/homepage'
                 })
@@ -73,7 +74,6 @@ Page({
       // })
       getApp().globalData.userProvince = e.detail.userInfo.province
       that.login(); // 登录
-      that.queryUsreInfo()
     } else {
       //用户按了拒绝按钮
       that.comfirm('警告', '您点击了拒绝授权，将无法进入小程序，请授权之后再进入!', false, '返回授权', '用户点击了“返回授权”')

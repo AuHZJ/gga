@@ -139,11 +139,13 @@ Page({
           if (status == 200){
             console.log(datas.data)
             that.showModal('提示', '上传成功！', false, '确定','用户点击了确定')
-            that.setData({
-              loveNumber: datas.data.aCoin,
-              rewardNumber: datas.data.gCoin,
-              redEnvelopesHidden: false
-            })
+            if (datas.message == '比较成功'){
+              that.setData({
+                loveNumber: datas.data.aCoin,
+                rewardNumber: datas.data.gCoin,
+                redEnvelopesHidden: false
+              })
+            }
           }else{
             that.showModal('提示', '服务器错误！', false, '确定', '用户点击了确定')
           }

@@ -22,8 +22,9 @@
   <view>
     <view class="panel-headImage"><image src="{{item.headImage}}" class="headImage"></image></view>
     <view class="panel-info">
-      <text class="panel-info-type">{{item.type}}</text>
-      <text class="panel-info-address">{{item.city}}</text>
+      <text class="panel-info-type" decode='true'>&nbsp;{{item.type}}</text>
+      <image src="/images/position.png" style="width:15px;height:15px;float:left"></image>
+      <text class="panel-info-address" decode='true'>&nbsp;{{item.city}}</text>
     </view>
     <view class="realName">{{item.realName}}</view>
   </view>

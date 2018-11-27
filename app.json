@@ -1,23 +1,20 @@
 {
   "pages": [
     "pages/login/login",
+    "pages/donation/donation",
     "pages/homepage/homepage",
     "pages/accountDetails/accountList/accountList",
     "pages/accountDetails/accountDetails",
     "pages/personal/personal",
     "pages/takeAPhoto/takeAPhoto",
-    
-    
     "pages/addPovertyInfo/addPovertyInfo",
     "pages/messages/messages",
     "pages/viewRecord/viewRecord",
-    
     "pages/recharge/recharge",
     "pages/enterpriseEntry/enterpriseEntry",
     "pages/feedback/feedback",
     "pages/personalData/personalData",
     "pages/setting/setting",
-    "pages/donation/donation",
     "pages/logs/logs"
   ],
   "window": {

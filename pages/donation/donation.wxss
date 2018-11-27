@@ -76,6 +76,7 @@ input{
 .panel-info{
   vertical-align: middle;
   display: inline-block;
+  width: 200px;
 }
 text{
   font-size: 10px;
