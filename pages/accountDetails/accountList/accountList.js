@@ -1,34 +1,42 @@
-// pages/accountDetails/accountDetails.js
+// pages/accountDetails/accountList/accountList.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    aCoin: '0',
-    gCoin: '0',
+    list: [
+      {
+        id: '1',
+        content: '拍照识别成功，添加g_coin=0.15,a_coin=1.0',
+        operateTime: '2018-11-27 01:18:54.0'
+      },
+      {
+        id: '1',
+        content: '拍照识别成功，添加g_coin=0.55,a_coin=1.0',
+        operateTime: '2018-11-27 01:18:54.0'
+      }
+    ]
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-
-  accountList: function () {
-    wx.navigateTo({
-      url: 'accountList/accountList'
-    })
-  },
-
   onLoad: function (options) {
     var that = this
     wx.request({
-      url: 'http://192.168.1.100/account/detail',
-      header: { 'cookie': 'JSESSIONID=' + wx.getStorageSync("sessionid") },
+      url: 'http://192.168.1.100/account-log/list?pageNum=1&pageSize=10',
       method: 'GET',
+      header: { 
+        'content-type': 'application/json;charset=utf-8',
+        'cookie': 'JSESSIONID=' + wx.getStorageSync("sessionid")
+      },
+      dataType: 'json',
       success: function (res) {
+        console.log(res.data)
         that.setData({
-          aCoin: res.data.data.aCoin,
-          gCoin: res.data.data.gCoin
+          list: res.data.data.list
         })
       }
     })

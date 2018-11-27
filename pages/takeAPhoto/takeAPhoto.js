@@ -5,6 +5,16 @@ Page({
    * 页面的初始数据
    */
   data: {
+    redEnvelopesHidden: true, //红包界面是否隐藏
+    loveBgHidden: false, 
+    rewardBgHidden: false,
+    loveNumberHidden: true,
+    rewardNumberHidden: true,
+    loveBg: '/images/love.png',
+    rewardBg: '/images/reward.png',
+    loveNumber: 0.21,
+    rewardNumber: 0.36,
+    buttonHidden: true, //确定按钮是否隐藏
     display: 'block',
     loading: false,
     submit: '开始识别',
@@ -25,6 +35,38 @@ Page({
     console.log('用户点击查看拍照攻略')
     this.setData({
       display: 'block'
+    })
+  },
+
+  openLove: function () {
+    var that = this
+    that.setData({
+      loveBg: '/images/loveSuccess.png',
+      loveBgHidden: true,
+      loveNumberHidden: false,
+      buttonHidden: false
+    })
+  },
+
+  openReward: function () {
+    var that = this
+    that.setData({
+      rewardBg: '/images/rewardSuccess.png',
+      rewardBgHidden: true,
+      rewardNumberHidden: false,
+      buttonHidden: false
+    })
+  },
+
+  comfirmButton: function () {
+    this.setData({
+      redEnvelopesHidden: true,
+      loveBgHidden: false,
+      rewardBgHidden: false,
+      loveNumberHidden: true,
+      rewardNumberHidden: true,
+      loveBg: '/images/love.png',
+      rewardBg: '/images/reward.png',
     })
   },
 
@@ -82,14 +124,26 @@ Page({
       submit: '上传中'
     })
     wx.uploadFile({
-      url: 'http://local.zhouxi.me/compare',
+      url: 'http://192.168.1.100/compare',
       filePath: path,
-      name: time,
-      header: { 'cookie': 'JSESSIONID=' + wx.getStorageSync("sessionid"), },
+      name: 'file', 
+      header: { 
+        'cookie': 'JSESSIONID=' + wx.getStorageSync("sessionid"),
+       },
+      dataType: 'json',
       success: function (res) {
+        let datas = JSON.parse(res.data)
+        let status = datas.code
+        console.log('正在上传：' + time)
         if (path == that.data.MealsPaths[1]){  //两张图片全部上传完成
-          if(res.data.code == 200){
+          if (status == 200){
+            console.log(datas.data)
             that.showModal('提示', '上传成功！', false, '确定','用户点击了确定')
+            that.setData({
+              loveNumber: datas.data.aCoin,
+              rewardNumber: datas.data.gCoin,
+              redEnvelopesHidden: false
+            })
           }else{
             that.showModal('提示', '服务器错误！', false, '确定', '用户点击了确定')
           }

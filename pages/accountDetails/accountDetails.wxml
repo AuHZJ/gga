@@ -1,2 +1,19 @@
 <!--pages/accountDetails/accountDetails.wxml-->
-<text>pages/accountDetails/accountDetails.wxml</text>
+
+<!--背景begin-->
+<image src="../../images/backgroundImage.jpg" class="backgroundImage"></image>
+<!--背景end-->
+
+<view class="body">
+  <view class="transactionRecord" bindtap='accountList'>交易记录</view>
+  <view>
+    <view class="ab">
+      <view style="font-size: 15px;color:rgba(0, 0, 0, 0.6);">爱币（个）</view>
+      <view style="font-size: 35px">{{aCoin}}</view>
+    </view>
+    <view class="gb">
+      <view style="font-size: 15px;color:rgba(0, 0, 0, 0.6);">光币（个）</view>
+      <view style="font-size: 35px">{{gCoin}}</view>
+    </view>
+  </view>
+</view>

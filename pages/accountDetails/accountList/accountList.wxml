@@ -1,0 +1,12 @@
+<!--pages/accountDetails/accountList/accountList.wxml-->
+
+<!--背景begin-->
+<image src="/images/backgroundImage.jpg" class="backgroundImage"></image>
+<!--背景end-->
+
+<view class="body">
+  <view class="item" wx:for="{{list}}" wx:key="{{item.id}}">
+    <view class="content">{{item.content}}</view>
+    <view class="operateTime">{{item.operateTime}}</view>
+  </view>
+</view>

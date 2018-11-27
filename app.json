@@ -2,14 +2,16 @@
   "pages": [
     "pages/login/login",
     "pages/homepage/homepage",
-    
+    "pages/accountDetails/accountList/accountList",
+    "pages/accountDetails/accountDetails",
     "pages/personal/personal",
-    
     "pages/takeAPhoto/takeAPhoto",
+    
+    
     "pages/addPovertyInfo/addPovertyInfo",
     "pages/messages/messages",
     "pages/viewRecord/viewRecord",
-    "pages/accountDetails/accountDetails",
+    
     "pages/recharge/recharge",
     "pages/enterpriseEntry/enterpriseEntry",
     "pages/feedback/feedback",

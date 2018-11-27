@@ -18,11 +18,11 @@ Page({
     wx.getSetting({
       success: function (res) {
         if (res.authSetting['scope.userInfo']) {
+          console.log('已经授过权，直接登录')
           that.login();
-          that.queryUsreInfo();
-          wx.switchTab({// 授权后，跳转进入小程序首页
-            url: '/pages/homepage/homepage'
-          })
+          // wx.switchTab({// 授权后，跳转进入小程序首页
+          //   url: '/pages/homepage/homepage'
+          // })
         }
       }
     })
@@ -30,13 +30,14 @@ Page({
 
   login: function () {
     var that = this;
+    console.log('正在准备登录。。')
     wx.login({
       success: res => {
+        console.log('正在发起登录。。')
         if (res.code) {
           wx.request({//发起网络请求
-            url: 'http://local.zhouxi.me/login',
-            // url: 'http://localhost:8080/gga/login', 
-            // url: 'http://www.auhzj.com:8080/gga/login',
+            // url: 'http://local.zhouxi.me/login',
+            url: 'http://192.168.1.100/login',
             data: { code: res.code },
             method: 'POST',
             header: { 'content-type': 'application/json;charset=utf-8' },
@@ -64,6 +65,7 @@ Page({
   },
 
   bindGetUserInfo: function (e) {
+    console.log('用户点击授权登录')
     var that = this;
     if (e.detail.userInfo) {//用户按了允许授权按钮
       // wx.switchTab({// 授权并返回成功后，跳转进入小程序首页
@@ -76,28 +78,6 @@ Page({
       //用户按了拒绝按钮
       that.comfirm('警告', '您点击了拒绝授权，将无法进入小程序，请授权之后再进入!', false, '返回授权', '用户点击了“返回授权”')
     }
-  },
-
-  //获取用户信息接口
-  queryUsreInfo: function () {
-    // console.log(wx.getStorageSync("sessionid"))
-    // wx.request({
-    //   // url: 'http://local.zhouxi.me/test',
-    //   url: 'http://localhost:8080/gga/login',
-    //   data: {
-    //   },
-    //   method: 'GET',
-    //   header: {
-    //     'cookie': 'JSESSIONID=' + wx.getStorageSync("sessionid"),
-    //     'content-type': 'application/json;charset=utf-8',
-    //   },
-    //   dataType: 'json',
-    //   success: res => {
-    //     //从数据库获取用户信息
-    //     console.log("test返回的信息：",res.data); //测试，打印从后台收到的数据
-    //     getApp().globalData.userType = res.data.data
-    //   }
-    // })
   },
 
   comfirm: function (title, content, showCancel, confirmText, info) { //封装提示框

@@ -1,1 +1,34 @@
 /* pages/accountDetails/accountDetails.wxss */
+.backgroundImage{
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  position: fixed;
+}
+.body{
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  /* padding-left: 6vw;
+  padding-top: 6vw;
+  padding-right: 6vw; */
+  padding: 4vw 6vw 6vw 6vw;
+}
+.transactionRecord{
+  box-sizing: border-box;
+  color: rgba(0, 0, 0, 0.6);
+  width: 88vw;
+  text-align: right;
+  margin-bottom: 30px;
+}
+.ab{
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+.ab,.gb{
+  box-sizing: border-box;
+  width: 44vw;
+  height: 17vh;
+  line-height: 8.5vh;
+  text-align: center;
+  display: inline-block;
+}

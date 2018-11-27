@@ -18,7 +18,26 @@
 
 </view>
 
+<!-- 拍照攻略begin -->
 <view class="tipPanel" style="display:{{display}}">
   <image src="/images/close.png" class="close" bindtap='closeTip'></image>
   <image src="/images/tip.png" class="tipImage"></image>
 </view>
+<!-- 拍照攻略end -->
+
+<!-- 红包界面begin --> 
+<view class="redEnvelopes" hidden='{{redEnvelopesHidden}}'>
+  <view class="redEnvelopes-tilte">系统识别成功，恭喜你获得两个红包</view>
+  <view class="love">
+    <image src="{{loveBg}}" class="bg"></image>
+    <image src="/images/open.png" class="openButton" hidden='{{loveBgHidden}}' bindtap='openLove'></image>
+    <view class="number" hidden="{{loveNumberHidden}}"><text style="font-size: 8vw">{{loveNumber}}</text>爱币</view>
+  </view>
+  <view class="reward">
+    <image src="{{rewardBg}}" class="bg"></image>
+    <image src="/images/open.png" class="openButton" hidden='{{rewardBgHidden}}' bindtap='openReward'></image>
+    <view class="number" hidden="{{rewardNumberHidden}}"><text style="font-size: 8vw">{{rewardNumber}}</text>光币</view>
+  </view>
+  <button hidden="{{buttonHidden}}" bindtap='comfirmButton' class="comfirmButton">确定</button>
+</view>
+<!-- 红包界面end -->

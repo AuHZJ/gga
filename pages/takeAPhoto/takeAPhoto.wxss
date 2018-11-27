@@ -76,3 +76,78 @@
   margin-top: -60vw;
   margin-left: -42vw;
 }
+.redEnvelopes{
+  box-sizing: border-box;
+  position: relative;
+  z-index: 2;
+  background: rgba(0,0,0,0.8);
+  width: 100vw;
+  height: 100vh;
+}
+.redEnvelopes-tilte{
+  color: #f3dbb7;
+  font-size: 4.6vw;
+  position: absolute;
+  width: 74vw;
+  height: 10vw;
+  line-height: 10vw;
+  margin-left: -37vw;
+  left: 50%;
+  top: 5vw;
+}
+.love{
+  position: absolute;
+  width: 80vw;
+  height: 52vw;
+  left: 50%;
+  margin-left: -40vw;
+  top: 20vw;
+}
+.reward{
+  position: absolute;
+  width: 80vw;
+  height: 52vw;
+  left: 50%;
+  margin-left: -40vw;
+  top: 82vw;
+}
+.love .bg{
+  width: 80vw;
+  height: 52vw;
+}
+.openButton{
+  position: absolute;
+  width: 20vw;
+  height: 20vw;
+  left: 50%;
+  top: 50%;
+  margin-left: -10vw;
+  margin-top: -6vw;
+}
+.reward .bg{
+  width: 80vw;
+  height: 52vw;
+}
+.number{
+  text-align: center;
+  color: #ffdb2e;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 27vw;
+  height: 11vw;
+  margin-left: -13.5vw;
+  margin-top: 4vw;
+  font-weight: 600;
+  font-size: 4vw;
+}
+.comfirmButton{
+  width: 27vw;
+  height: 10vw;
+  color: white;
+  position: absolute;
+  background: rgb(209, 38, 38);
+  left: 50%;
+  margin-left: -13.5vw;
+  top: 140vw;
+}
