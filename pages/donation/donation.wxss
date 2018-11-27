@@ -36,7 +36,7 @@
   position: absolute;
   right: 4%;
   bottom: 43%;
-  font-size: 17px;
+  font-size: 20px;
   color: white;
 }
 icon{

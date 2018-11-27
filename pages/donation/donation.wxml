@@ -8,7 +8,7 @@
 <view class="top">
   <view class="top-left">已捐赠</view>
   <view class="top-number">{{alreadyDonated}}</view>
-  <view class="top-right" bindtap='viewRecord'>查看记录</view>
+  <view class="top-right" bindtap='viewRecord'><text decode='true' style="font-size: 16px">&nbsp;查看记录&nbsp;</text></view>
   <!-- <image src="/images/border.png" style="width:130px;height:80px;position:absolute;right: 0%;bottom: 21%;"></image> -->
   <view style="position: absolute;bottom: 10%;left: 0%;width:100%;">
     <icon type="search" size="20" color="white"/>

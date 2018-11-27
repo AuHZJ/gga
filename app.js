@@ -14,7 +14,7 @@ App({
     userCity: "", //城市
     userProvince: "", //省份
     userCountry: "" ,//国家
-    userType: "贫困户", //用户类型（志愿者，贫困户等）
+    userType: "志愿者", //用户类型（志愿者，贫困户等）
     donated: "520.13", //已捐赠
     // userInfo: null,
     // wx_url_1: 'https://api.weixin.qq.com/sns/jscode2session?appid=wx31130462872316f3&secret=675a814cceaa2ea111f2ee4528c54149&js_code=',

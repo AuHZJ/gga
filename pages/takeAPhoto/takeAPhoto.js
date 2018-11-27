@@ -114,7 +114,7 @@ Page({
       return
     }
     that.uploadImage(that.data.MealsPaths[0],'before')
-    that.uploadImage(that.data.MealsPaths[1],'after')
+    // that.uploadImage(that.data.MealsPaths[1],'after')
   },
 
   uploadImage: function (path,time) {
@@ -132,9 +132,15 @@ Page({
        },
       dataType: 'json',
       success: function (res) {
+        console.log(res.data)
         let datas = JSON.parse(res.data)
         let status = datas.code
         console.log('正在上传：' + time)
+        if (path == that.data.MealsPaths[0]){
+          if (status == 200){
+            that.uploadImage(that.data.MealsPaths[1], 'after')
+          }
+        }
         if (path == that.data.MealsPaths[1]){  //两张图片全部上传完成
           if (status == 200){
             console.log(datas.data)
