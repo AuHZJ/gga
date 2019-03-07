@@ -1,11 +1,13 @@
 {
   "pages": [
-    "pages/login/login",
-    "pages/donation/donation",
-    "pages/homepage/homepage",
-    "pages/accountDetails/accountList/accountList",
     "pages/accountDetails/accountDetails",
     "pages/personal/personal",
+    "pages/donation/donation",
+    "pages/homepage/homepage",
+    "pages/login/login",
+    "pages/accountDetails/accountList/accountList",
+    
+    
     "pages/takeAPhoto/takeAPhoto",
     "pages/addPovertyInfo/addPovertyInfo",
     "pages/messages/messages",
@@ -31,19 +33,19 @@
     "borderStyle": "#000000",
     "list": [
       {
-        "text": "主页",
+        "text": "",
         "pagePath": "pages/homepage/homepage",
         "iconPath": "images/主页按钮.png",
         "selectedIconPath": "images/主页按钮（红）.png"
       },
       {
-        "text": "捐赠",
+        "text": "",
         "pagePath": "pages/donation/donation",
         "iconPath": "images/捐赠按钮.png",
         "selectedIconPath": "images/捐赠按钮（红）.png"
       },
       {
-        "text": "个人",
+        "text": "",
         "pagePath": "pages/personal/personal",
         "iconPath": "images/个人按钮.png",
         "selectedIconPath": "images/个人按钮（红）.png"

@@ -1,10 +1,11 @@
 <!--pages/personal/personal.wxml-->
 
 <!--背景begin-->
-<image src="../../images/backgroundImage.jpg" class="backgroundImage"></image>
+<image src="../../images/whiteBG.png" class="backgroundImage"></image>
 <!--背景end-->
 
 <view class="top">
+  <image src="../../images/donationBG.png" class="top-bg"></image>
   <view class="top-left" bindtap='personalData'>
     <!-- <image src="{{headImage}}"></image> -->
     <open-data type="userAvatarUrl" class="top-left-headImage"></open-data>

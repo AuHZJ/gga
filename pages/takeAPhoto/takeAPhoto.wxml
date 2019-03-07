@@ -1,7 +1,7 @@
 <!--pages/takeAPhoto/takeAPhoto.wxml-->
 
 <!--背景begin-->
-<image src="../../images/backgroundImage.jpg" class="backgroundImage"></image>
+<image src="../../images/takePhotoBG.png" class="backgroundImage"></image>
 <!--背景end-->
 
 <view class="body">

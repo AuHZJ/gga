@@ -1,11 +1,10 @@
 <!--pages/donation/donation.wxml-->
 
-<!--背景begin-->
-<image src="../../images/backgroundImage.jpg" class="backgroundImage"></image>
-<!--背景end-->
-
 <!--顶部begin-->
 <view class="top">
+  <!--背景begin-->
+  <image src="../../images/donationBG.png" class="donationBG"></image>
+  <!--背景end-->
   <view class="top-left">已捐赠</view>
   <view class="top-number">{{alreadyDonated}}</view>
   <view class="top-right" bindtap='viewRecord'><text decode='true' style="font-size: 16px">&nbsp;查看记录&nbsp;</text></view>
@@ -26,7 +25,8 @@
       <image src="/images/position.png" style="width:15px;height:15px;float:left"></image>
       <text class="panel-info-address" decode='true'>&nbsp;{{item.city}}</text>
     </view>
-    <view class="realName">{{item.realName}}</view>
+    <!-- <view class="realName">{{item.realName}}</view> -->
+    <image src="../../images/realName.png" class="realName"></image>
   </view>
   <view class="img">
     <image src="{{item.img}}"></image>

@@ -9,7 +9,7 @@ Page({
     alreadyDonated: '',  //已捐赠数量
     info: [
       { 
-        headImage: '../../images/headImage.png',  //头像
+        headImage: '../../images/questionMark.png',  //头像
         type: '贫困户',  // 用户类型
         city: '江西省南昌市',  //地区
         realName: '已实名', //是否实名
@@ -21,7 +21,7 @@ Page({
         animation: '' //动画
       },
       {
-        headImage: '../../images/headImage.png',
+        headImage: '../../images/questionMark.png',
         type: '贫困户',
         city: '江西省吉安市',
         realName: '已实名',
@@ -33,7 +33,7 @@ Page({
         animation: '',
       },
       {
-        headImage: '../../images/headImage.png',
+        headImage: '../../images/questionMark.png',
         type: '贫困户',
         city: '江西省吉安市',
         realName: '已实名',
@@ -45,7 +45,7 @@ Page({
         animation: '',
       },
       {
-        headImage: '../../images/headImage.png',
+        headImage: '../../images/questionMark.png',
         type: '贫困户',
         city: '江西省吉安市',
         realName: '已实名',

@@ -6,12 +6,16 @@
 }
 .top{
   box-sizing: border-box;
-  background-color: rgba(235,58,58,0.5);
+  /* background-color: rgba(235,58,58,0.5); */
   width: 100%;
   height: 120px;
   text-align: center;
   position: relative;
-  padding-top: 20px;
+  
+}
+.top .donationBG{
+  width: 100%;
+  height: 120px;
 }
 .top-left{
   font-size: 17px;
@@ -61,13 +65,16 @@ input{
   margin: auto;
   width: 92%;
   height: 165px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   background: rgba(255,255,255,0.4);
+  border-radius: 12px;
+  box-shadow: -1px 1px 10px rgba(0,0,0,0.4);
 }
 .panel-headImage{
   vertical-align: middle;
   display: inline-block;
   margin-left: 10px;
+  margin-top: 4px;
 }
 .panel-headImage image{
   width: 32px;
@@ -88,7 +95,7 @@ text{
 .panel-info-address{
   color: rgba(0,0,0,0.5);
 }
-.realName{
+/* .realName{
   display: inline-block;
   position: absolute;
   right: 10px;
@@ -101,6 +108,13 @@ text{
   border-radius: 10px;
   font-size: 10px;
   color: white;
+} */
+.realName{
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  right: -5px;
+  top: -6px;
 }
 .img{
   position: relative;
