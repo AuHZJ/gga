@@ -1,0 +1,25 @@
+<!--pages/coinExchange/coinExchange.wxml-->
+
+<view class="body">
+
+  <!--背景begin-->
+  <image src="/images/takePhotoBG.png" class="backgroundImage"></image>
+  <!--背景end-->
+
+  <view class="Panel">
+    <image src="/images/duihuan-border.png" class="BG"></image>
+    <input type='text' class="input1"></input>
+    <image src="/images/select.png" class="select1"></image>
+    <image src="/images/no-select.png" class="select2"></image>
+    <view class="duihuan1">
+      <text style="font-size: 3.3vw;color:rgba(0,0,0,0.5)">兑换为人民币</text>
+    </view>
+    <view class="duihuan2">
+      <text style="font-size: 3.3vw;color:rgba(0,0,0,0.5)">兑换为爱币</text>
+    </view>
+    <view class="banList">
+      <text style="font-size: 3vw;color:blue">建设银行（1361）</text>
+    </view>
+  </view>
+  <image src="/images/duihuan-now.png" class="button"></image>
+</view>

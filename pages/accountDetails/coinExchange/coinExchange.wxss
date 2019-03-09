@@ -1,0 +1,62 @@
+/* pages/coinExchange/coinExchange.wxss */
+.body{
+  position: absolute;
+}
+.backgroundImage{
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  position: fixed;
+}
+.Panel{
+  margin-top: 3vh;
+  position: relative;
+  width: 100vw;
+  height: 88vw;
+ 
+}
+.BG{
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+}
+.input1{
+  position: absolute;
+  top:26vw;
+  left: 20vw;
+  height: 11vw;
+}
+.select1,.select2{
+  width: 5vw;
+  height: 5vw;
+  position: absolute;
+}
+.select1{
+  top: 48vw;
+  left: 9vw;
+}
+.select2{
+  top: 58vw;
+  left: 9vw;
+}
+.duihuan1,.duihuan2{
+  position: absolute;
+  left: 17vw;
+}
+.duihuan1{
+  top: 46.1vw;
+}
+.duihuan2{
+  top: 56.4vw;
+}
+.button{
+  margin-left: 10vw;
+  width: 80vw;
+  height: 23vw;
+}
+.banList{
+  position: absolute;
+  top: 71vw;
+  left: 27vw;
+}

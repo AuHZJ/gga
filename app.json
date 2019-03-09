@@ -1,13 +1,12 @@
 {
   "pages": [
-    "pages/accountDetails/accountDetails",
+    "pages/homepage/homepage",
+    "pages/accountDetails/coinExchange/coinExchange",
     "pages/personal/personal",
     "pages/donation/donation",
-    "pages/homepage/homepage",
     "pages/login/login",
     "pages/accountDetails/accountList/accountList",
-    
-    
+    "pages/accountDetails/accountDetails",
     "pages/takeAPhoto/takeAPhoto",
     "pages/addPovertyInfo/addPovertyInfo",
     "pages/messages/messages",
@@ -21,10 +20,10 @@
   ],
   "window": {
     "navigationBarBackgroundColor": "#ff6b69",
-    "navigationBarTitleText": "光光爱", 
-    "navigationBarTextStyle": "white", 
+    "navigationBarTitleText": "光光爱",
+    "navigationBarTextStyle": "white",
     "enablePullDownRefresh": true,
-    "backgroundTextStyle": "dark" 
+    "backgroundTextStyle": "dark"
   },
   "tabBar": {
     "color": "#000000",

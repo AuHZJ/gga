@@ -5,17 +5,25 @@
 <!--背景end-->
 
 <view class="body">
-  <view class="transactionRecord" bindtap='accountList'>交易记录</view>
+
+  <view class="transactionRecord" bindtap='accountList'><image src="../../images/look.png" style="width:30vw;height:12vw;margin-right:-3vw"></image></view>
+
   <view class="coinPanel">
-    <view class="ab">
-      <view style="font-size: 15px;color:rgba(0, 0, 0, 0.3);">爱币余额</view>
-      <view style="font-size: 55px;color:rgba(0, 0, 0, 0.6);">{{aCoin}}</view>
-    </view>
-    <view class="gb">
-      <view style="font-size: 15px;color:rgba(0, 0, 0, 0.3);">光币余额</view>
-      <view style="font-size: 55px;color:rgba(0, 0, 0, 0.6);">{{gCoin}}</view>
+    <image src="../../images/money.png" class="BG"></image>
+    <view>
+        <view style="font-size: 50px;color:rgba(0, 0, 0, 0.6);position:absolute;left:11vw;top:18vw;">{{gCoin}}</view>
+        <view style="font-size: 50px;color:rgba(0, 0, 0, 0.6);position:absolute;left:58vw;top:18vw;">{{aCoin}}</view>
     </view>
     <image src="../../images/chongzhi.png" class="abImage"></image>
-    <image src="../../images/duihuan.png" class="gbImage"></image>
+    <image src="../../images/duihuan.png" class="gbImage" bindtap='exchange'></image>
   </view>
+
+  <view class="card">
+    <image src="../../images/cardBG.png" class="BG"></image>
+    <view class="banList">
+      <text style="font-size: 3vw;color:blue">建设银行（1361）</text>
+    </view>
+    <image src="../../images/addCard.png" class="addCard"></image>
+  </view>
+
 </view>

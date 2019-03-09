@@ -73,19 +73,20 @@ Page({
   chooseImage: function (event) {
     console.log()
     var that = this;
-    wx.showActionSheet({
-      itemList: ['从相册中选择', '拍照'],
-      itemColor: "#000000",
-      success: function (res) {
-        if (!res.cancel) {
-          if (res.tapIndex == 0) {
-            that.chooseWxImage('album', event.currentTarget.dataset.a)
-          } else if (res.tapIndex == 1) {
-            that.chooseWxImage('camera', event.currentTarget.dataset.a)
-          }
-        }
-      }
-    })
+    that.chooseWxImage('camera', event.currentTarget.dataset.a)
+    // wx.showActionSheet({
+    //   itemList: ['从相册中选择', '拍照'],
+    //   itemColor: "#000000",
+    //   success: function (res) {
+    //     if (!res.cancel) {
+    //       if (res.tapIndex == 0) {
+    //         that.chooseWxImage('album', event.currentTarget.dataset.a)
+    //       } else if (res.tapIndex == 1) {
+    //         that.chooseWxImage('camera', event.currentTarget.dataset.a)
+    //       }
+    //     }
+    //   }
+    // })
   },
 
   chooseWxImage: function (type,time) { // time代表餐前还是餐后

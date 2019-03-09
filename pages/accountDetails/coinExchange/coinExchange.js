@@ -1,42 +1,18 @@
-// pages/accountDetails/accountDetails.js
+// pages/coinExchange/coinExchange.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    aCoin: '00.00',
-    gCoin: '00.00',
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-
-  accountList: function () {
-    wx.navigateTo({
-      url: 'accountList/accountList'
-    })
-  },
-  exchange: function(){
-    wx.navigateTo({
-      url: 'coinExchange/coinExchange'
-    })
-  },
-
   onLoad: function (options) {
-    var that = this
-    wx.request({
-      url: 'http://192.168.1.100/account/detail',
-      header: { 'cookie': 'JSESSIONID=' + wx.getStorageSync("sessionid") },
-      method: 'GET',
-      success: function (res) {
-        that.setData({
-          aCoin: res.data.data.aCoin,
-          gCoin: res.data.data.gCoin
-        })
-      }
-    })
+
   },
 
   /**

@@ -12,41 +12,60 @@
   /* padding-left: 6vw;
   padding-top: 6vw;
   padding-right: 6vw; */
-  padding: 4vw 6vw 6vw 6vw;
+  padding: 4vw 4vw 6vw 6vw;
 }
 .transactionRecord{
   box-sizing: border-box;
   color: rgba(0, 0, 0, 0.6);
-  width: 88vw;
+  width: 100%;
+  height: 7vh;
   text-align: right;
-  margin-bottom: 30px;
 }
 .coinPanel{
-  padding-top: 18%;
-  box-sizing: border-box;
+  position: relative;
+  width: 100vw;
+  height: 60vw;
+  margin-left: -6vw;
+}
+.BG{
+  position: absolute;
+  z-index: -1;
   width: 100%;
-  height:60vw;
-  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
-  border-radius: 15px;
+  height: 100%;
 }
-.ab{
-  border-right: 1px solid rgba(0, 0, 0, 0.1);
-}
+
 .abImage{
-  clear: both;
-  width: 40vw;
-  height: 15vw;
+  width: 37vw;
+  height: 13vw;
+  display: inline-block;
+  position: absolute;
+  left: 55vw;
+  top: 22.7vh;
 }
 .gbImage{
-  clear: both;
-  width: 43vw;
-  height: 15vw;
-}
-.ab,.gb{
-  box-sizing: border-box;
-  width: 44vw;
-  height: 17vh;
-  line-height: 8.5vh;
-  text-align: center;
+  width: 39vw;
+  height: 13vw;
   display: inline-block;
+  position: absolute;
+  top: 23vh;
+  left: 6vw;
 }
+
+.card{
+  position: relative;
+  width: 100vw;
+  height: 71vw;
+  margin-left: -6vw;
+}
+.addCard{
+  width: 85vw;
+  height: 50vw;
+  margin-left: 7.5vw;
+  margin-top: 15vw;
+}
+.banList{
+  position: absolute;
+  top: 8.4vw;
+  left: 27vw;
+}
+
