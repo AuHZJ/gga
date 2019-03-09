@@ -1,6 +1,7 @@
 // pages/login/login.js
-Page({
 
+Page({
+  
   /**
    * 页面的初始数据
    */
@@ -36,15 +37,15 @@ Page({
         console.log('正在发起登录。。')
         if (res.code) {
           wx.request({//发起网络请求
-            // url: 'http://local.zhouxi.me/login',
-            url: 'http://192.168.1.100/login',
+            url: getApp().globalData.ip+'/login',
             data: { code: res.code },
             method: 'POST',
             header: { 'content-type': 'application/json;charset=utf-8' },
             dataType: 'json',
             success: res1 => {
               console.log("login返回的信息：", res1.data); //测试，打印从后台收到的数据
-              wx.setStorageSync("sessionid", res1.data.data);
+              wx.setStorageSync("sessionid", res1.data.data.session);
+              getApp().globalData.userType = res1.data.data.description;
               if (res1.statusCode == '200') {
                 console.log('登录成功！');
                 wx.switchTab({// 授权并返回成功后，跳转进入小程序首页

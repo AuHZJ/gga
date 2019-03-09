@@ -26,7 +26,7 @@ Page({
   onLoad: function (options) {
     var that = this
     wx.request({
-      url: 'http://192.168.1.100/account-log/list?pageNum=1&pageSize=10',
+      url: getApp().globalData.ip +'/account-log/list?pageNum=1&pageSize=10',
       method: 'GET',
       header: { 
         'content-type': 'application/json;charset=utf-8',

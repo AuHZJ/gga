@@ -26,6 +26,7 @@
   width: 100vw;
   height: 60vw;
   margin-left: -6vw;
+  margin-top: -6vw;
 }
 .BG{
   position: absolute;

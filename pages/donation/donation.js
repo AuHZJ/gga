@@ -15,10 +15,16 @@ Page({
         realName: '已实名', //是否实名
         img: '../../images/1.png',  //封面图
         title: '“我们需要更好的环境!”', //标题
-        totalAmount: 10000, //总共需要资金
-        surplus:6150, //剩余所需
+        needMoney: 10000, //总共需要资金
+        currentMoney:6150, //剩余所需
         width: '100%', //进度条宽度
-        animation: '' //动画
+        animation: '', //动画
+        content: '',
+        createTime: '',
+        id: '1',
+        userId: '1',
+        publishTime: '',
+        updateTime: ''
       },
       {
         headImage: '../../images/questionMark.png',
@@ -27,10 +33,10 @@ Page({
         realName: '已实名',
         img: '../../images/2.png',
         title: '“我们需要更好的环境!”',
-        totalAmount: 20000,
-        surplus: 8850,
+        needMoney: 20000,
+        currentMoney: 8850,
         width: '100%',
-        animation: '',
+        animation: ''
       },
       {
         headImage: '../../images/questionMark.png',
@@ -39,22 +45,22 @@ Page({
         realName: '已实名',
         img: '../../images/3.png',
         title: '“我们需要更好的环境!”',
-        totalAmount: 6000,
-        surplus: 4450,
+        needMoney: 6000,
+        currentMoney: 4450,
         width: '100%',
-        animation: '',
+        animation: ''
       },
       {
         headImage: '../../images/questionMark.png',
         type: '贫困户',
         city: '江西省吉安市',
         realName: '已实名',
-        img: '../../images/4.png',
+        img: getApp().globalData.ip +'/images/3935c59c-685a-495b-b7ee-067a0c0dd048.jpg',
         title: '“我们需要更好的环境!”',
-        totalAmount: 50000,
-        surplus: 18850,
+        needMoney: 50000,
+        currentMoney: 18850,
         width: '100%',
-        animation: '',
+        animation: ''
       }
     ]
 
@@ -74,13 +80,46 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this
+    var that = this;
+    wx.request({
+      url: getApp().globalData.ip+'/poor-man-info/public/list',
+      method: 'GET',
+      header: {
+        'content-type': 'application/json;charset=utf-8',
+        'cookie': 'JSESSIONID=' + wx.getStorageSync("sessionid")
+      },
+      dataType: 'json',
+      success: function (res) {
+        console.log(res.data)
+        var newList = [];
+        for (var item in res.data.data.list){
+          var value = res.data.data.list[item];
+          var newInfo = {};
+          newInfo['animation'] = '';
+          newInfo['width'] = '100%';
+          newInfo['type'] = '贫困户';
+          newInfo['title'] = value.title;
+          newInfo['city'] = value.location;
+          newInfo['currentMoney'] = value.currentMoney;
+          newInfo['needMoney'] = value.needMoney;
+          newInfo['img'] = getApp().globalData.ip + value.coverPicUrl;
+          newInfo['content'] = value.content;
+          newInfo['id'] = value.id;
+          newInfo['userId'] = value.userId;
+          newList.push(newInfo);
+        }
+        that.setData({
+          info: newList
+        })
+        console.log(that.data.info)
+      }
+    })
     that.setData({
       province: getApp().globalData.userProvince,
       alreadyDonated: getApp().globalData.donated,
     })
     for (var item in that.data.info){  // 设置进度条宽度
-      var width = 100 * (that.data.info[item]['surplus']) / that.data.info[item]['totalAmount'] + '%'
+      var width = 100 * (that.data.info[item]['currentMoney']) / that.data.info[item]['needMoney'] + '%'
       var animation = 'info[' + item + '].animation'
       var _animation = wx.createAnimation({ //创建动画
         duration: 700, //持续时间（毫秒为单位）

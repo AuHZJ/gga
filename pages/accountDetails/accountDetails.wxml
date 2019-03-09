@@ -6,7 +6,7 @@
 
 <view class="body">
 
-  <view class="transactionRecord" bindtap='accountList'><image src="../../images/look.png" style="width:30vw;height:12vw;margin-right:-3vw"></image></view>
+  <view class="transactionRecord" bindtap='accountList'><image src="../../images/look.png" style="width:23vw;height:9.3vw;margin-right:-3vw;margin-top:-2vw;"></image></view>
 
   <view class="coinPanel">
     <image src="../../images/money.png" class="BG"></image>

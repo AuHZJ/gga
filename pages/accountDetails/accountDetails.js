@@ -27,7 +27,7 @@ Page({
   onLoad: function (options) {
     var that = this
     wx.request({
-      url: 'http://192.168.1.100/account/detail',
+      url: getApp().globalData.ip +'/account/detail',
       header: { 'cookie': 'JSESSIONID=' + wx.getStorageSync("sessionid") },
       method: 'GET',
       success: function (res) {

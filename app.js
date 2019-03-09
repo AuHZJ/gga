@@ -16,8 +16,6 @@ App({
     userCountry: "" ,//国家
     userType: "志愿者", //用户类型（志愿者，贫困户等）
     donated: "520.13", //已捐赠
-    // userInfo: null,
-    // wx_url_1: 'https://api.weixin.qq.com/sns/jscode2session?appid=wx31130462872316f3&secret=675a814cceaa2ea111f2ee4528c54149&js_code=',
-    // wx_url_2: '&grant_type=authorization_code'
+    ip: 'http://183.217.81.81:8080' //后台ip
   }
 })
