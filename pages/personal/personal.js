@@ -28,9 +28,20 @@ Page({
   },
 
   enterpriseEntry: function () { //企业入驻
-    wx.navigateTo({
-      url: '../enterpriseEntry/enterpriseEntry'
+    wx.showModal({ // 提示框
+      title: '提示',
+      content: '该功能尚未开放。。。',
+      showCancel: false,
+      confirmText: '确定',
+      success: function (res) {
+        if (res.confirm) {
+          
+        }
+      }
     })
+    // wx.navigateTo({
+    //   url: '../enterpriseEntry/enterpriseEntry'
+    // })
   },
 
   info: function () { //发布信息

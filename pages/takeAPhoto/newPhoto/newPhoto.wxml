@@ -1,0 +1,7 @@
+<!--pages/takeAPhoto/newPhoto/newPhoto.wxml-->
+<!--拍照组件-->
+<view class="photo">
+  <camera device-position="back" flash="off" binderror="error"></camera>
+  <button bindtap='takePhoto' class="button">拍照</button>
+</view>
+

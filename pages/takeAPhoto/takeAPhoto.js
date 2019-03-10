@@ -15,13 +15,15 @@ Page({
     loveNumber: 0.21,
     rewardNumber: 0.36,
     buttonHidden: true, //确定按钮是否隐藏
-    display: 'block',
+    display: 'none',//提示框显示否
     loading: false,
     submit: '开始识别',
-    MealsPaths: [
-      '../../images/before.png', //餐前照片路径
-      '../../images/after.png' //餐后照片路径
-    ],
+    // MealsPaths: [
+    //   '../../images/before.png', //餐前照片路径
+    //   '../../images/after.png' //餐后照片路径
+    // ],
+    MealsPaths0: '../../images/before.png', //餐前照片路径
+    MealsPaths1: '../../images/after.png' //餐后照片路径
   },
 
   closeTip: function () { //点击关闭
@@ -71,9 +73,11 @@ Page({
   },
 
   chooseImage: function (event) {
-    console.log()
     var that = this;
-    that.chooseWxImage('camera', event.currentTarget.dataset.a)
+    wx.navigateTo({
+      url: 'newPhoto/newPhoto?id=' + event.currentTarget.dataset.a + '&MealsPaths0=' + that.data.MealsPaths0 + '&MealsPaths1=' + that.data.MealsPaths1
+    })
+    //that.chooseWxImage('camera', event.currentTarget.dataset.a)
     // wx.showActionSheet({
     //   itemList: ['从相册中选择', '拍照'],
     //   itemColor: "#000000",
@@ -89,33 +93,32 @@ Page({
     // })
   },
 
-  chooseWxImage: function (type,time) { // time代表餐前还是餐后
-    var that = this;
-    wx.chooseImage({
-      count: 2,
-      sizeType: ['original', 'compressed'],
-      sourceType: [type],
-      success: function (res) {
-        console.log(res);
-        that.setData({
-          ['MealsPaths['+time+']']: res.tempFilePaths[0],
-        })
-      }
-    })
-  },
+  // chooseWxImage: function (type,time) { // time代表餐前还是餐后
+  //   var that = this;
+  //   wx.chooseImage({
+  //     count: 2,
+  //     sizeType: ['original', 'compressed'],
+  //     sourceType: [type],
+  //     success: function (res) {
+  //       console.log(res);
+  //       that.setData({
+  //         ['MealsPaths'+time]: res.tempFilePaths[0],
+  //       })
+  //     }
+  //   })
+  // },
 
   uploadFile: function() {
     var that = this
-    if (that.data.MealsPaths[0] == '../../images/before.png'){
+    if (that.data.MealsPaths0 == '../../images/before.png'){
       that.showModal('提示', '请上传餐前照片！', false, '确定', '用户点击了确定')
       return
     }
-    if (that.data.MealsPaths[1] == '../../images/after.png') {
+    if (that.data.MealsPaths1 == '../../images/after.png') {
       that.showModal('提示', '请上传餐后照片！', false, '确定', '用户点击了确定')
       return
     }
-    that.uploadImage(that.data.MealsPaths[0],'before')
-    // that.uploadImage(that.data.MealsPaths[1],'after')
+    that.uploadImage(that.data.MealsPaths0,'before')
   },
 
   uploadImage: function (path,time) {
@@ -125,7 +128,7 @@ Page({
       submit: '上传中'
     })
     wx.uploadFile({
-      url: 'http://192.168.1.100/compare',
+      url: getApp().globalData.ip+'/compare',
       filePath: path,
       name: 'file', 
       header: { 
@@ -137,12 +140,12 @@ Page({
         let datas = JSON.parse(res.data)
         let status = datas.code
         console.log('正在上传：' + time)
-        if (path == that.data.MealsPaths[0]){
+        if (path == that.data.MealsPaths0){
           if (status == 200){
-            that.uploadImage(that.data.MealsPaths[1], 'after')
+            that.uploadImage(that.data.MealsPaths1, 'after')
           }
         }
-        if (path == that.data.MealsPaths[1]){  //两张图片全部上传完成
+        if (path == that.data.MealsPaths1){  //两张图片全部上传完成
           if (status == 200){
             console.log(datas.data)
             that.showModal('提示', '上传成功！', false, '确定','用户点击了确定')
@@ -163,7 +166,7 @@ Page({
         that.showModal('提示', '上传失败，请检查网络是否连通！', false, '确定', '用户点击了确定')
       },
       complete: function () {
-        if (path == that.data.MealsPaths[1]) {
+        if (path == that.data.MealsPaths1) {
           that.setData({
             loading: false,
             submit: '开始识别'
@@ -191,7 +194,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this
+    if (options.id != null){
+      that.setData({
+        'MealsPaths0': options.MealsPaths0,
+        'MealsPaths1': options.MealsPaths1
+      })
+    }
   },
 
   /**
