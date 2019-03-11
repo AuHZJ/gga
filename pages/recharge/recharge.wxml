@@ -1,2 +1,19 @@
 <!--pages/recharge/recharge.wxml-->
-<text>pages/recharge/recharge.wxml</text>
+<!--pages/recharge/recharge.wxml-->
+
+<view class='card'>
+  <image class='bg' src='/images/chongzhi-border.png'></image>
+  <input type='number' value='{{money}}'></input>
+  <view class='option'>
+    <image class='img' bindtap='toinput1' src='/images/fiveYuan.png'></image>
+    <image class='img' bindtap='toinput2' src='/images/tenYuan.png'></image>
+    <image class='img' bindtap='toinput3' src='/images/twentyFive.png'></image>
+  </view>
+  <text class='bankCard'>{{bankCard}}</text>
+
+  <view class='chongzhi'>
+    <image src='/images/chongzhi-now.png'></image>
+  </view>
+</view>
+
+

@@ -14,7 +14,7 @@
         <view style="font-size: 50px;color:rgba(0, 0, 0, 0.6);position:absolute;left:11vw;top:18vw;">{{gCoin}}</view>
         <view style="font-size: 50px;color:rgba(0, 0, 0, 0.6);position:absolute;left:58vw;top:18vw;">{{aCoin}}</view>
     </view>
-    <image src="../../images/chongzhi.png" class="abImage"></image>
+    <image src="../../images/chongzhi.png" class="abImage" bindtap='chongzhi'></image>
     <image src="../../images/duihuan.png" class="gbImage" bindtap='exchange'></image>
   </view>
 

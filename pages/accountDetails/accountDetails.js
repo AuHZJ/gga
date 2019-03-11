@@ -23,6 +23,11 @@ Page({
       url: 'coinExchange/coinExchange'
     })
   },
+  chongzhi: function(){
+    wx.navigateTo({
+      url: '/pages/recharge/recharge'
+    })
+  },
 
   onLoad: function (options) {
     var that = this
