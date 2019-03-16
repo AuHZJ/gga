@@ -1,27 +1,79 @@
 <!--pages/addPovertyInfo/addPovertyInfo.wxml-->
-
-<!--背景begin-->
-<image src="../../images/backgroundImage.jpg" class="backgroundImage"></image>
-<!--背景end-->
-<view class="body">
-  <form bindsubmit="formSubmit" bindreset="formReset">
-    <view class="input">
-      <input type="text" name="title" placeholder="标题" />
+<view class='container'>
+  <form bindsubmit="formSubmit">
+    <!--top部分begin-->
+    <view class='top'>
+      <!--top背景图片begin-->
+      <view class='top-bg'>
+        <image src='/images/top-border.png'></image>
+      </view>
+      <!--top背景图片end-->
+      <input name='title' type='text' placeholder='添加大字标题' placeholder-style='color:rgb(200,200,200);font-size:4vw'></input>
+      <textarea type='text' placeholder="请描述一下家庭情况，经济状况，所需物资与金额" placeholder-style='color:rgb(200,200,200);font-size:4vw' />
+      <image class='photo' bindtap='chooseImage' src="{{tempFilePaths}}"></image>
     </view>
+    <!--top部分end-->
 
-    <view class="input">
-      <input type="text" name="content" placeholder="内容" />
+    <!--middle部分begin-->
+    <view class='middle'>
+      <!--middle背景图片begin-->
+      <view class='mid-bg'>
+        <image src='/images/middle-border.png'></image>
+      </view>
+      <!--middle背景图片end-->
+      <view>
+        <image bindtap='arrow-one' class='arrow1' src='/images/gray-arrow.png'></image>
+        <image bindtap='arrow-two' class='arrow2' src='/images/gray-arrow.png'></image>
+        <image bindtap='arrow-three' class='arrow3' src='/images/gray-arrow.png'></image>
+      </view>
     </view>
+    <!--middle部分end-->
 
-    <view class="input">
-      <input type="number" name="neadMoney" placeholder="需要资金" />
+    <view class='toInput' bindtap="inputInfo">
+      <text class='name'>{{userName}}</text>
+      <text class='tel'>{{userTel}}</text>
+      <text class='address'>{{userAdd}}</text>
     </view>
-
-    <image src="{{tempFilePaths}}" bindtap='chooseImage' class="image"></image>
-
-    <view>
-      <button formType="submit">提交</button>
-      <button formType="reset">重置</button>
+    <!--用户信息输入框隐藏 begin-->
+    <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+    <view class="modal-container" wx:if="{{showModal}}">
+      <view class="modal-content">
+        <view class="modal-input">
+          <input placeholder-class="input-holder" type="text" class="input" placeholder="姓名" name='userName' bindinput='userNameInput'></input>
+        </view>
+        <view class="modal-input">
+          <input placeholder-class="input-holder" type="number" class="input" placeholder="电话" name='userTel' bindinput='userTelInput'></input>
+        </view>
+        <view class="modal-input">
+          <input placeholder-class="input-holder" type="text" class="input" placeholder="地址" name='userAdd' bindinput='userAddInput'></input>
+        </view>
+      </view>
+      <view class="modal-footer">
+        <view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</view>
+        <view class="btn-confirm" bindtap="onConfirm" data-status="confirm">确定</view>
+      </view>
     </view>
+    <!--用户信息输入框隐藏 end-->
+
+    <!--用户类型 begin-->
+    <view bindtap='' class='user-type'>{{userClass}}</view>
+    <!--用户类型 end-->
+
+    <!--所需金额 begin-->
+    <view class='inputMoney'>
+      <input class='money' type='number' value=''></input>
+    </view>
+    <!--所需金额 end-->
+
+    <!--bottom部分begin-->
+    <view class='bottom'>
+      <view class='bottom-bg'>
+        <image src='/images/bottom-border.png'></image>
+      </view>
+      <button formType="submit">确认发布
+        <!-- <image class='bottom-button' src='/images/bottom-button.png'></image> -->
+      </button>
+    </view>
+    <!--bottom部分end-->
   </form>
 </view>

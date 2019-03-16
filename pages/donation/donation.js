@@ -13,7 +13,7 @@ Page({
         type: '贫困户',  // 用户类型
         city: '江西省南昌市',  //地区
         realName: '已实名', //是否实名
-        img: '../../images/1.png',  //封面图
+        img: '../../images/3.png',  //封面图
         title: '“我们需要更好的环境!”', //标题
         needMoney: 10000, //总共需要资金
         currentMoney:6150, //剩余所需
@@ -31,7 +31,7 @@ Page({
         type: '贫困户',
         city: '江西省吉安市',
         realName: '已实名',
-        img: '../../images/2.png',
+        img: '../../images/3.png',
         title: '“我们需要更好的环境!”',
         needMoney: 20000,
         currentMoney: 8850,
@@ -50,18 +50,18 @@ Page({
         width: '100%',
         animation: ''
       },
-      {
-        headImage: '../../images/questionMark.png',
-        type: '贫困户',
-        city: '江西省吉安市',
-        realName: '已实名',
-        img: getApp().globalData.ip +'/images/3935c59c-685a-495b-b7ee-067a0c0dd048.jpg',
-        title: '“我们需要更好的环境!”',
-        needMoney: 50000,
-        currentMoney: 18850,
-        width: '100%',
-        animation: ''
-      }
+      // {
+      //   headImage: '../../images/questionMark.png',
+      //   type: '贫困户',
+      //   city: '江西省吉安市',
+      //   realName: '已实名',
+      //   img: getApp().globalData.ip +'/images/3935c59c-685a-495b-b7ee-067a0c0dd048.jpg',
+      //   title: '“我们需要更好的环境!”',
+      //   needMoney: 50000,
+      //   currentMoney: 18850,
+      //   width: '100%',
+      //   animation: ''
+      // }
     ]
 
   },

@@ -1,19 +1,19 @@
 {
   "pages": [
     "pages/homepage/homepage",
+    "pages/accountDetails/coinExchange/coinExchange",
+    "pages/recharge/recharge",
     "pages/takeAPhoto/newPhoto/newPhoto",
     "pages/takeAPhoto/takeAPhoto",
-    
     "pages/login/login",
     "pages/accountDetails/accountDetails",
     "pages/donation/donation",
-    "pages/accountDetails/coinExchange/coinExchange",
     "pages/personal/personal",
     "pages/accountDetails/accountList/accountList",
     "pages/addPovertyInfo/addPovertyInfo",
     "pages/messages/messages",
     "pages/viewRecord/viewRecord",
-    "pages/recharge/recharge",
+    
     "pages/enterpriseEntry/enterpriseEntry",
     "pages/feedback/feedback",
     "pages/personalData/personalData",
@@ -28,25 +28,25 @@
     "backgroundTextStyle": "dark"
   },
   "tabBar": {
-    "color": "#000000",
+    "color": "black",
     "selectedColor": "red",
     "backgroundColor": "#ffffff",
-    "borderStyle": "#000000",
+    "borderStyle": "black",
     "list": [
       {
-        "text": "",
+        "text": "主页",
         "pagePath": "pages/homepage/homepage",
         "iconPath": "images/主页按钮.png",
         "selectedIconPath": "images/主页按钮（红）.png"
       },
       {
-        "text": "",
+        "text": "捐赠",
         "pagePath": "pages/donation/donation",
         "iconPath": "images/捐赠按钮.png",
         "selectedIconPath": "images/捐赠按钮（红）.png"
       },
       {
-        "text": "",
+        "text": "个人",
         "pagePath": "pages/personal/personal",
         "iconPath": "images/个人按钮.png",
         "selectedIconPath": "images/个人按钮（红）.png"

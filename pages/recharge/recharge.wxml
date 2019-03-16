@@ -1,5 +1,4 @@
 <!--pages/recharge/recharge.wxml-->
-<!--pages/recharge/recharge.wxml-->
 
 <view class='card'>
   <image class='bg' src='/images/chongzhi-border.png'></image>

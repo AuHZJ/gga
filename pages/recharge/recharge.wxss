@@ -40,8 +40,8 @@ input{
   color: rgb(96,61,197);
   font-size: 3vw;
   position: absolute;
-  top: 68vw;
-  left: 32vw;
+  top: 66.7vw;
+  left: 29vw;
 }
 .chongzhi{
   width: 80%;

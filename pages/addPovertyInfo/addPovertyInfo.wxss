@@ -1,32 +1,241 @@
 /* pages/addPovertyInfo/addPovertyInfo.wxss */
-.backgroundImage{
+page{
+  background: rgb(247,247,247);
+}
+.container{
   width: 100%;
-  height: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+.top-bg{
+  width: 100%;
+  height: 78vw;
+  overflow: hidden;
+}
+.top-bg image{
+  width: 100%;
+  height: 78vw;
   z-index: -1;
-  position: fixed;
+  position: absolute;
+  top: -1vw;
+  left: 0;
 }
-.body{
-  padding: 10%;
+input{
+  width: 92%;
+  height: 10vw;
+  font-size: 6vw;
+  position: absolute;
+  top: 2vw;
+  left: 4vw;
 }
-.input{
-  height: 50px;
-  line-height: 50px;
+textarea{
+  width: 92%;
+  height: 36vw;
+  font-size: 5vw;
+  padding-top: 2vw;
+  position: absolute;
+  top: 13vw;
+  left: 4vw;
 }
-.input input{
-  display: inline-block;
-  height: 50px;
+.photo{
+  width: 16vw;
+  height: 16vw;
+  z-index: 1;
+  position: absolute;
+  top: 52vw;
+  left: 6vw;
+  border: 1px 
+}
+.mid-bg{
   width: 100%;
-  border-bottom: 1px solid rgba(0,0,0,0.5);
+  height: 58vw;
+  overflow: hidden;
 }
-.image{
-  margin-top:10px;
+.mid-bg image{
   width: 100%;
-  height: 200px;
-  border:1px solid red;
+  height: 58vw;
+  z-index: -1;
+  position: absolute;
+  top: 82vw;
+  left: 0;
+}
+.arrow1,
+.arrow2,
+.arrow3{
+  width: 5vw;
+  height: 6vw;
+}
+.arrow1{
+  position: absolute;
+  top: 94vw;
+  right: 3vw;
+}
+.arrow2{
+  position: absolute;
+  top: 114vw;
+  right: 3vw;
+}
+.arrow3{
+  position: absolute;
+  top: 128vw;
+  right: 3vw;
+}
+/*底部button  begin*/
+.bottom-bg{
+  width: 100%;
+  height: 15vw;
+  overflow: hidden;
+  zoom: 1;
+}
+.bottom-bg image{
+  width: 100%;
+  height: 15vw;
+  z-index: -1;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 button{
+  width: 46vw;
+  height: 15vw;
+  line-height: 15vw;
+  padding: 0;
+  float: right;
+  color: white;
+  background: #ff6b69;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+/*底部button end*/
+
+.toInput{
+  width: 100vw;
+  height: 27vw;
+  position: absolute;
+  top: 83vw;
+  left: 0;
+  padding-left: 30vw;
+  color: rgb(200, 200, 200);
+  font-size: 30rpx;
+}
+.name,
+.tel{
   display: inline-block;
+  height: 8vw;
+  line-height: 8vw;
+  position: relative;
+  top: 6vw;
+  /* border: 1px solid red; */
+}
+.name{
+  width: 20vw;
+}
+.tel{
+  width: 38vw;
+}
+.address{
+  display: block;
+  width: 58vw;
+  height: 8vw;
+  line-height: 8vw;
+  position: relative;
+  top: 6vw;
+  /* border: 1px solid red; */
+}
+.modal-mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+  z-index: 10;
+}
+.modal-container {
+  width: 70vw;
+  overflow: hidden;
+  position: fixed;
+  top: 35%;
+  left: 15vw;
+  z-index: 20;
+  background: #fff;
+  border-radius: 36rpx;
+}
+.modal-content {
+  width: 100%;
+  margin-top: 3vw;
+}
+.modal-input{
+  width: 100%;
+  height: 12vw;
+  background: #fff;
+  border-bottom: 2rpx solid #ddd;
+  font-size: 28rpx;
+  position: relative;
+}
+.input{
+  width: 100%;
+  height: 100%;
+  font-size: 28rpx;
+  line-height: 28rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-left: 4vw;
+  box-sizing: border-box;
+  color: #333;
+}
+.input-holder {
+  color: #666;
+  font-size: 28rpx;
+}
+.modal-footer {
+  display: flex;
+  flex-direction: row;
+  height: 12vw;
+  border-top: 1px solid #dedede;
+  font-size: 34rpx;
+  line-height: 12vw;
+}
+.btn-cancel {
   width: 50%;
-  background: rgba(255,255,255,0.5);
-  color: rgba(0,0,0,0.5);
+  color: #666;
+  text-align: center;
+  border-right: 1px solid #dedede;
+}
+.btn-confirm {
+  width: 50%;
+  color: #ec5300;
+  text-align: center;
+}
+.user-type{
+  width: 50vw;
+  height: 13vw;
+  line-height: 13vw;
+  color: rgb(200, 200, 200);
+  font-size: 30rpx;
+  margin-left: 30vw;
+  position: absolute;
+  top: 111vw;
+  left: 0;
+}
+
+.inputMoney{
+  width: 100vw;
+  height: 13vw;
+  position: absolute;
+  top: 124vw;
+  left: 0;
+}
+.inputMoney input{
+  width: 40vw;
+  height: 13vw;
+  margin: 0 27vw;
+  position: relative;
+  top: 0;
+  color: rgb(200, 200, 200);
+  font-size: 30rpx; 
 }

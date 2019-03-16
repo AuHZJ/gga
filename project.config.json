@@ -20,13 +20,52 @@
 			"current": -1,
 			"list": []
 		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
 		"game": {
 			"currentL": -1,
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
-			"list": []
+			"current": 4,
+			"list": [
+				{
+					"id": -1,
+					"name": "addPovertyInfo",
+					"pathName": "pages/addPovertyInfo/addPovertyInfo",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "accountDetials",
+					"pathName": "pages/accountDetails/accountDetails",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "rechange",
+					"pathName": "pages/recharge/recharge",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "donation",
+					"pathName": "pages/donation/donation",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "personal",
+					"pathName": "pages/personal/personal",
+					"scene": null
+				}
+			]
 		}
 	}
 }
