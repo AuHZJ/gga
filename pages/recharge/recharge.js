@@ -25,7 +25,18 @@ Page({
     this.setData({
       money: 25
     })
+  },
+  chongzhi: function(){ //充值
+    wx.showModal({ // 提示框
+      title: '提示',
+      content: '该功能尚未开放,试试别的吧~',
+      showCancel: false,
+      confirmText: '确定',
+      success: function (res) {
+        if (res.confirm) {
+
+        }
+      }
+    })
   }
-
-
 })

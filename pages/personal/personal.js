@@ -30,7 +30,7 @@ Page({
   enterpriseEntry: function () { //企业入驻
     wx.showModal({ // 提示框
       title: '提示',
-      content: '该功能尚未开放。。。',
+      content: '该功能尚未开放,试试别的吧~',
       showCancel: false,
       confirmText: '确定',
       success: function (res) {
@@ -45,6 +45,20 @@ Page({
   },
 
   info: function () { //发布信息
+    if(getApp().globalData.userType != "管理员"){
+      wx.showModal({ // 提示框
+        title: '提示',
+        content: '请联系管理员发布信息',
+        showCancel: false,
+        confirmText: '确定',
+        success: function (res) {
+          if (res.confirm) {
+            console.log("发布信息：用户点击确定")
+          }
+        }
+      })
+      return;
+    }
     wx.navigateTo({
       url: '/pages/addPovertyInfo/addPovertyInfo'
     })

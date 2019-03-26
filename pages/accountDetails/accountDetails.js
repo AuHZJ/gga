@@ -5,8 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    aCoin: '00.00',
-    gCoin: '00.00',
+    aCoin: 0,
+    gCoin: 0
   },
 
   /**
@@ -20,7 +20,7 @@ Page({
   },
   exchange: function(){
     wx.navigateTo({
-      url: 'coinExchange/coinExchange'
+      url: 'coinExchange/coinExchange?gCoin=' + this.data.gCoin
     })
   },
   chongzhi: function(){

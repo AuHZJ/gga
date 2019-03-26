@@ -5,21 +5,22 @@
   <!--背景begin-->
   <image src="/images/takePhotoBG.png" class="backgroundImage"></image>
   <!--背景end-->
-
-  <view class="Panel">
-    <image src="/images/duihuan-border.png" class="BG"></image>
-    <input type='number' class="input1"></input>
-    <image src="/images/select.png" class="select1"></image>
-    <image src="/images/no-select.png" class="select2"></image>
-    <view class="duihuan1">
-      <text style="font-size: 3.3vw;color:rgba(0,0,0,0.5)">兑换为人民币</text>
+  <form bindsubmit='duihuan'>
+    <view class="Panel">
+      <image src="/images/duihuan-border.png" class="BG"></image>
+      <input type='number' class="input1" name='gCoin' placeholder='光币余额:{{gCoin}}' placeholder-style='font-size:6vw;color:rgba(0,0,0,0.2)'></input>
+      <image src="/images/select.png" class="select1"></image>
+      <image src="/images/no-select.png" class="select2" bindtap='tips'></image>
+      <view class="duihuan1">
+        <text style="font-size: 3.3vw;color:rgba(0,0,0,0.5)">兑换为爱币</text>
+      </view>
+      <view class="duihuan2">
+        <text style="font-size: 3.3vw;color:rgba(0,0,0,0.5)" bindtap='tips'>兑换为人民币</text>
+      </view>
+      <view class="banList">
+        <text style="font-size: 3.2vw;color:blue">建设银行（1361）</text>
+      </view>
     </view>
-    <view class="duihuan2">
-      <text style="font-size: 3.3vw;color:rgba(0,0,0,0.5)">兑换为爱币</text>
-    </view>
-    <view class="banList">
-      <text style="font-size: 3.2vw;color:blue">建设银行（1361）</text>
-    </view>
-  </view>
-  <image src="/images/duihuan-now.png" class="button"></image>
+    <button form-type='submit'>立即兑换</button>
+  </form>
 </view>

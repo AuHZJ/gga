@@ -1,6 +1,8 @@
 {
   "pages": [
     "pages/homepage/homepage",
+    "pages/addPovertyInfo/addPovertyInfo",
+   
     "pages/accountDetails/coinExchange/coinExchange",
     "pages/recharge/recharge",
     "pages/takeAPhoto/newPhoto/newPhoto",
@@ -10,7 +12,7 @@
     "pages/donation/donation",
     "pages/personal/personal",
     "pages/accountDetails/accountList/accountList",
-    "pages/addPovertyInfo/addPovertyInfo",
+    
     "pages/messages/messages",
     "pages/viewRecord/viewRecord",
     

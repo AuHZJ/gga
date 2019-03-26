@@ -4,7 +4,7 @@ page{
 }
 .container{
   width: 100%;
-  height: 100vh;
+  height: 108vh;
   overflow: hidden;
 }
 .top-bg{
@@ -27,15 +27,18 @@ input{
   position: absolute;
   top: 2vw;
   left: 4vw;
+  color: #aaa;
 }
 textarea{
   width: 92%;
   height: 36vw;
   font-size: 5vw;
-  padding-top: 2vw;
+  margin-top: 2vw;
+  /* padding-top: 2vw; */
   position: absolute;
   top: 13vw;
   left: 4vw;
+  color: #aaa;
 }
 .photo{
   width: 16vw;
@@ -59,55 +62,7 @@ textarea{
   top: 82vw;
   left: 0;
 }
-.arrow1,
-.arrow2,
-.arrow3{
-  width: 5vw;
-  height: 6vw;
-}
-.arrow1{
-  position: absolute;
-  top: 94vw;
-  right: 3vw;
-}
-.arrow2{
-  position: absolute;
-  top: 114vw;
-  right: 3vw;
-}
-.arrow3{
-  position: absolute;
-  top: 128vw;
-  right: 3vw;
-}
-/*底部button  begin*/
-.bottom-bg{
-  width: 100%;
-  height: 15vw;
-  overflow: hidden;
-  zoom: 1;
-}
-.bottom-bg image{
-  width: 100%;
-  height: 15vw;
-  z-index: -1;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-}
-button{
-  width: 46vw;
-  height: 15vw;
-  line-height: 15vw;
-  padding: 0;
-  float: right;
-  color: white;
-  background: #ff6b69;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-}
-/*底部button end*/
+
 
 .toInput{
   width: 100vw;
@@ -142,6 +97,7 @@ button{
   position: relative;
   top: 6vw;
   /* border: 1px solid red; */
+  overflow: hidden;
 }
 .modal-mask {
   width: 100%;
@@ -239,3 +195,31 @@ button{
   color: rgb(200, 200, 200);
   font-size: 30rpx; 
 }
+
+.bottom-bg{
+  width: 100%;
+  height: 15vw;
+  overflow: hidden;
+}
+.bottom-bg image{
+  width: 100%;
+  height: 15vw;
+  z-index: -1;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+button{
+  width: 46vw;
+  height: 15vw;
+  line-height: 15vw;
+  padding: 0;
+  float: right;
+  color: white;
+  border-radius: 0;
+  background: #ff6b69;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+

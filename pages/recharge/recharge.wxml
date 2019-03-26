@@ -10,7 +10,7 @@
   </view>
   <text class='bankCard'>{{bankCard}}</text>
 
-  <view class='chongzhi'>
+  <view class='chongzhi' bindtap='chongzhi'>
     <image src='/images/chongzhi-now.png'></image>
   </view>
 </view>

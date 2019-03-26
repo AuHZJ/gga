@@ -79,6 +79,7 @@ Page({
   preventTouchMove: function() {},
 
   hideModal: function() {
+    console.log(11)
     this.setData({
       showModal: false
     });

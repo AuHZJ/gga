@@ -54,10 +54,12 @@
 .duihuan2{
   top: 56.4vw;
 }
-.button{
-  margin-left: 10vw;
-  width: 80vw;
-  height: 23vw;
+button{
+  background: rgba(255, 40, 40, 0.616);
+  width: 68vw;
+  height: 14vw;
+  line-height: 14vw;
+  color: white;
 }
 .banList{
   position: absolute;

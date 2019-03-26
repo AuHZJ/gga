@@ -14,7 +14,7 @@ App({
     userCity: "", //城市
     userProvince: "", //省份
     userCountry: "" ,//国家
-    userType: "志愿者", //用户类型（志愿者，贫困户等）
+    userType: "管理员", //用户类型（志愿者，贫困户等）
     donated: "520.13", //已捐赠
     ip: 'http://183.217.81.81:8080' //后台ip
   }

@@ -21,11 +21,7 @@
         <image src='/images/middle-border.png'></image>
       </view>
       <!--middle背景图片end-->
-      <view>
-        <image bindtap='arrow-one' class='arrow1' src='/images/gray-arrow.png'></image>
-        <image bindtap='arrow-two' class='arrow2' src='/images/gray-arrow.png'></image>
-        <image bindtap='arrow-three' class='arrow3' src='/images/gray-arrow.png'></image>
-      </view>
+      
     </view>
     <!--middle部分end-->
 
@@ -70,9 +66,7 @@
       <view class='bottom-bg'>
         <image src='/images/bottom-border.png'></image>
       </view>
-      <button formType="submit">确认发布
-        <!-- <image class='bottom-button' src='/images/bottom-button.png'></image> -->
-      </button>
+      <button formType="submit">确认发布</button>
     </view>
     <!--bottom部分end-->
   </form>
