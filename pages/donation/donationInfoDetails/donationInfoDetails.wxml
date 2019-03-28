@@ -1,0 +1,2 @@
+<!--pages/donation/donationInfoDetails/donationInfoDetails.wxml-->
+<text>第{{index}}条贫困信息</text>

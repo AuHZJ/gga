@@ -17,7 +17,7 @@
 <!--顶部end-->
 
 <!--信息面板begin-->
-<view class="panel" wx:for="{{info}}" wx:key="id">
+<view class="panel" wx:for="{{info}}" wx:key="id" bindtap='toDetails' data-index="{{index}}">
   <view>
     <view class="panel-headImage"><image src="{{item.headImage}}" class="headImage"></image></view>
     <view class="panel-info">

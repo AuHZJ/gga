@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tempFilePaths: '/images/photo-border.png',
+    imgbox: [],
     userName: '',
     userTel: '',
     userAdd: '',
@@ -15,57 +15,74 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-
-  chooseImage: function() {
+  // 添加图片 
+  chooseImage: function (e) {
     var that = this;
     wx.showActionSheet({
       itemList: ['从相册中选择', '拍照'],
       itemColor: "#000000",
-      success: function(res) {
+      success: function (res) {
         if (!res.cancel) {
           if (res.tapIndex == 0) {
-            that.chooseWxImage('album')
+            that.addImg('album')
           } else if (res.tapIndex == 1) {
-            that.chooseWxImage('camera')
+            that.addImg('camera')
           }
         }
       }
     })
   },
-
-  chooseWxImage: function(type) {
+  addImg: function (type) {
+    var imgbox = this.data.imgbox;
     var that = this;
     wx.chooseImage({
-      sizeType: ['original', 'compressed'],
-      sourceType: [type],
-      success: function(res) {
-        console.log(res);
+      count: 3, // 最多3张
+      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+      sourceType: [type], // 可以指定来源是相册还是相机，默认二者都有
+      success: function (res) {
+        // console.log(res.tempFilePaths)
+        // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
+        var tempFilePaths = res.tempFilePaths
+        console.log(tempFilePaths)
+        imgbox = imgbox.concat(tempFilePaths)
         that.setData({
-          tempFilePaths: res.tempFilePaths[0],
+          imgbox: imgbox
         })
       }
     })
   },
+  //删除图片
+  imgDelete: function(e){
+    let that = this;
+    let index = e.currentTarget.dataset.deindex
+    let imgbox = this.data.imgbox
+    imgbox.splice(index, 1)
+    that.setData({
+      imgbox: imgbox
+    });
+  },
 
-  formSubmit: function(e) {
+  formSubmit: function(e, index = 0, u = '') {
     var that = this;
-    console.log('上传的图片路径：' + that.data.tempFilePaths)
+    console.log('正在上传：' + that.data.imgbox[index])
     wx.uploadFile({ //上传包含图片的form表单
-      url: 'http://localhost:8080/gga/login',
-      filePath: that.data.tempFilePaths, // 图片文件路径
-      name: 'coverPicUrl',
+      url: getApp().globalData.ip + '/compare',
+      filePath: that.data.imgbox[index], // 图片文件路径
+      name: 'addInfoImg',
       header: {
+        'cookie': 'JSESSIONID=' + wx.getStorageSync("sessionid"),
         'content-type': 'multipart/form-data'
       },
       formData: {
-        'cookie': 'JSESSIONID=' + wx.getStorageSync("sessionid"),
         'title': e.detail.value.title,
         'content': e.detail.value.content,
-        'needMoney': e.detail.value.needMoney
+        'needMoney': e.detail.value.needMoney,
+        'url': u
       },
       success: function(res) {
         console.log('贫困信息id：' + res.data);
-        console.log('上传图片和formData成功！');
+        console.log('imgbox['+index+']上传成功！');
+        that.formSubmit(e, index + 1, u.concat(res.data.data.url))
       }
     })
   },

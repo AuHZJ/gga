@@ -2,7 +2,7 @@
   "pages": [
     "pages/homepage/homepage",
     "pages/addPovertyInfo/addPovertyInfo",
-   
+    "pages/donation/donationInfoDetails/donationInfoDetails",
     "pages/accountDetails/coinExchange/coinExchange",
     "pages/recharge/recharge",
     "pages/takeAPhoto/newPhoto/newPhoto",
