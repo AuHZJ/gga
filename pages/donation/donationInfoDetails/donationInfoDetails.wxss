@@ -1,1 +1,151 @@
 /* pages/donation/donationInfoDetails/donationInfoDetails.wxss */
+.body{
+  position: relative;
+  width: 100vw;
+  height: auto;
+}
+.donationInfoDetailsBG{
+  position: absolute;
+  z-index: -100;
+  width: 100%;
+  height: 100vh;
+}
+.infoPanel{
+  position: relative;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: auto;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  padding-top: 1vh;
+  /* border: 1px solid red; */
+  box-sizing: border-box;
+}
+.infoPanel .infoPanelBG{
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -99;
+  width: 100%;
+  height: 107%;
+}
+.top{
+  /* border: 1px solid red; */
+  height: 10vw;
+  line-height: 10vw;
+  position: relative
+}
+.top .title{
+  font-size: 4vw;
+  font-weight: bold;
+  vertical-align: middle;
+  display: inline-block;
+}
+.top .headimg{
+  width: 4.3vw;
+  height: 4vw;
+  vertical-align: middle;
+  margin-left: 3vw;
+  display: inline-block;
+}
+.top .name{
+  vertical-align: middle;
+  font-size: 2.5vw;
+  margin-left: 1vw;
+  display: inline-block;
+}
+.top .realname{
+  width: 7vw;
+  height: 2.8vw;
+  vertical-align: middle;
+  position: absolute;
+  right: 0;
+  top: 4.1vw;
+  display: inline-block;
+}
+.img1{
+  width: 100%;
+  height: 48vw;
+  box-sizing: border-box;
+  margin-top: 2vw;
+  border-radius: 3vw;
+  overflow: hidden;
+  box-shadow: 0vw 0vw 4vw rgba(0, 0, 0, 0.5);
+  /* border: 1px solid red */
+}
+.img1 image{
+  height: 100%;
+  width: 100%;
+}
+.img2and3{
+  width: 100%;
+  height: 30vw;
+  padding: 1vw 0 1vw 0;
+  margin-top: 4vw;
+  /* border: 1px solid red; */
+  box-sizing: border-box;
+}
+.img2, .img3{
+  /* border: 1px solid red; */
+  box-sizing: border-box;
+  width: 46%;
+  height: 100%;
+  display: inline-block;
+  border-radius: 2vw;
+  box-shadow: 0vw 0vw 3vw rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+.img3{
+  margin-left: 8%;
+}
+.position{
+  margin-top: 0.5vw;
+  width: 100%;
+  height: 4vw;
+  line-height: 6vw;
+}
+.position image{
+  width: 4vw;
+  height: 4vw;
+  float: right;
+  display: block;
+  border-top: 0.9vw solid white;
+}
+.position text{
+  float: right;
+  font-size: 2.2vw;
+  width: auto;
+  color: rgba(0, 0, 0, 0.4);
+  margin-left: 1vw;
+  display: block;
+}
+.description{
+  margin-top: 4vw;
+  width: 90%;
+  margin-left: 5%;
+  height: auto;
+  /* border: 1px solid red; */
+  line-height: 2.6vw;
+  text-indent: 5vw;
+}
+.description text{
+  font-size: 2.5vw;
+  color: rgba(0, 0, 0, 0.7);
+}
+.progress{
+  width: 100%;
+  height: 30vw;
+  border: 1px solid red;
+  margin-top: 11vw;
+  box-sizing: border-box;
+  position: relative;
+  top: 0;
+}
+.progress .progressBG{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  z-index: -98;
+}

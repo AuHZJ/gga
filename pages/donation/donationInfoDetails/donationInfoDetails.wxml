@@ -1,2 +1,52 @@
 <!--pages/donation/donationInfoDetails/donationInfoDetails.wxml-->
-<text>第{{index}}条贫困信息</text>
+
+<view class="body">
+  <image src="/images/donationInfoDetailsBG.png" class="donationInfoDetailsBG"></image><!--灰背景图-->
+  <view class="infoPanel">
+    <!--上背景框-->
+    <image src="/images/infoPanelBG.png" class="infoPanelBG"></image>
+
+    <view class="top">
+      <text class="title">"我们需要更好的环境!"</text>
+      <image src="/images/headimg.png" class="headimg"></image>
+      <text class="name">王小明</text>
+      <image src="/images/realname1.png" class="realname"></image>
+    </view>
+
+    <view class="img1">
+      <image src="/images/4.png"></image>
+    </view>
+
+    <view class="img2and3">
+      <image src="/images/3.png" class="img2"></image>
+      <image src="/images/4.png" class="img3"></image>
+    </view>
+
+    <view class="position">
+      <text>江西省 鹰潭市 余江县 xx村</text>
+      <image src="/images/position.png"></image>
+    </view>
+
+    <view class="description">
+      <text>这是我校初三的学生，成绩在班上数一数二，就是家里特别困难，父亲又是农民。成绩在班上数一数二，就是家里特别困难，父亲又是农民。这是我校初三的学生，成绩在班上数一数二，就是家里特别困难，。这是我校初三的学生，成绩在班上数一数二，就是家里特别困难，这是我校初三的学生，成绩在班上数一数二，父亲又是农民。这是我校初三的学生，成绩在班上数一数二，就是家里特别困难，父亲又是农民。</text>
+    </view>
+  </view>
+
+  <view class="progress">
+    <image src="/images/progressBG.png" class="progressBG"></image>
+
+    <view>
+      <text>所需金额：</text>
+      <text>10000元</text>
+    </view>
+
+    <view>
+      <progress></progress>
+    </view>
+
+    <view>
+      <text>已捐款：680元</text>
+      <text>剩余所需：9320元</text>
+    </view>
+  </view>
+</view>
