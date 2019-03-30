@@ -32,21 +32,26 @@
     </view>
   </view>
 
-  <view class="progress">
-    <image src="/images/progressBG.png" class="progressBG"></image>
+  <view class="progressPanel">
+    <image src="/images/progressBG.png" class="progressPanelBG"></image>
 
     <view>
-      <text>所需金额：</text>
-      <text>10000元</text>
+      <text style="font-size: 3vw; color: rgba(0, 0, 0, 0.7); ">所需金额：</text>
+      <text style="font-size: 4vw; color: rgba(0, 0, 0, 1); ">{{need}}元</text>
     </view>
 
-    <view>
-      <progress></progress>
+    <view class="progress">
+      <image src="/images/progressBorder.png"></image>
+      <progress percent="{{(need-surplus)/need*100}}" activeColor="rgba(255, 40, 40, 0.4)" backgroundColor="rgba(0, 0, 0, 0)" stroke-width="22"></progress>
     </view>
 
-    <view>
-      <text>已捐款：680元</text>
-      <text>剩余所需：9320元</text>
+    <view class="bottom">
+      <text class="text1">已捐款：{{need-surplus}}元</text>
+      <text class="text2">剩余所需：{{surplus}}元</text>
     </view>
   </view>
+</view>
+
+<view class="bottom-button">
+  <image src="/images/donationButton.png" class="button" bindtap='donation'></image>
 </view>

@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/donation/donationInfoDetails/donationInfoDetails",
     "pages/homepage/homepage",
+    "pages/donation/donationInfoDetails/donationInfoDetails",
+    
     "pages/addPovertyInfo/addPovertyInfo",
     "pages/accountDetails/coinExchange/coinExchange",
     "pages/recharge/recharge",

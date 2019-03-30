@@ -9,7 +9,7 @@
       </view>
       <!--top背景图片end-->
       <input name='title' type='text' placeholder='添加大字标题' placeholder-style='color:rgb(200,200,200);font-size:4vw'></input>
-      <textarea type='text' maxlength='1000' placeholder="请描述一下家庭情况，经济状况，所需物资与金额" placeholder-style='color:rgb(200,200,200);font-size:4vw' />
+      <textarea name='content' type='text' maxlength='1000' placeholder="请描述一下家庭情况，经济状况，所需物资与金额" placeholder-style='color:rgb(200,200,200);font-size:4vw' />
       <view wx:key="imgbox" wx:for="{{imgbox}}" class="imgBox">
         <image class='photo' src="{{item}}"></image>
         <image class="image-delete" src='/images/delete.png' data-deindex='{{index}}' bindtap='imgDelete'></image>   <!--右上角删除照片-->

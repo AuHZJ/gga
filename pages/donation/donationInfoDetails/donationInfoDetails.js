@@ -5,7 +5,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-    index: ''
+    index: '',
+    need: 10000,
+    surplus: 3999
+  },
+
+  donation: function(){
+    console.log("捐赠")
   },
 
   /**

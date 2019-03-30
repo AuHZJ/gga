@@ -64,6 +64,8 @@ Page({
 
   formSubmit: function(e, index = 0, u = '') {
     var that = this;
+    if(!that.check(e))//表单验证
+      return;
     console.log('正在上传：' + that.data.imgbox[index])
     wx.uploadFile({ //上传包含图片的form表单
       url: getApp().globalData.ip + '/compare',
@@ -83,6 +85,50 @@ Page({
         console.log('贫困信息id：' + res.data);
         console.log('imgbox['+index+']上传成功！');
         that.formSubmit(e, index + 1, u.concat(res.data.data.url))
+      }
+    })
+  },
+  check: function(e){ //表单验证
+    if (e.detail.value.title == ''){
+      this.comfirm('警告', '请输入标题！', false, '返回输入', '用户点击了“返回输入”')
+      return false;
+    }
+    if (e.detail.value.content == ''){
+      this.comfirm('警告', '请输入内容描述！', false, '返回输入', '用户点击了“返回输入”')
+      return false;
+    }
+    if (this.data.imgbox.length != 3){
+      this.comfirm('警告', '请上传3张照片！', false, '返回上传', '用户点击了“返回上传”')
+      return false;
+    }
+    if (this.data.userName == '') {
+      this.comfirm('警告', '请输入姓名！', false, '返回输入', '用户点击了“返回输入”')
+      return false;
+    }
+    if (this.data.userTel == '') {
+      this.comfirm('警告', '请输入电话号码！', false, '返回输入', '用户点击了“返回输入”')
+      return false;
+    }
+    if (this.data.userAdd == '') {
+      this.comfirm('警告', '请输入地址！', false, '返回输入', '用户点击了“返回输入”')
+      return false;
+    }
+    if (e.detail.value.needMoney == '') {
+      this.comfirm('警告', '请输入所需金额！', false, '返回输入', '用户点击了“返回输入”')
+      return false;
+    }
+    return true;
+  },
+  comfirm: function (title, content, showCancel, confirmText, info) { //封装提示框
+    wx.showModal({ // 提示框
+      title: title,
+      content: content,
+      showCancel: showCancel,
+      confirmText: confirmText,
+      success: function (res) {
+        if (res.confirm) {
+          console.log(info)
+        }
       }
     })
   },
