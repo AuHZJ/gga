@@ -101,19 +101,19 @@ Page({
       this.comfirm('警告', '请上传3张照片！', false, '返回上传', '用户点击了“返回上传”')
       return false;
     }
-    if (this.data.userName == '') {
+    if (e.detail.value.userName == '') {
       this.comfirm('警告', '请输入姓名！', false, '返回输入', '用户点击了“返回输入”')
       return false;
     }
-    if (this.data.userTel == '') {
+    if (e.detail.value.userTel == '') {
       this.comfirm('警告', '请输入电话号码！', false, '返回输入', '用户点击了“返回输入”')
       return false;
     }
-    if (this.data.userAdd == '') {
+    if (e.detail.value.address == '') {
       this.comfirm('警告', '请输入地址！', false, '返回输入', '用户点击了“返回输入”')
       return false;
     }
-    if (e.detail.value.needMoney == '') {
+    if (e.detail.value.money == '') {
       this.comfirm('警告', '请输入所需金额！', false, '返回输入', '用户点击了“返回输入”')
       return false;
     }
@@ -132,48 +132,7 @@ Page({
       }
     })
   },
-
-  inputInfo: function() {
-    this.setData({
-      showModal: true
-    })
-  },
-
-  preventTouchMove: function() {},
-
-  hideModal: function() {
-    console.log(11)
-    this.setData({
-      showModal: false
-    });
-  },
-  /**
-   * 对话框取消按钮点击事件
-   */
-  onCancel: function() {
-    this.hideModal();
-  },
-  /**
-   * 对话框确认按钮点击事件
-   */
-  onConfirm: function() {
-    this.hideModal();
-  },
-  userNameInput: function(e) {
-    this.setData({
-      userName: e.detail.value
-    })
-  },
-  userTelInput: function(e) {
-    this.setData({
-      userTel: e.detail.value
-    })
-  },
-  userAddInput: function(e) {
-    this.setData({
-      userAdd: e.detail.value
-    })
-  },
+ 
 
   onLoad: function(options) {
     this.setData({

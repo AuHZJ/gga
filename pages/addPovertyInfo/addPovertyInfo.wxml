@@ -23,49 +23,17 @@
     <!--middle部分begin-->
     <view class='middle'>
       <!--middle背景图片begin-->
-      <view class='mid-bg'>
-        <image src='/images/middle-border.png'></image>
-      </view>
+      <image src='/images/middle-border.png' class="middle-bg"></image>
       <!--middle背景图片end-->
-      
+
+      <input name='userName' class='inputName' type='text' placeholder='姓名' placeholder-class='placeholder-class'></input>
+      <input name='tel' class='inputTel' type='text' placeholder='电话' placeholder-class='placeholder-class'></input>
+      <input name='address' class='inputAddress' type='text' placeholder='地址' placeholder-class='placeholder-class'></input>
+      <view class='user-type'>{{userClass}}</view>
+      <input name='money' class='inputMoney' type='number' value=''></input>
+
     </view>
     <!--middle部分end-->
-
-    <view class='toInput' bindtap="inputInfo">
-      <text class='name'>{{userName}}</text>
-      <text class='tel'>{{userTel}}</text>
-      <text class='address'>{{userAdd}}</text>
-    </view>
-    <!--用户信息输入框隐藏 begin-->
-    <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
-    <view class="modal-container" wx:if="{{showModal}}">
-      <view class="modal-content">
-        <view class="modal-input">
-          <input placeholder-class="input-holder" type="text" class="input" placeholder="姓名" name='userName' bindinput='userNameInput'></input>
-        </view>
-        <view class="modal-input">
-          <input placeholder-class="input-holder" type="number" class="input" placeholder="电话" name='userTel' bindinput='userTelInput'></input>
-        </view>
-        <view class="modal-input">
-          <input placeholder-class="input-holder" type="text" class="input" placeholder="地址" name='userAdd' bindinput='userAddInput'></input>
-        </view>
-      </view>
-      <view class="modal-footer">
-        <view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</view>
-        <view class="btn-confirm" bindtap="onConfirm" data-status="confirm">确定</view>
-      </view>
-    </view>
-    <!--用户信息输入框隐藏 end-->
-
-    <!--用户类型 begin-->
-    <view bindtap='' class='user-type'>{{userClass}}</view>
-    <!--用户类型 end-->
-
-    <!--所需金额 begin-->
-    <view class='inputMoney'>
-      <input class='money' type='number' value=''></input>
-    </view>
-    <!--所需金额 end-->
 
     <!--bottom部分begin-->
     <view class='bottom'>

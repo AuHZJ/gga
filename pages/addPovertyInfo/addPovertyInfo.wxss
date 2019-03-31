@@ -50,14 +50,14 @@ page{
   top: -29vw;
   left: 21.6vw;
 }
-input{
+.top input{
   width: 92%;
   height: 10vw;
   font-size: 6vw;
   position: absolute;
   top: 2vw;
   left: 4vw;
-  color: #aaa;
+  color: rgba(0, 0, 0, 0.6);
 }
 textarea{
   width: 92%;
@@ -68,157 +68,61 @@ textarea{
   position: absolute;
   top: 13vw;
   left: 4vw;
-  color: #aaa;
+  color: rgba(0, 0, 0, 0.6);
   /* border: 1px solid red; */
 }
 
-.mid-bg{
-  width: 100%;
-  height: 58vw;
-  overflow: hidden;
-}
-.mid-bg image{
-  width: 100%;
-  height: 58vw;
-  z-index: -1;
-  position: absolute;
-  top: 82vw;
-  left: 0;
-}
-
-
-.toInput{
-  width: 100vw;
-  height: 27vw;
-  position: absolute;
-  top: 83vw;
-  left: 0;
-  padding-left: 30vw;
-  color: rgb(200, 200, 200);
-  font-size: 30rpx;
-}
-.name,
-.tel{
-  display: inline-block;
-  height: 8vw;
-  line-height: 8vw;
-  position: relative;
-  top: 6vw;
-  /* border: 1px solid red; */
-}
-.name{
-  width: 20vw;
-}
-.tel{
-  width: 38vw;
-}
-.address{
-  display: block;
-  width: 58vw;
-  height: 8vw;
-  line-height: 8vw;
-  position: relative;
-  top: 6vw;
-  /* border: 1px solid red; */
-  overflow: hidden;
-}
-.modal-mask {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: #000;
-  opacity: 0.5;
-  overflow: hidden;
-  z-index: 10;
-}
-.modal-container {
-  width: 70vw;
-  overflow: hidden;
-  position: fixed;
-  top: 35%;
-  left: 15vw;
-  z-index: 20;
-  background: #fff;
-  border-radius: 36rpx;
-}
-.modal-content {
-  width: 100%;
-  margin-top: 3vw;
-}
-.modal-input{
-  width: 100%;
-  height: 12vw;
-  background: #fff;
-  border-bottom: 2rpx solid #ddd;
-  font-size: 28rpx;
-  position: relative;
-}
-.input{
-  width: 100%;
-  height: 100%;
-  font-size: 28rpx;
-  line-height: 28rpx;
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding-left: 4vw;
+.middle{
+  margin-top: 4vw;
   box-sizing: border-box;
-  color: #333;
+  width: 100%;
+  height: 68vw;
+  position: relative;
+  top: 0;
+  left: 0;
+  padding-top: 3%;
 }
-.input-holder {
-  color: #666;
-  font-size: 28rpx;
+.middle .middle-bg{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -70;
+  top: 0;
+  left: 0;
 }
-.modal-footer {
-  display: flex;
-  flex-direction: row;
-  height: 12vw;
-  border-top: 1px solid #dedede;
-  font-size: 34rpx;
-  line-height: 12vw;
+.inputName, .inputTel, .inputAddress, .inputMoney{
+  display: block;
+  position: absolute;
+  left: 25%;
+  width: 60%;
+  height: 15%;
+  /* border: 1px solid red; */
+  box-sizing: border-box;
+  color: rgba(0, 0, 0, 0.6);
 }
-.btn-cancel {
-  width: 50%;
-  color: #666;
-  text-align: center;
-  border-right: 1px solid #dedede;
+.placeholder-class{
+  font-size: 3.8vw;
+  color: rgba(0, 0, 0, 0.3);
 }
-.btn-confirm {
-  width: 50%;
-  color: #ec5300;
-  text-align: center;
+.inputTel{
+  top: 21%;
+}
+.inputAddress{
+  top: 38%;
 }
 .user-type{
-  width: 50vw;
-  height: 13vw;
-  line-height: 13vw;
-  color: rgb(200, 200, 200);
-  font-size: 30rpx;
-  margin-left: 30vw;
+  color: rgba(0, 0, 0, 0.6);
   position: absolute;
-  top: 111vw;
-  left: 0;
+  left: 25%;
+  top: 55%;
 }
-
 .inputMoney{
-  width: 100vw;
-  height: 13vw;
-  position: absolute;
-  top: 124vw;
-  left: 0;
+  bottom: 4%;
 }
-.inputMoney input{
-  width: 40vw;
-  height: 13vw;
-  margin: 0 27vw;
-  position: relative;
-  top: 0;
-  color: rgb(200, 200, 200);
-  font-size: 30rpx; 
+.user-type{
+  font-size: 3.8vw;
+  margin-top: 8%;
 }
-
 .bottom-bg{
   width: 100%;
   height: 15vw;
@@ -227,7 +131,7 @@ textarea{
 .bottom-bg image{
   width: 100%;
   height: 15vw;
-  z-index: -1;
+  z-index: 1;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -244,5 +148,6 @@ button{
   position: fixed;
   bottom: 0;
   right: 0;
+  z-index: 2;
 }
 
