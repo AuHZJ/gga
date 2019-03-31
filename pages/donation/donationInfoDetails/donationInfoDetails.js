@@ -7,17 +7,35 @@ Page({
   data: {
     index: '',
     need: 10000,
-    surplus: 3999
+    surplus: 3999,
+    donationPanelHidden: true
   },
 
   donation: function(){
     console.log("捐赠")
+    this.setData({
+      donationPanelHidden: false
+    })
+  },
+  donation_comfirm: function(){
+    this.setData({
+      donationPanelHidden: true
+    })
+  },
+  donation_cancel: function () {
+    this.setData({
+      donationPanelHidden: true
+    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.showLoading({
+      title: '加载中',
+      mask: true
+    })
     this.setData({
       index: options.index
     })
@@ -27,7 +45,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    wx.hideLoading()
   },
 
   /**

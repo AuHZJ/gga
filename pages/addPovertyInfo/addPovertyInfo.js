@@ -63,6 +63,11 @@ Page({
   },
 
   formSubmit: function(e, index = 0, u = '') {
+    // wx.showToast({
+    //   title: '成功',
+    //   icon: 'success',
+    //   duration: 2000
+    // })
     var that = this;
     if(!that.check(e))//表单验证
       return;
@@ -132,11 +137,36 @@ Page({
       }
     })
   },
+  chooseUserType: function (e) {
+    var that = this;
+    wx.showActionSheet({
+      itemList: ['贫困户', '管理员', '志愿者'],
+      itemColor: "#000000",
+      success: function (res) {
+        if (!res.cancel) {
+          if (res.tapIndex == 0) {
+            that.setData({
+              userClass: "贫困户"
+            })
+          } else if (res.tapIndex == 1) {
+            that.setData({
+              userClass: "管理员"
+            })
+          }else{
+            that.setData({
+              userClass: "志愿者"
+            })
+          }
+        }
+      }
+    })
+  },
  
 
   onLoad: function(options) {
-    this.setData({
-      userClass: getApp().globalData.userType
+    wx.showLoading({
+      title: '加载中',
+      mask: true
     })
   },
 
@@ -144,7 +174,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
-
+    wx.hideLoading()
   },
 
   /**

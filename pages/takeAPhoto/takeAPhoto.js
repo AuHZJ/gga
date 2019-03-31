@@ -74,10 +74,10 @@ Page({
 
   chooseImage: function (event) {
     var that = this;
-    wx.navigateTo({
-      url: 'newPhoto/newPhoto?id=' + event.currentTarget.dataset.a + '&MealsPaths0=' + that.data.MealsPaths0 + '&MealsPaths1=' + that.data.MealsPaths1
-    })
-    //that.chooseWxImage('camera', event.currentTarget.dataset.a)
+    // wx.navigateTo({
+    //   url: 'newPhoto/newPhoto?id=' + event.currentTarget.dataset.a + '&MealsPaths0=' + that.data.MealsPaths0 + '&MealsPaths1=' + that.data.MealsPaths1
+    // })
+    that.chooseWxImage('camera', event.currentTarget.dataset.a)
     // wx.showActionSheet({
     //   itemList: ['从相册中选择', '拍照'],
     //   itemColor: "#000000",
@@ -93,20 +93,20 @@ Page({
     // })
   },
 
-  // chooseWxImage: function (type,time) { // time代表餐前还是餐后
-  //   var that = this;
-  //   wx.chooseImage({
-  //     count: 2,
-  //     sizeType: ['original', 'compressed'],
-  //     sourceType: [type],
-  //     success: function (res) {
-  //       console.log(res);
-  //       that.setData({
-  //         ['MealsPaths'+time]: res.tempFilePaths[0],
-  //       })
-  //     }
-  //   })
-  // },
+  chooseWxImage: function (type,time) { // time代表餐前还是餐后
+    var that = this;
+    wx.chooseImage({
+      count: 2,
+      sizeType: ['original', 'compressed'],
+      sourceType: [type],
+      success: function (res) {
+        console.log(res);
+        that.setData({
+          ['MealsPaths'+time]: res.tempFilePaths[0],
+        })
+      }
+    })
+  },
 
   uploadFile: function() {
     var that = this

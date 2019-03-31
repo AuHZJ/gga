@@ -55,3 +55,12 @@
 <view class="bottom-button">
   <image src="/images/donationButton.png" class="button" bindtap='donation'></image>
 </view>
+
+<view class="donationPanel" hidden='{{donationPanelHidden}}'>
+  <view class="border">
+    <text>输入捐赠金额：</text>
+    <input type="number"/>
+    <button bindtap='donation_cancel'>取消</button>
+    <button bindtap='donation_comfirm'>确定</button>
+  </view>
+</view>

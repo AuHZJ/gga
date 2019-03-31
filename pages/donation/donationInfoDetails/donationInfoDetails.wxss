@@ -196,3 +196,20 @@
   width: 40%;
   height: 100%;
 }
+.donationPanel{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.3);
+}
+.donationPanel .border{
+  width: 80%;
+  margin-left: 10%;
+  height: 30%;
+  margin-top: 39%;
+  background: white;
+  border-radius: 3vw;
+}

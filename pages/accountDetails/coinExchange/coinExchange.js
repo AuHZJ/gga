@@ -32,6 +32,10 @@ Page({
       })
       return
     }
+    wx.showLoading({
+      title: '加载中',
+      mask: true
+    })
     wx.request({
       url: getApp().globalData.ip + '',
       header: { 'cookie': 'JSESSIONID=' + wx.getStorageSync("sessionid") },
@@ -47,12 +51,18 @@ Page({
           showCancel: false,
           confirmText: '确定',
           success: function (res) {
-            if (res.confirm) {
-            }
+            wx.showToast({
+              title: '成功',
+              icon: 'success',
+              duration: 2000
+            })
           }
         })
       }
     })
+    wx.hideToast()
+    wx.hideLoading()
+
   },
 
   /**

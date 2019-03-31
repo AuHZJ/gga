@@ -1,14 +1,12 @@
 {
   "pages": [
-    "pages/addPovertyInfo/addPovertyInfo",
     "pages/homepage/homepage",
+    "pages/takeAPhoto/takeAPhoto",
+    "pages/takeAPhoto/newPhoto/newPhoto",
     "pages/donation/donationInfoDetails/donationInfoDetails",
-    
-    
+    "pages/addPovertyInfo/addPovertyInfo",
     "pages/accountDetails/coinExchange/coinExchange",
     "pages/recharge/recharge",
-    "pages/takeAPhoto/newPhoto/newPhoto",
-    "pages/takeAPhoto/takeAPhoto",
     "pages/login/login",
     "pages/accountDetails/accountDetails",
     "pages/donation/donation",

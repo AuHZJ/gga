@@ -4,4 +4,7 @@
   <camera device-position="back" flash="off" binderror="error"></camera>
   <button bindtap='takePhoto' class="button">拍照</button>
 </view>
+<view class='test'>
+
+</view>
 
