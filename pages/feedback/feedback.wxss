@@ -1,1 +1,109 @@
 /* pages/feedback/feedback.wxss */
+view{
+  box-sizing: border-box;
+}
+.body{
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  left: 0;
+  top: 0;
+}
+.body .bodyBG{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -99;
+}
+.body .top{
+  width: 100%;
+  height: 72vw;
+  /* border: 1px solid red */
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.body .top .top-bg{
+  width: 100%;
+  height: 100%;
+  z-index: -98;
+  position: absolute;
+}
+.body .top textarea{
+  /* border: 1px solid red; */
+  width: 90%;
+  height: 48vw;
+  margin-left: 5%;
+  position: absolute;
+  top: 20%;
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 4vw;
+}
+.body .top .textarea-style{
+  color: rgba(0, 0, 0, 0.3);
+  font-size: 3vw;
+}
+.body .middle{
+  padding-top: 7vw;
+  margin-top: 1vw;
+  width: 100%;
+  height: 40vw;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.body .middle .middle-bg{
+  width: 100%;
+  height: 100%;
+  z-index: -98;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.body .middle .imgBox, 
+.add-pic{
+  position: relative;
+  width: 25vw;
+  height: 25vw;
+  float: left;
+  box-sizing: border-box;
+  margin-left: 5.8vw;
+  /* border: 1px solid red */
+}
+.body .middle .imgBox .photo, 
+.add-pic .img{
+  width: 25vw;
+  height: 25vw;
+  top: 52vw;
+  left: 6vw;
+}
+.body .middle .imgBox .image-delete{
+  width: 6vw;
+  height: 6vw;
+  position: relative;
+  top: -29vw;
+  left: 21.6vw;
+}
+.body .bottom{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 15vw;
+  background: white;
+  box-shadow: 0 0 5vw rgba(0, 0, 0, 0.15);
+}
+.body .bottom button{
+  width: 44%;
+  height: 15vw;
+  position: absolute;
+  right: 0;
+  line-height: 15vw;
+  color: white;
+  padding: 0;
+  float: right;
+  border-radius: 0;
+  background: #ff6b69;
+  z-index: 2;
+}

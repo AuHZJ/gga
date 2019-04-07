@@ -26,30 +26,30 @@ Page({
         publishTime: '',
         updateTime: ''
       },
-      {
-        headImage: '../../images/questionMark.png',
-        type: '贫困户',
-        city: '江西省吉安市',
-        realName: '已实名',
-        img: '../../images/3.png',
-        title: '“我们需要更好的环境!”',
-        needMoney: 20000,
-        currentMoney: 8850,
-        width: '100%',
-        animation: ''
-      },
-      {
-        headImage: '../../images/questionMark.png',
-        type: '贫困户',
-        city: '江西省吉安市',
-        realName: '已实名',
-        img: '../../images/3.png',
-        title: '“我们需要更好的环境!”',
-        needMoney: 6000,
-        currentMoney: 4450,
-        width: '100%',
-        animation: ''
-      },
+      // {
+      //   headImage: '../../images/questionMark.png',
+      //   type: '贫困户',
+      //   city: '江西省吉安市',
+      //   realName: '已实名',
+      //   img: '../../images/3.png',
+      //   title: '“我们需要更好的环境!”',
+      //   needMoney: 20000,
+      //   currentMoney: 8850,
+      //   width: '100%',
+      //   animation: ''
+      // },
+      // {
+      //   headImage: '../../images/questionMark.png',
+      //   type: '贫困户',
+      //   city: '江西省吉安市',
+      //   realName: '已实名',
+      //   img: '../../images/3.png',
+      //   title: '“我们需要更好的环境!”',
+      //   needMoney: 6000,
+      //   currentMoney: 4450,
+      //   width: '100%',
+      //   animation: ''
+      // },
       // {
       //   headImage: '../../images/questionMark.png',
       //   type: '贫困户',

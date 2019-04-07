@@ -12,7 +12,7 @@
 
 <view class="IDPanel">
   <text>ID</text>
-  <text class="ID">gga123456789</text>
+  <text class="ID">{{sessionid}}</text>
 </view>
 
 <view class="namePanel">
@@ -27,7 +27,7 @@
 
 <view class="typePanel">
   <text>用户类型</text>
-  <text class="type">志愿者</text>
+  <text class="type">{{userType}}</text>
 </view>
 
 <view class="addressPanel">
@@ -39,7 +39,7 @@
   </view>
 </view>
 
-<view class="personalitySignaturePanel">
+<view class="personalitySignaturePanel" hidden='true'>
   <text>个性签名</text>
   <text class="personalitySignature">hello world!</text>
 </view>

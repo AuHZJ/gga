@@ -1,13 +1,18 @@
 {
   "pages": [
     "pages/homepage/homepage",
+    "pages/login/login",
+    
+    
+    "pages/feedback/feedback",
+    
     "pages/takeAPhoto/takeAPhoto",
     "pages/takeAPhoto/newPhoto/newPhoto",
     "pages/donation/donationInfoDetails/donationInfoDetails",
     "pages/addPovertyInfo/addPovertyInfo",
     "pages/accountDetails/coinExchange/coinExchange",
     "pages/recharge/recharge",
-    "pages/login/login",
+        
     "pages/accountDetails/accountDetails",
     "pages/donation/donation",
     "pages/personal/personal",
@@ -15,7 +20,7 @@
     "pages/messages/messages",
     "pages/viewRecord/viewRecord",
     "pages/enterpriseEntry/enterpriseEntry",
-    "pages/feedback/feedback",
+    
     "pages/personalData/personalData",
     "pages/setting/setting",
     "pages/logs/logs"

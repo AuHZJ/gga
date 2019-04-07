@@ -16,7 +16,7 @@
       </view>
       <view class='add-pic' bindtap='chooseImage' wx:if="{{imgbox.length<3}}"> <!--最多3张图片-->
         <image class='img' src='/images/photo-border.png'></image>    <!--+号图片-->
-      </view>
+      </view><!---->
     </view>
     <!--top部分end-->
 

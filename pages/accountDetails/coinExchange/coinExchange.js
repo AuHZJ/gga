@@ -33,8 +33,8 @@ Page({
       return
     }
     wx.showLoading({
-      title: '加载中',
-      mask: true
+      title: '兑换中',
+      mask: false
     })
     wx.request({
       url: getApp().globalData.ip + '',
@@ -45,24 +45,14 @@ Page({
       dataType: 'json',
       method: 'GET',
       success: function (res) {
-        wx.showModal({ // 提示框
-          title: '提示',
-          content: '兑换成功！',
-          showCancel: false,
-          confirmText: '确定',
-          success: function (res) {
-            wx.showToast({
-              title: '成功',
-              icon: 'success',
-              duration: 2000
-            })
-          }
+        wx.showToast({
+          title: '兑换成功',
+          icon: 'success',
+          duration: 2000
         })
-      }
+      },
     })
-    wx.hideToast()
     wx.hideLoading()
-
   },
 
   /**

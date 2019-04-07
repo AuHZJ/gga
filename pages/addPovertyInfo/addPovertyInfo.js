@@ -63,63 +63,85 @@ Page({
   },
 
   formSubmit: function(e, index = 0, u = '') {
-    // wx.showToast({
-    //   title: '成功',
-    //   icon: 'success',
-    //   duration: 2000
-    // })
     var that = this;
     if(!that.check(e))//表单验证
-      return;
+      return
+    if (index == that.data.imgbox.length)
+      return
     console.log('正在上传：' + that.data.imgbox[index])
-    wx.uploadFile({ //上传包含图片的form表单
-      url: getApp().globalData.ip + '/compare',
+    wx.uploadFile({
+      url: getApp().globalData.ip + '/upload',
       filePath: that.data.imgbox[index], // 图片文件路径
-      name: 'addInfoImg',
+      name: 'file',
       header: {
         'cookie': 'JSESSIONID=' + wx.getStorageSync("sessionid"),
-        'content-type': 'multipart/form-data'
       },
-      formData: {
-        'title': e.detail.value.title,
-        'content': e.detail.value.content,
-        'needMoney': e.detail.value.needMoney,
-        'url': u
-      },
+      dataType: 'json',
       success: function(res) {
         console.log('贫困信息id：' + res.data);
         console.log('imgbox['+index+']上传成功！');
-        that.formSubmit(e, index + 1, u.concat(res.data.data.url))
+        if (index == that.data.imgbox.length - 1){
+          that.uploadData(e.detail.value, u)
+        }
+        else
+          that.formSubmit(e, index + 1, u.concat(res.data.data.url))
+      }
+    })
+  },
+  uploadData: function(v, url){
+    wx.request({
+      url: getApp().globalData.ip + '/poor-man-info/insert',
+      header: {
+        'cookie': 'JSESSIONID=' + wx.getStorageSync("sessionid"),
+        'content-type': 'application/json;charset=utf-8'
+      },
+      data: {
+        'title': v.title,
+        'content': v.content,
+        'needMoney': v.needMoney,
+        'location': v.address,
+        // 'currentMoney': '此处是bug',
+        'url': url
+      },
+      method: 'POST',
+      dataType: 'json',
+      success: function(res){
+        console.log(res)
+          wx.showToast({
+          title: '成功',
+          icon: 'success',
+          duration: 2000
+    })
       }
     })
   },
   check: function(e){ //表单验证
     if (e.detail.value.title == ''){
-      this.comfirm('警告', '请输入标题！', false, '返回输入', '用户点击了“返回输入”')
+      this.comfirm('提示', '请输入标题！', false, '返回输入', '用户点击了“返回输入”')
       return false;
     }
     if (e.detail.value.content == ''){
-      this.comfirm('警告', '请输入内容描述！', false, '返回输入', '用户点击了“返回输入”')
+      this.comfirm('提示', '请输入内容描述！', false, '返回输入', '用户点击了“返回输入”')
       return false;
     }
-    if (this.data.imgbox.length != 3){
-      this.comfirm('警告', '请上传3张照片！', false, '返回上传', '用户点击了“返回上传”')
+    if (this.data.imgbox.length == 0){
+      this.comfirm('提示', '请上传照片！', false, '返回上传', '用户点击了“返回上传”')
       return false;
     }
     if (e.detail.value.userName == '') {
-      this.comfirm('警告', '请输入姓名！', false, '返回输入', '用户点击了“返回输入”')
+      this.comfirm('提示', '请输入姓名！', false, '返回输入', '用户点击了“返回输入”')
       return false;
     }
     if (e.detail.value.userTel == '') {
-      this.comfirm('警告', '请输入电话号码！', false, '返回输入', '用户点击了“返回输入”')
+      this.comfirm('提示', '请输入电话号码！', false, '返回输入', '用户点击了“返回输入”')
       return false;
     }
     if (e.detail.value.address == '') {
-      this.comfirm('警告', '请输入地址！', false, '返回输入', '用户点击了“返回输入”')
+      this.comfirm('提示', '请输入地址！', false, '返回输入', '用户点击了“返回输入”')
       return false;
     }
     if (e.detail.value.money == '') {
-      this.comfirm('警告', '请输入所需金额！', false, '返回输入', '用户点击了“返回输入”')
+      this.comfirm('提示', '请输入所需金额！', false, '返回输入', '用户点击了“返回输入”')
       return false;
     }
     return true;

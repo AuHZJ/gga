@@ -148,7 +148,11 @@ Page({
         if (path == that.data.MealsPaths1){  //两张图片全部上传完成
           if (status == 200){
             console.log(datas.data)
-            that.showModal('提示', '上传成功！', false, '确定','用户点击了确定')
+            wx.showToast({
+              title: '上传成功',
+              icon: 'success',
+              duration: 2000
+            })
             if (datas.message == '比较成功'){
               that.setData({
                 loveNumber: datas.data.aCoin,

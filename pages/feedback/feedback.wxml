@@ -1,2 +1,28 @@
 <!--pages/feedback/feedback.wxml-->
-<text>pages/feedback/feedback.wxml</text>
+<view class='body'>
+  <image src='/images/donationInfoDetailsBG.png' class='bodyBG'></image>
+  <form bindsubmit="formSubmit">
+    <view class='top'>
+      <image src='/images/feedBackTopBorder.png' class='top-bg'></image>
+      <textarea name='content' placeholder='有任何意见都畅所欲言吧~(不少于10个字)' placeholder-class='textarea-style' maxlength='200'></textarea>
+    </view>
+
+    <view class='middle'>
+      <image src='/images/feedBackMiddleBorder.png' class='middle-bg'></image>
+
+      <view wx:key="imgbox" wx:for="{{imgbox}}" class="imgBox">
+        <image class='photo' src="{{item}}"></image>
+        <image class="image-delete" src='/images/delete.png' data-deindex='{{index}}' bindtap='imgDelete'></image>   <!--右上角删除照片-->
+      </view>
+      <view class='add-pic' bindtap='chooseImage' wx:if="{{imgbox.length<3}}"> <!--最多3张图片-->
+        <image class='img' src='/images/addImage.png'></image>    <!--+号图片-->
+      </view>
+    </view>
+
+    <view class='bottom'>
+      <button formType="submit">确认提交</button>
+    </view>
+  </form>
+
+</view>
+
