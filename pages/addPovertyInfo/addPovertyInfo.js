@@ -6,10 +6,14 @@ Page({
    */
   data: {
     imgbox: [],
-    userName: '',
-    userTel: '',
-    userAdd: '',
-    userClass: ''
+    title: '',
+    content: '',
+    name: '',
+    tel: '',
+    address: '',
+    userClass: '',
+    money1: '',
+    uri: []
   },
 
   /**
@@ -62,11 +66,9 @@ Page({
     });
   },
 
-  formSubmit: function(e, index = 0, u = '') {
+  formSubmit: function(e, index = 0) {
     var that = this;
     if(!that.check(e))//表单验证
-      return
-    if (index == that.data.imgbox.length)
       return
     console.log('正在上传：' + that.data.imgbox[index])
     wx.uploadFile({
@@ -75,20 +77,28 @@ Page({
       name: 'file',
       header: {
         'cookie': 'JSESSIONID=' + wx.getStorageSync("sessionid"),
+        'content-type': 'charset=utf-8'
       },
       dataType: 'json',
       success: function(res) {
-        console.log('贫困信息id：' + res.data);
-        console.log('imgbox['+index+']上传成功！');
+        let datas = JSON.parse(res.data)
+        console.log('imgbox['+index+']上传成功！')
+        var new_url = that.data.uri.concat(datas.data)
+        that.setData({
+          uri: new_url
+        })
         if (index == that.data.imgbox.length - 1){
-          that.uploadData(e.detail.value, u)
+          that.uploadData(e.detail.value)
         }
         else
-          that.formSubmit(e, index + 1, u.concat(res.data.data.url))
+          that.formSubmit(e, index + 1)
       }
     })
   },
-  uploadData: function(v, url){
+  uploadData: function(v){
+    var that = this
+    
+    console.log('上传数据' + that.data.uri.join(' '))
     wx.request({
       url: getApp().globalData.ip + '/poor-man-info/insert',
       header: {
@@ -100,15 +110,15 @@ Page({
         'content': v.content,
         'needMoney': v.needMoney,
         'location': v.address,
-        // 'currentMoney': '此处是bug',
-        'url': url
+        'coverPicUrl': that.data.uri.join(' ')
       },
       method: 'POST',
       dataType: 'json',
       success: function(res){
+        that.onLoad()
         console.log(res)
           wx.showToast({
-          title: '成功',
+          title: '发布成功',
           icon: 'success',
           duration: 2000
     })
@@ -124,8 +134,8 @@ Page({
       this.comfirm('提示', '请输入内容描述！', false, '返回输入', '用户点击了“返回输入”')
       return false;
     }
-    if (this.data.imgbox.length == 0){
-      this.comfirm('提示', '请上传照片！', false, '返回上传', '用户点击了“返回上传”')
+    if (this.data.imgbox.length != 3){
+      this.comfirm('提示', '请上传3张照片！', false, '返回上传', '用户点击了“返回上传”')
       return false;
     }
     if (e.detail.value.userName == '') {
@@ -189,6 +199,17 @@ Page({
     wx.showLoading({
       title: '加载中',
       mask: true
+    })
+    this.setData({
+      imgbox: [],
+      title: '',
+      content: '',
+      name: '',
+      tel: '',
+      address: '',
+      userClass: '',
+      money1: '',
+      uri: []
     })
   },
 

@@ -84,7 +84,7 @@ Page({
       title: '加载中',
       mask: true
     })
-    var that = this;
+    var that = this
     wx.request({
       url: getApp().globalData.ip+'/poor-man-info/public/list',
       method: 'GET',
@@ -99,18 +99,23 @@ Page({
         for (var item in res.data.data.list){
           var value = res.data.data.list[item];
           var newInfo = {};
-          newInfo['animation'] = '';
-          newInfo['width'] = '100%';
-          newInfo['type'] = '贫困户';
-          newInfo['title'] = value.title;
-          newInfo['city'] = value.location;
-          newInfo['currentMoney'] = value.currentMoney;
-          newInfo['needMoney'] = value.needMoney;
-          newInfo['img'] = getApp().globalData.ip + value.coverPicUrl;
-          newInfo['content'] = value.content;
-          newInfo['id'] = value.id;
-          newInfo['userId'] = value.userId;
-          newList.push(newInfo);
+
+          newInfo['animation'] = ''
+          newInfo['width'] = '100%'
+          newInfo['type'] = '贫困户'
+          newInfo['content'] = value.content
+          newInfo['img'] = getApp().globalData.ip + '/' + value.coverPicUrl.split(' ')[0]
+          newInfo['createTime'] = value.createTime
+          newInfo['currentMoney'] = value.currentMoney
+          newInfo['id'] = value.id
+          newInfo['city'] = value.location
+          newInfo['needMoney'] = value.needMoney
+          newInfo['publishTime'] = value.publishTime
+          newInfo['review'] = value.review
+          newInfo['title'] = value.title
+          newInfo['updateTime'] = value.updateTime
+          newInfo['userId'] = value.userId
+          newList.push(newInfo)
         }
         that.setData({
           info: newList

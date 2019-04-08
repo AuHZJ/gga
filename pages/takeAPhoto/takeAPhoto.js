@@ -130,7 +130,7 @@ Page({
     wx.uploadFile({
       url: getApp().globalData.ip+'/compare',
       filePath: path,
-      name: 'file', 
+      name: 'file',
       header: { 
         'cookie': 'JSESSIONID=' + wx.getStorageSync("sessionid"),
        },
@@ -154,6 +154,7 @@ Page({
               duration: 2000
             })
             if (datas.message == '比较成功'){
+              that.onLoad()
               that.setData({
                 loveNumber: datas.data.aCoin,
                 rewardNumber: datas.data.gCoin,
@@ -164,7 +165,6 @@ Page({
             that.showModal('提示', '服务器错误！', false, '确定', '用户点击了确定')
           }
         }
-        console.log(res.data)
       },
       fail: function () {
         that.showModal('提示', '上传失败，请检查网络是否连通！', false, '确定', '用户点击了确定')
@@ -198,13 +198,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this
-    if (options.id != null){
-      that.setData({
-        'MealsPaths0': options.MealsPaths0,
-        'MealsPaths1': options.MealsPaths1
-      })
-    }
+    this.setData({
+      MealsPaths0: '../../images/before.png', //餐前照片路径
+      MealsPaths1: '../../images/after.png' //餐后照片路径
+    })
   },
 
   /**

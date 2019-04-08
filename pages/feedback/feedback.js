@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    imgbox: []
+    imgbox: [],
+    uri: []
   },
 
   // 添加图片 
@@ -55,34 +56,58 @@ Page({
     });
   },
 
-  formSubmit: function (e, index = 0, u = ''){
+  formSubmit: function (e, index = 0){
     var that = this
     if (!that.check(e))//表单验证
       return
     if (index == that.data.imgbox.length)
       return
-    // wx.showToast({
-    //   title: '成功',
-    //   icon: 'success',
-    //   duration: 2000
-    // })
     console.log('正在上传：' + that.data.imgbox[index])
     wx.uploadFile({ //上传包含图片的form表单
-      url: getApp().globalData.ip + '/compare',
+      url: getApp().globalData.ip + '/upload',
       filePath: that.data.imgbox[index], // 图片文件路径
-      name: 'addInfoImg',
+      name: 'file',
       header: {
         'cookie': 'JSESSIONID=' + wx.getStorageSync("sessionid"),
-        'content-type': 'multipart/form-data'
-      },
-      formData: {
-        'content': e.detail.value.content,
-        'url': u
       },
       success: function (res) {
-        console.log('贫困信息id：' + res.data);
+        c
+        var new_url = that.data.uri.concat(datas.data)
+        that.setData({
+          uri: new_url
+        })
         console.log('imgbox[' + index + ']上传成功！');
-        that.formSubmit(e, index + 1, u.concat(res.data.data.url))
+        if (index == that.data.imgbox.length - 1)
+          that.uploadData(e.detail.value)
+        else
+          that.formSubmit(e, index + 1)
+      }
+    })
+  },
+
+  uploadData: function (v) {
+    var that = this
+    console.log('上传数据' + that.data.uri.join(' '))
+    wx.request({
+      url: getApp().globalData.ip + '/feedback/insert',
+      header: {
+        'cookie': 'JSESSIONID=' + wx.getStorageSync("sessionid"),
+        'content-type': 'application/json;charset=utf-8'
+      },
+      data: {
+        'content': v.content,
+        'coverPicUrl': that.data.uri.join(' ')
+      },
+      method: 'POST',
+      dataType: 'json',
+      success: function (res) {
+        that.onLoad()
+        console.log(res)
+        wx.showToast({
+          title: '提交成功',
+          icon: 'success',
+          duration: 2000
+        })
       }
     })
   },
@@ -117,7 +142,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      uri: [],
+      imgbox: [],
+      content: ''
+    })
   },
 
   /**
