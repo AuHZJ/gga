@@ -30,7 +30,7 @@
       <input name='tel' value='{{tel}}' class='inputTel' type='text' placeholder='电话' placeholder-class='placeholder-class'></input>
       <input name='address' value='{{address}}' class='inputAddress' type='text' placeholder='地址' placeholder-class='placeholder-class'></input>
       <view class='user-type' bindtap='chooseUserType'>{{userClass}}</view>
-      <input name='money' value='{{money1}}' class='inputMoney' type='number' value=''></input>
+      <input name='needMoney' value='{{money1}}' class='inputMoney' type='number'></input>
 
     </view>
     <!--middle部分end-->

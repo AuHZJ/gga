@@ -6,9 +6,17 @@ Page({
    */
   data: {
     index: '',
-    need: 10000,
-    surplus: 3999,
-    donationPanelHidden: true
+    userId: '', //发布该页信息的用户id
+    need: 100000,
+    surplus: 73999,
+    donationPanelHidden: true,
+    img0: '',
+    img1: '',
+    img2: '',
+    title: '"我们需要更好的环境!"',
+    name: '王小明',
+    location: '江西省 鹰潭市 余江县 xx村',
+    content: '这是我校初三的学生，成绩在班上数一数二，就是家里特别困难，父亲又是农民。成绩在班上数一数二，就是家里特别困难，父亲又是农民。这是我校初三的学生，成绩在班上数一数二，就是家里特别困难，。这是我校初三的学生，成绩在班上数一数二，就是家里特别困难，这是我校初三的学生，成绩在班上数一数二，父亲又是农民。这是我校初三的学生，成绩在班上数一数二，就是家里特别困难，父亲又是农民。'
   },
 
   donation: function(){
@@ -16,10 +24,45 @@ Page({
     this.setData({
       donationPanelHidden: false
     })
+    
   },
-  donation_comfirm: function(){
+  donation_comfirm: function(e){
+    wx.showLoading({
+      title: '捐赠中...',
+    })
+    console.log('e:' + e.detail.value.donate)
+    let that = this
     this.setData({
       donationPanelHidden: true
+    })
+    wx.request({
+      url: getApp().globalData.ip + '/donate/donate',
+      method: 'GET',
+      header: {
+        'content-type': 'application/json;charset=utf-8',
+        'cookie': 'JSESSIONID=' + wx.getStorageSync("sessionid")
+      },
+      data: {
+        poorManId: that.data.index,
+        donate: e.detail.value.donate
+      },
+      dataType: 'json',
+      success: function(res){
+        wx.hideLoading()
+        console.log(res.data)
+        that.onLoad({ 'index': that.data.index })
+        if(res.data.message == '捐赠成功'){
+          wx.showToast({
+            title: '捐赠成功',
+            icon: 'success',
+            duration: 2000
+          })
+        }
+        
+      },
+      fail: function(){
+        wx.hideLoading()
+      }
     })
   },
   donation_cancel: function () {
@@ -32,12 +75,41 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    
+    let that = this
     wx.showLoading({
       title: '加载中',
       mask: true
     })
     this.setData({
       index: options.index
+    })
+    wx.request({
+      url: getApp().globalData.ip + '/poor-man-info/public/findlistbyid',
+      method: 'GET',
+      header: {
+        'content-type': 'application/json;charset=utf-8',
+        'cookie': 'JSESSIONID=' + wx.getStorageSync("sessionid")
+      },
+      data: {
+        id: that.data.index
+      },
+      dataType: 'json',
+      success: function (res) {
+        console.log(res.data)
+        that.setData({
+          title: res.data.data.title,
+          userId: res.data.data.userId,
+          img0: getApp().globalData.ip + res.data.data.coverPicUrl.split(' ')[0],
+          img1: getApp().globalData.ip + res.data.data.coverPicUrl.split(' ')[1],
+          img2: getApp().globalData.ip + res.data.data.coverPicUrl.split(' ')[2],
+          name: res.data.data.user_name,
+          location: res.data.data.location,
+          need: res.data.data.needMoney,
+          surplus: res.data.data.needMoney - res.data.data.currentMoney,
+          content: res.data.data.content
+        })
+      }
     })
   },
 

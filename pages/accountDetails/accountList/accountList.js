@@ -5,17 +5,13 @@ Page({
    * 页面的初始数据
    */
   data: {
+    currentPageNum: 1,
     list: [
       {
         id: '1',
         content: '拍照识别成功，添加g_coin=0.15,a_coin=1.0',
         operateTime: '2018-11-27 01:18:54.0'
       },
-      {
-        id: '1',
-        content: '拍照识别成功，添加g_coin=0.55,a_coin=1.0',
-        operateTime: '2018-11-27 01:18:54.0'
-      }
     ]
 
   },
@@ -25,10 +21,13 @@ Page({
    */
   onLoad: function (options) {
     var that = this
+    that.req(1, 10)
+  },
+  req: function (pageNum, pageSize){
     wx.request({
-      url: getApp().globalData.ip +'/account-log/list?pageNum=1&pageSize=10',
+      url: getApp().globalData.ip + '/account-log/list?pageNum=' + pageNum + '&pageSize=' + pageSize,
       method: 'GET',
-      header: { 
+      header: {
         'content-type': 'application/json;charset=utf-8',
         'cookie': 'JSESSIONID=' + wx.getStorageSync("sessionid")
       },
@@ -36,7 +35,7 @@ Page({
       success: function (res) {
         console.log(res.data)
         that.setData({
-          list: res.data.data.list
+          list: that.data.list.concat(res.data.data.list)
         })
       }
     })
@@ -74,14 +73,18 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.onLoad()
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    var currentPageNum = this.data.currentPageNum
+    this.setData({
+      currentPageNum: currentPageNum
+    })
+    this.req(currentPageNum, 10)
   },
 
   /**

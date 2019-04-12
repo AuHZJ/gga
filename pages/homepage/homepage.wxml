@@ -9,3 +9,11 @@
   <image src="{{tempFilePaths}}" class="logo" bindtap="takeAPhoto"></image>
   <text class="tip">点击拍照</text>
 </view>
+
+<view class="auth" hidden='{{authPanelHidden}}'>
+  <view class="border">
+    <text class='text1'>申请获取以下权限</text>
+    <text class='text2'>获得你的公开信息(昵称，头像等)</text>
+    <button  open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo" class='button2'>授权登录</button>
+  </view>
+</view>

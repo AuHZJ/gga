@@ -7,28 +7,28 @@
     <image src="/images/infoPanelBG.png" class="infoPanelBG"></image>
 
     <view class="top">
-      <text class="title">"我们需要更好的环境!"</text>
+      <text class="title">“{{title}}”</text>
       <image src="/images/headimg.png" class="headimg"></image>
-      <text class="name">王小明</text>
+      <text class="name">{{name}}</text>
       <image src="/images/realname1.png" class="realname"></image>
     </view>
 
     <view class="img1">
-      <image src="/images/4.png"></image>
+      <image src="{{img0}}"></image>
     </view>
 
     <view class="img2and3">
-      <image src="/images/3.png" class="img2"></image>
-      <image src="/images/4.png" class="img3"></image>
+      <image src="{{img1}}" class="img2"></image>
+      <image src="{{img2}}" class="img3"></image>
     </view>
 
     <view class="position">
-      <text>江西省 鹰潭市 余江县 xx村</text>
+      <text>{{location}}</text>
       <image src="/images/position.png"></image>
     </view>
 
     <view class="description">
-      <text>这是我校初三的学生，成绩在班上数一数二，就是家里特别困难，父亲又是农民。成绩在班上数一数二，就是家里特别困难，父亲又是农民。这是我校初三的学生，成绩在班上数一数二，就是家里特别困难，。这是我校初三的学生，成绩在班上数一数二，就是家里特别困难，这是我校初三的学生，成绩在班上数一数二，父亲又是农民。这是我校初三的学生，成绩在班上数一数二，就是家里特别困难，父亲又是农民。</text>
+      <text>{{content}}</text>
     </view>
   </view>
 
@@ -59,8 +59,10 @@
 <view class="donationPanel" hidden='{{donationPanelHidden}}'>
   <view class="border">
     <text>输入捐赠金额：</text>
-    <input type="number"/>
-    <button bindtap='donation_cancel'>取消</button>
-    <button bindtap='donation_comfirm'>确定</button>
+    <form bindsubmit="donation_comfirm">
+      <input type="number" placeholder='￥' name="donate"/>
+      <button bindtap='donation_cancel' class='button1'>取消</button>
+      <button class='button2' formType="submit">确定</button>
+    </form>
   </view>
 </view>

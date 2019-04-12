@@ -41,7 +41,7 @@ Page({
     var that = this;
     wx.chooseImage({
       count: 3, // 最多3张
-      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+      sizeType: ['compressed'], // 可以指定是原图还是压缩图，默认二者都有
       sourceType: [type], // 可以指定来源是相册还是相机，默认二者都有
       success: function (res) {
         // console.log(res.tempFilePaths)
@@ -106,6 +106,7 @@ Page({
         'content-type': 'application/json;charset=utf-8'
       },
       data: {
+        'user_name': v.userName,
         'title': v.title,
         'content': v.content,
         'needMoney': v.needMoney,
@@ -134,8 +135,8 @@ Page({
       this.comfirm('提示', '请输入内容描述！', false, '返回输入', '用户点击了“返回输入”')
       return false;
     }
-    if (this.data.imgbox.length != 3){
-      this.comfirm('提示', '请上传3张照片！', false, '返回上传', '用户点击了“返回上传”')
+    if (this.data.imgbox.length == 0){
+      this.comfirm('提示', '请上传照片！', false, '返回上传', '用户点击了“返回上传”')
       return false;
     }
     if (e.detail.value.userName == '') {

@@ -1,7 +1,7 @@
 // pages/recharge/recharge.js
 Page({
   data: {
-    bankCard: '建设银行(1361)'
+    bankCard: '无'
 
   },
 

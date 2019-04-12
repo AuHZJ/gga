@@ -71,7 +71,7 @@ Page({
         'cookie': 'JSESSIONID=' + wx.getStorageSync("sessionid"),
       },
       success: function (res) {
-        c
+        let datas = JSON.parse(res.data)
         var new_url = that.data.uri.concat(datas.data)
         that.setData({
           uri: new_url
@@ -114,11 +114,11 @@ Page({
 
   check: function (e) { //表单验证
     if (e.detail.value.content == '') {
-      this.comfirm('提示', '请输入内容描述！', false, '返回输入', '用户点击了“返回输入”')
+      this.comfirm('提示', '请输入内容描述', false, '返回输入', '用户点击了“返回输入”')
       return false;
     }
     if (this.data.imgbox.length == 0) {
-      this.comfirm('提示', '请上传照片！', false, '返回上传', '用户点击了“返回上传”')
+      this.comfirm('提示', '请上传照片', false, '返回上传', '用户点击了“返回上传”')
       return false;
     }
     return true;

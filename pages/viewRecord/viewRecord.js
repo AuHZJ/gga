@@ -5,6 +5,18 @@ Page({
    * 页面的初始数据
    */
   data: {
+    list: [
+      {
+        id: '1',
+        content: '拍照识别成功，添加g_coin=0.15,a_coin=1.0',
+        operateTime: '2018-11-27 01:18:54.0'
+      },
+      {
+        id: '1',
+        content: '拍照识别成功，添加g_coin=0.55,a_coin=1.0',
+        operateTime: '2018-11-27 01:18:54.0'
+      }
+    ]
 
   },
 
@@ -12,7 +24,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this
+    wx.request({
+      url: getApp().globalData.ip + '/account-log/list?pageNum=1&pageSize=10',
+      method: 'GET',
+      header: {
+        'content-type': 'application/json;charset=utf-8',
+        'cookie': 'JSESSIONID=' + wx.getStorageSync("sessionid")
+      },
+      dataType: 'json',
+      success: function (res) {
+        console.log(res.data)
+        that.setData({
+          list: res.data.data.list
+        })
+      }
+    })
   },
 
   /**

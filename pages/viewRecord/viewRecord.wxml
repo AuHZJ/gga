@@ -1,2 +1,12 @@
 <!--pages/viewRecord/viewRecord.wxml-->
-<text>查看记录</text>
+
+<!--背景begin-->
+<image src="/images/backgroundImage.jpg" class="backgroundImage"></image>
+<!--背景end-->
+
+<view class="body">
+  <view class="item" wx:for="{{list}}" wx:key="{{item.id}}">
+    <view class="content">{{item.content}}</view>
+    <view class="operateTime">{{item.operateTime}}</view>
+  </view>
+</view>

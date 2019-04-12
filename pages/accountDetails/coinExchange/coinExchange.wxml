@@ -18,7 +18,7 @@
         <text style="font-size: 3.3vw;color:rgba(0,0,0,0.5)" bindtap='tips'>兑换为人民币</text>
       </view>
       <view class="banList">
-        <text style="font-size: 3.2vw;color:blue">建设银行（1361）</text>
+        <text style="font-size: 3.2vw;color:blue">无</text>
       </view>
     </view>
     <button form-type='submit'>立即兑换</button>

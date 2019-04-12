@@ -5,18 +5,18 @@ Page({
    * 页面的初始数据
    */
   data: {
-    province: '',   //搜索栏地址
-    alreadyDonated: '',  //已捐赠数量
+    alreadyDonated: '520.13',  //已捐赠数量
+    key: '',  //搜索关键字
     info: [
       { 
-        headImage: '../../images/questionMark.png',  //头像
+        headImage: '/images/headimg.png',  //头像
         type: '贫困户',  // 用户类型
         city: '江西省南昌市',  //地区
-        realName: '已实名', //是否实名
-        img: '../../images/3.png',  //封面图
+        realName: 1, //是否实名
+        img: '/images/donationBG.png',  //封面图
         title: '“我们需要更好的环境!”', //标题
-        needMoney: 10000, //总共需要资金
-        currentMoney:6150, //剩余所需
+        needMoney: 100000, //总共需要资金
+        currentMoney: 26001, //当前金额
         width: '100%', //进度条宽度
         animation: '', //动画
         content: '',
@@ -26,48 +26,86 @@ Page({
         publishTime: '',
         updateTime: ''
       },
-      // {
-      //   headImage: '../../images/questionMark.png',
-      //   type: '贫困户',
-      //   city: '江西省吉安市',
-      //   realName: '已实名',
-      //   img: '../../images/3.png',
-      //   title: '“我们需要更好的环境!”',
-      //   needMoney: 20000,
-      //   currentMoney: 8850,
-      //   width: '100%',
-      //   animation: ''
-      // },
-      // {
-      //   headImage: '../../images/questionMark.png',
-      //   type: '贫困户',
-      //   city: '江西省吉安市',
-      //   realName: '已实名',
-      //   img: '../../images/3.png',
-      //   title: '“我们需要更好的环境!”',
-      //   needMoney: 6000,
-      //   currentMoney: 4450,
-      //   width: '100%',
-      //   animation: ''
-      // },
-      // {
-      //   headImage: '../../images/questionMark.png',
-      //   type: '贫困户',
-      //   city: '江西省吉安市',
-      //   realName: '已实名',
-      //   img: getApp().globalData.ip +'/images/3935c59c-685a-495b-b7ee-067a0c0dd048.jpg',
-      //   title: '“我们需要更好的环境!”',
-      //   needMoney: 50000,
-      //   currentMoney: 18850,
-      //   width: '100%',
-      //   animation: ''
-      // }
     ]
 
   },
 
-  test: function () { //搜索
-    console.log('用户点击搜索')
+  inputKey: function(e){
+    console.log(e)
+    this.setData({
+      key: e.detail.value
+    })
+    this.search()
+  },
+
+  search: function () { //搜索
+    let that = this
+    console.log('用户点击搜索,搜索内容：' + that.data.key)
+    wx.showLoading({
+      title: '加载中',
+      mask: true
+    })
+    
+    wx.request({
+      url: getApp().globalData.ip + '/poor-man-info/public/list',
+      method: 'GET',
+      header: {
+        'content-type': 'application/json;charset=utf-8',
+        'cookie': 'JSESSIONID=' + wx.getStorageSync("sessionid")
+      },
+      data:{
+        key: that.data.key
+      },
+      dataType: 'json',
+      complete: function(){
+        wx.hideLoading()
+      },
+      success: function (res) {
+        console.log(res.data.data)
+        var newList = [];
+        for (var item in res.data.data.list) {
+          var value = res.data.data.list[item];
+          var newInfo = {};
+
+          newInfo['headImage'] = '../../images/headimg.png',  //头像
+            newInfo['animation'] = ''
+          newInfo['width'] = '100%'
+          newInfo['type'] = '贫困户'
+          newInfo['realName'] = 1
+          newInfo['content'] = value.content
+          newInfo['img'] = getApp().globalData.ip + '/' + value.coverPicUrl.split(' ')[0]
+          newInfo['createTime'] = value.createTime
+          newInfo['currentMoney'] = value.needMoney - value.currentMoney
+          newInfo['id'] = value.id
+          newInfo['city'] = value.location
+          newInfo['needMoney'] = value.needMoney
+          newInfo['publishTime'] = value.publishTime
+          newInfo['review'] = value.review
+          newInfo['title'] = value.title
+          newInfo['updateTime'] = value.updateTime
+          newInfo['userId'] = value.userId
+          newList.push(newInfo)
+        }
+        that.setData({
+          info: newList
+        })
+        // console.log(that.data.info)
+      },
+      complete: function () {
+        wx.hideLoading()
+      }
+    })
+    for (var item in that.data.info) {  // 设置进度条宽度
+      var width = 100 * (that.data.info[item]['needMoney'] - that.data.info[item]['currentMoney']) / that.data.info[item]['needMoney'] + '%'
+      var animation = 'info[' + item + '].animation'
+      var _animation = wx.createAnimation({ //创建动画
+        duration: 700, //持续时间（毫秒为单位）
+      })
+      _animation.width(width).step();
+      that.setData({
+        [animation]: _animation.export()
+      })
+    }
   },
 
   viewRecord: function () { //查看记录
@@ -86,6 +124,18 @@ Page({
     })
     var that = this
     wx.request({
+      url: getApp().globalData.ip + '/donate/donateaccount',
+      method: 'GET',
+      header: {
+        'content-type': 'application/json;charset=utf-8',
+        'cookie': 'JSESSIONID=' + wx.getStorageSync("sessionid")
+      },
+      dataType: '其他',
+      success: function (res) {
+        console.log('aa'+res)
+      }
+    })
+    wx.request({
       url: getApp().globalData.ip+'/poor-man-info/public/list',
       method: 'GET',
       header: {
@@ -94,19 +144,21 @@ Page({
       },
       dataType: 'json',
       success: function (res) {
-        console.log(res.data)
+        console.log(res.data.data)
         var newList = [];
         for (var item in res.data.data.list){
           var value = res.data.data.list[item];
           var newInfo = {};
 
+          newInfo['headImage'] = '../../images/headimg.png',  //头像
           newInfo['animation'] = ''
           newInfo['width'] = '100%'
           newInfo['type'] = '贫困户'
+          newInfo['realName'] = 1
           newInfo['content'] = value.content
           newInfo['img'] = getApp().globalData.ip + '/' + value.coverPicUrl.split(' ')[0]
           newInfo['createTime'] = value.createTime
-          newInfo['currentMoney'] = value.currentMoney
+          newInfo['currentMoney'] = value.needMoney - value.currentMoney
           newInfo['id'] = value.id
           newInfo['city'] = value.location
           newInfo['needMoney'] = value.needMoney
@@ -120,15 +172,14 @@ Page({
         that.setData({
           info: newList
         })
-        console.log(that.data.info)
+        // console.log(that.data.info)
+      },
+      complete: function(){
+        
       }
     })
-    that.setData({
-      province: getApp().globalData.userProvince,
-      alreadyDonated: getApp().globalData.donated,
-    })
     for (var item in that.data.info){  // 设置进度条宽度
-      var width = 100 * (that.data.info[item]['currentMoney']) / that.data.info[item]['needMoney'] + '%'
+      var width = 100 * (that.data.info[item]['needMoney'] - that.data.info[item]['currentMoney']) / that.data.info[item]['needMoney'] + '%'
       var animation = 'info[' + item + '].animation'
       var _animation = wx.createAnimation({ //创建动画
         duration: 700, //持续时间（毫秒为单位）
@@ -156,7 +207,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.onLoad()
+    this.onReady()
   },
 
   /**
@@ -177,7 +229,8 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.onLoad()
+    this.onReady()
   },
 
   /**

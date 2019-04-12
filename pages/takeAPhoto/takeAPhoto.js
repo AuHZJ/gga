@@ -111,11 +111,21 @@ Page({
   uploadFile: function() {
     var that = this
     if (that.data.MealsPaths0 == '../../images/before.png'){
-      that.showModal('提示', '请上传餐前照片！', false, '确定', '用户点击了确定')
+      wx.showToast({
+        title: '请上传餐前照片哦',
+        icon: 'none',
+        duration: 2000
+      })
+      // that.showModal('提示', '请上传餐前照片！', false, '确定', '用户点击了确定')
       return
     }
     if (that.data.MealsPaths1 == '../../images/after.png') {
-      that.showModal('提示', '请上传餐后照片！', false, '确定', '用户点击了确定')
+      wx.showToast({
+        title: '请上传餐后照片哦',
+        icon: 'none',
+        duration: 2000
+      })
+      // that.showModal('提示', '请上传餐后照片！', false, '确定', '用户点击了确定')
       return
     }
     that.uploadImage(that.data.MealsPaths0,'before')
@@ -162,20 +172,28 @@ Page({
               })
             }
           }else{
-            that.showModal('提示', '服务器错误！', false, '确定', '用户点击了确定')
+            wx.showToast({
+              title: '服务器错误，再试一次哦~',
+              icon: 'none',
+              duration: 2000
+            })
+            // that.showModal('提示', '服务器错误！', false, '确定', '用户点击了确定')
           }
         }
       },
       fail: function () {
-        that.showModal('提示', '上传失败，请检查网络是否连通！', false, '确定', '用户点击了确定')
+        wx.showToast({
+          title: '上传失败，请检查网络是否连通哦',
+          icon: 'none',
+          duration: 2000
+        })
+        // that.showModal('提示', '上传失败，请检查网络是否连通！', false, '确定', '用户点击了确定')
       },
       complete: function () {
-        if (path == that.data.MealsPaths1) {
-          that.setData({
-            loading: false,
-            submit: '开始识别'
-          })
-        }
+        that.setData({
+          loading: false,
+          submit: '开始识别'
+        })
       }
     })
   },

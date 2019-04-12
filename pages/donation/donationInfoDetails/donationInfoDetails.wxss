@@ -208,8 +208,43 @@
 .donationPanel .border{
   width: 80%;
   margin-left: 10%;
-  height: 30%;
-  margin-top: 39%;
+  height: 30vh;
+  margin-top: 42%;
   background: white;
   border-radius: 3vw;
+  padding: 5% 10% 10% 10%;
+  box-sizing: border-box;
+}
+.donationPanel .border input{
+  display: block;
+  width: 100%;
+  height: 6vh;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  border-radius: 1vw;
+  text-indent: 1vw;
+}
+
+.donationPanel .border text{
+  text-align: center;
+  color: rgba(0, 0, 0, 0.8);
+  width: 100%;
+  height: 7vh;
+  /* border: 1px solid red; */
+  display: block;
+}
+.donationPanel .border .button1{
+  margin-top: 5vw;
+  float: left;
+  width: 45%;
+  height: 7vh;
+  line-height: 7vh
+}
+.donationPanel .border .button2{
+  margin-top: 5vw;
+  float: right;
+  width:45%;
+  height: 7vh;
+  line-height: 7vh;
+  background: #ff6b69;
+  color: white
 }

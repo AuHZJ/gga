@@ -49,3 +49,47 @@
   /* color: rgba(41, 68, 40, 0.418); */
   color: rgba(255,255,255,1);
 }
+
+.auth{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.3);
+}
+.auth .border{
+  width: 80%;
+  margin-left: 10%;
+  height: 31vh;
+  margin-top: 52%;
+  background: white;
+  border-radius: 3vw;
+  padding: 5% 10% 10% 10%;
+  box-sizing: border-box;
+}
+.auth .border .text1{
+  text-align: left;
+  color: rgba(0, 0, 0, 0.8);
+  width: 100%;
+  height: 44%;
+  display: block;
+}
+.auth .border .text2{
+  text-align: center;
+  color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 30%;
+  display: block;
+  font-size: 4vw;
+}
+.auth .border .button2{
+  margin-top: 3vw;
+  float: right;
+  width:100%;
+  height: 7vh;
+  line-height: 7vh;
+  background: #ff6b69;
+  color: white
+}

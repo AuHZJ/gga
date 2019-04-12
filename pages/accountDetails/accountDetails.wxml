@@ -21,7 +21,7 @@
   <view class="card">
     <image src="../../images/cardBG.png" class="BG"></image>
     <view class="banList">
-      <text style="font-size: 3vw;color:blue">建设银行（1361）</text>
+      <text style="font-size: 3vw;color:blue">无</text>
     </view>
     <image src="../../images/addCard.png" class="addCard"></image>
   </view>

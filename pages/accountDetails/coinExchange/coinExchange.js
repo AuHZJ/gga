@@ -20,15 +20,11 @@ Page({
     })
   },
   duihuan: function(e){
+    console.log(e.detail.value.gCoin)
     if (e.detail.value.gCoin > this.data.gCoin){
-      wx.showModal({ // 提示框
-        title: '提示',
-        content: '超过可兑换数目，请重新输入！',
-        showCancel: false,
-        confirmText: '确定',
-        success: function (res) {
-          if (res.confirm) { }
-        }
+      wx.showToast({
+        title: '超过可兑换数，请重新输入',
+        icon: 'none'
       })
       return
     }
@@ -37,7 +33,7 @@ Page({
       mask: false
     })
     wx.request({
-      url: getApp().globalData.ip + '',
+      url: getApp().globalData.ip + '/account/exchange',
       header: { 'cookie': 'JSESSIONID=' + wx.getStorageSync("sessionid") },
       data:{
         'gCoin': e.detail.value.gCoin
@@ -48,9 +44,16 @@ Page({
         wx.showToast({
           title: '兑换成功',
           icon: 'success',
-          duration: 2000
+          duration: 1500
         })
       },
+      fail: function(res){
+        wx.showToast({
+          title: '兑换失败',
+          image: '/images/close.png',
+          duration: 1500
+        })
+      }
     })
     wx.hideLoading()
   },

@@ -15,8 +15,8 @@ App({
     userProvince: "", //省份
     userCountry: "" ,//国家
     userType: "管理员", //用户类型（志愿者，贫困户等）
-    donated: "520.13", //已捐赠
     sessionid: '',
-    ip: 'http://192.168.43.190:8080' //后台ip
+    ip: 'http://192.168.43.190:8080' ,//后台ip
+    // ip: 'http://183.217.87.110:8080' //后台ip
   }
 })

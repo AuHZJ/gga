@@ -1,1 +1,30 @@
 /* pages/viewRecord/viewRecord.wxss */
+/* pages/accountDetails/accountList/accountList.wxss */
+.backgroundImage{
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  position: fixed;
+}
+.body{
+  width: 100%;
+  height: 100%;
+}
+.item{
+  box-sizing: border-box;
+  padding: 10px 5vw 10px 5vw;
+  width: 100%;
+  height: 12vh;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+.content{
+  font-size: 4.3vw;
+  height: 5vh;
+  line-height: 5vh;
+}
+.operateTime{
+  font-size: 3.3vw;
+  color: rgba(0,0,0,0.5);
+  height: 5vh;
+  line-height: 5vh;
+}
