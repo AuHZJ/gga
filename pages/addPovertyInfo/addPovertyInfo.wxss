@@ -71,7 +71,13 @@ textarea{
   color: rgba(0, 0, 0, 0.6);
   /* border: 1px solid red; */
 }
-
+.fontNumLimit{
+  position: absolute;
+  right: 4vw;
+  top: 40vw;
+  color: rgba(0, 0, 0, 0.3);
+  font-size: 3vw;
+}
 .middle{
   margin-top: 4vw;
   box-sizing: border-box;

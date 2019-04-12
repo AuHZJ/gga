@@ -4,7 +4,8 @@
   <form bindsubmit="formSubmit">
     <view class='top'>
       <image src='/images/feedBackTopBorder.png' class='top-bg'></image>
-      <textarea name='content' value='{{content}}' placeholder='有任何意见都畅所欲言吧~(不少于10个字)' placeholder-class='textarea-style' maxlength='200'></textarea>
+      <textarea bindinput='countNum' name='content' value='{{content}}' placeholder='有任何意见都畅所欲言吧~(不少于10个字)' placeholder-class='textarea-style' maxlength='300'></textarea>
+      <view class='fontNumLimit'>{{titleFontNum}}/300</view>
     </view>
 
     <view class='middle'>

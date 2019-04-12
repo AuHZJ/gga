@@ -13,7 +13,13 @@ Page({
     address: '',
     userClass: '',
     money1: '',
-    uri: []
+    uri: [],
+    titleFontNum: 0
+  },
+  countNum: function(e){
+    this.setData({
+      titleFontNum: e.detail.value.length
+    })
   },
 
   /**
@@ -128,31 +134,67 @@ Page({
   },
   check: function(e){ //表单验证
     if (e.detail.value.title == ''){
-      this.comfirm('提示', '请输入标题！', false, '返回输入', '用户点击了“返回输入”')
+      wx.showToast({
+        title: '请输入标题',
+        icon: 'none'
+      })
+      // this.comfirm('提示', '请输入标题', false, '返回输入', '用户点击了“返回输入”')
+      return false;
+    }
+    if (e.detail.value.title.length > 15) {
+      wx.showToast({
+        title: '标题在15字以内',
+        icon: 'none'
+      })
+      // this.comfirm('提示', '标题在15字以内', false, '返回输入', '用户点击了“返回输入”')
       return false;
     }
     if (e.detail.value.content == ''){
-      this.comfirm('提示', '请输入内容描述！', false, '返回输入', '用户点击了“返回输入”')
+      wx.showToast({
+        title: '请输入内容描述',
+        icon: 'none'
+      })
+      // this.comfirm('提示', '请输入内容描述', false, '返回输入', '用户点击了“返回输入”')
       return false;
     }
     if (this.data.imgbox.length == 0){
-      this.comfirm('提示', '请上传照片！', false, '返回上传', '用户点击了“返回上传”')
+      wx.showToast({
+        title: '请上传照片',
+        icon: 'none'
+      })
+      // this.comfirm('提示', '请上传照片', false, '返回上传', '用户点击了“返回上传”')
       return false;
     }
     if (e.detail.value.userName == '') {
-      this.comfirm('提示', '请输入姓名！', false, '返回输入', '用户点击了“返回输入”')
+      wx.showToast({
+        title: '请输入姓名',
+        icon: 'none'
+      })
+      // this.comfirm('提示', '请输入姓名', false, '返回输入', '用户点击了“返回输入”')
       return false;
     }
     if (e.detail.value.userTel == '') {
-      this.comfirm('提示', '请输入电话号码！', false, '返回输入', '用户点击了“返回输入”')
+      wx.showToast({
+        title: '请输入电话号码',
+        icon: 'none'
+      })
+      // this.comfirm('提示', '请输入电话号码', false, '返回输入', '用户点击了“返回输入”')
       return false;
     }
     if (e.detail.value.address == '') {
-      this.comfirm('提示', '请输入地址！', false, '返回输入', '用户点击了“返回输入”')
+      wx.showToast({
+        title: '请输入地址',
+        icon: 'none'
+      })
+      // this.comfirm('提示', '请输入地址', false, '返回输入', '用户点击了“返回输入”')
       return false;
     }
     if (e.detail.value.money == '') {
-      this.comfirm('提示', '请输入所需金额！', false, '返回输入', '用户点击了“返回输入”')
+      wx.showToast({
+        title: '请输入所需金额',
+        icon: 'none'
+      })
+      // this.comfirm('提示', '请输入所需金额', false, '返回输入', '用户点击了“返回输入”')
       return false;
     }
     return true;

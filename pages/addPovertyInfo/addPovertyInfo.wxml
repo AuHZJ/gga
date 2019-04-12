@@ -8,8 +8,9 @@
         <image src='/images/top-border.png'></image>
       </view>
       <!--top背景图片end-->
-      <input name='title' value='{{title}}' type='text' placeholder='添加大字标题' placeholder-style='color:rgb(200,200,200);font-size:4vw'></input>
-      <textarea name='content' value='{{content}}' type='text' maxlength='1000' placeholder="请描述一下家庭情况，经济状况，所需物资与金额" placeholder-style='color:rgb(200,200,200);font-size:4vw' />
+      <input name='title' value='{{title}}' type='text' placeholder='添加大字标题(不超过15字)' placeholder-style='color:rgb(200,200,200);font-size:4vw'></input>
+      <textarea bindinput='countNum' name='content' value='{{content}}' type='text' maxlength='200' placeholder="请描述一下家庭情况，经济状况，所需物资与金额" placeholder-style='color:rgb(200,200,200);font-size:4vw' />
+      <view class='fontNumLimit'>{{titleFontNum}}/200</view>
       <view wx:key="imgbox" wx:for="{{imgbox}}" class="imgBox">
         <image class='photo' src="{{item}}"></image>
         <image class="image-delete" src='/images/delete.png' data-deindex='{{index}}' bindtap='imgDelete'></image>   <!--右上角删除照片-->

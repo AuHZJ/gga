@@ -6,7 +6,14 @@ Page({
    */
   data: {
     imgbox: [],
-    uri: []
+    uri: [],
+    titleFontNum: 0
+  },
+
+  countNum: function (e) {
+    this.setData({
+      titleFontNum: e.detail.value.length
+    })
   },
 
   // 添加图片 

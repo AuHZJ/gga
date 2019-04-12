@@ -41,6 +41,13 @@ view{
   color: rgba(0, 0, 0, 0.7);
   font-size: 4vw;
 }
+.fontNumLimit{
+  position: absolute;
+  right: 4vw;
+  top: 63vw;
+  color: rgba(0, 0, 0, 0.3);
+  font-size: 3vw;
+}
 .body .top .textarea-style{
   color: rgba(0, 0, 0, 0.3);
   font-size: 3vw;
