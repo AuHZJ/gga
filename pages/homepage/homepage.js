@@ -43,6 +43,7 @@ Page({
           console.log('已经授过权，直接登录')
           that.login();
         }else{
+          wx.hideTabBar()
           //授权
           that.setData({
             authPanelHidden: false
@@ -99,11 +100,18 @@ Page({
       // wx.switchTab({// 授权并返回成功后，跳转进入小程序首页
       //   url: '/pages/homepage/homepage'
       // })
+      wx.showTabBar({
+        animation: true
+      })
       getApp().globalData.userProvince = e.detail.userInfo.province
       that.login(); // 登录
     } else {
       //用户按了拒绝按钮
-      that.comfirm('警告', '您点击了拒绝授权，将无法正常使用小程序，请授权之后再进入!', false, '返回授权', '用户点击了“返回授权”')
+      wx.showToast({
+        title: '请授权再进入小程序',
+        icon: 'none'
+      })
+      // that.comfirm('警告', '您点击了拒绝授权，将无法正常使用小程序，请授权之后再进入!', false, '返回授权', '用户点击了“返回授权”')
     }
   },
 
