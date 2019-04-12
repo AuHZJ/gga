@@ -7,27 +7,28 @@ Page({
   data: {
     alreadyDonated: '520.13',  //已捐赠数量
     key: '',  //搜索关键字
+    pageNum: 1,
+    hasNextPage: true,
     info: [
-      { 
-        headImage: '/images/headimg.png',  //头像
-        type: '贫困户',  // 用户类型
-        city: '江西省南昌市',  //地区
-        realName: 1, //是否实名
-        img: '/images/donationBG.png',  //封面图
-        title: '“我们需要更好的环境!”', //标题
-        needMoney: 100000, //总共需要资金
-        currentMoney: 26001, //当前金额
-        width: '100%', //进度条宽度
-        animation: '', //动画
-        content: '',
-        createTime: '',
-        id: '1',
-        userId: '1',
-        publishTime: '',
-        updateTime: ''
-      },
+      // { 
+      //   headImage: '/images/headimg.png',  //头像
+      //   type: '贫困户',  // 用户类型
+      //   city: '江西省南昌市',  //地区
+      //   realName: 1, //是否实名
+      //   img: '/images/donationBG.png',  //封面图
+      //   title: '“我们需要更好的环境!”', //标题
+      //   needMoney: 100000, //总共需要资金
+      //   currentMoney: 26001, //当前金额
+      //   width: '100%', //进度条宽度
+      //   animation: '', //动画
+      //   content: '',
+      //   createTime: '',
+      //   id: '1',
+      //   userId: '1',
+      //   publishTime: '',
+      //   updateTime: ''
+      // },
     ]
-
   },
 
   inputKey: function(e){
@@ -61,7 +62,7 @@ Page({
         wx.hideLoading()
       },
       success: function (res) {
-        console.log(res.data.data)
+        console.log('0' +res.data.data)
         var newList = [];
         for (var item in res.data.data.list) {
           var value = res.data.data.list[item];
@@ -123,6 +124,9 @@ Page({
       mask: true
     })
     var that = this
+    that.setData({
+      info: that.data.info.splice(1, 5)
+    })
     wx.request({
       url: getApp().globalData.ip + '/donate/donateaccount',
       method: 'GET',
@@ -132,11 +136,18 @@ Page({
       },
       dataType: '其他',
       success: function (res) {
-        console.log('aa'+res)
+        that.setData({
+          alreadyDonated: res.data
+        })
       }
     })
+    that.findList(1, 5)
+  },
+
+  findList: function(pageNum, pageSize){
+    let that = this
     wx.request({
-      url: getApp().globalData.ip+'/poor-man-info/public/list',
+      url: getApp().globalData.ip + '/poor-man-info/public/list?pageNum=' + pageNum + '&pageSize='+pageSize,
       method: 'GET',
       header: {
         'content-type': 'application/json;charset=utf-8',
@@ -145,13 +156,16 @@ Page({
       dataType: 'json',
       success: function (res) {
         console.log(res.data.data)
-        var newList = [];
-        for (var item in res.data.data.list){
-          var value = res.data.data.list[item];
+        that.setData({
+          hasNextPage: res.data.data.hasNextPage
+        })
+        var newList = []
+        for (var item in res.data.data.list) {
+          var value = res.data.data.list[item]
           var newInfo = {};
 
           newInfo['headImage'] = '../../images/headimg.png',  //头像
-          newInfo['animation'] = ''
+            newInfo['animation'] = ''
           newInfo['width'] = '100%'
           newInfo['type'] = '贫困户'
           newInfo['realName'] = 1
@@ -168,17 +182,17 @@ Page({
           newInfo['updateTime'] = value.updateTime
           newInfo['userId'] = value.userId
           newList.push(newInfo)
+          that.setData({
+            info: that.data.info.concat(newInfo)
+          })
         }
-        that.setData({
-          info: newList
-        })
-        // console.log(that.data.info)
+       
       },
-      complete: function(){
-        
+      complete: function () {
+
       }
     })
-    for (var item in that.data.info){  // 设置进度条宽度
+    for (var item in that.data.info) {  // 设置进度条宽度
       var width = 100 * (that.data.info[item]['needMoney'] - that.data.info[item]['currentMoney']) / that.data.info[item]['needMoney'] + '%'
       var animation = 'info[' + item + '].animation'
       var _animation = wx.createAnimation({ //创建动画
@@ -207,7 +221,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.onLoad()
+    // this.onLoad()
     this.onReady()
   },
 
@@ -237,7 +251,13 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    if(this.data.hasNextPage){
+      this.setData({
+        pageNum: this.data.pageNum+ 1
+      })
+      this.findList(this.data.pageNum, 5)
+    }
+    
   },
 
   /**

@@ -7,6 +7,7 @@ Page({
   data: {
     index: '',
     userId: '', //发布该页信息的用户id
+    hasNextPage: true,
     need: 100000,
     surplus: 73999,
     donationPanelHidden: true,
@@ -103,7 +104,8 @@ Page({
           img0: getApp().globalData.ip + res.data.data.coverPicUrl.split(' ')[0],
           img1: getApp().globalData.ip + res.data.data.coverPicUrl.split(' ')[1],
           img2: getApp().globalData.ip + res.data.data.coverPicUrl.split(' ')[2],
-          name: res.data.data.user_name,
+          
+          name: res.data.data.username,
           location: res.data.data.location,
           need: res.data.data.needMoney,
           surplus: res.data.data.needMoney - res.data.data.currentMoney,

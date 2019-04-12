@@ -23,7 +23,7 @@ Page({
     console.log(e.detail.value.gCoin)
     if (e.detail.value.gCoin > this.data.gCoin){
       wx.showToast({
-        title: '超过可兑换数，请重新输入',
+        title: '余额不足',
         icon: 'none'
       })
       return

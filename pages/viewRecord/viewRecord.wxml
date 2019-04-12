@@ -6,7 +6,7 @@
 
 <view class="body">
   <view class="item" wx:for="{{list}}" wx:key="{{item.id}}">
-    <view class="content">{{item.content}}</view>
-    <view class="operateTime">{{item.operateTime}}</view>
+    <view class="content">捐赠了{{item.donateamount}}爱币给{{item.poormanid}}号</view>
+    <view class="operateTime">{{item.create_time}}</view>
   </view>
 </view>
