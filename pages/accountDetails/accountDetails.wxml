@@ -14,16 +14,16 @@
         <view style="font-size: 50px;color:rgba(0, 0, 0, 0.6);position:absolute;left:7vw;top:18vw;">{{gCoin}}</view>
         <view style="font-size: 50px;color:rgba(0, 0, 0, 0.6);position:absolute;left:55vw;top:18vw;">{{aCoin}}</view>
     </view>
-    <image src="../../images/chongzhi.png" class="abImage" bindtap='chongzhi'></image>
+    <!-- <image src="../../images/chongzhi.png" class="abImage" bindtap='chongzhi'></image> -->
     <image src="../../images/duihuan.png" class="gbImage" bindtap='exchange'></image>
   </view>
 
-  <view class="card">
+  <!-- <view class="card">
     <image src="../../images/cardBG.png" class="BG"></image>
     <view class="banList">
       <text style="font-size: 3vw;color:blue">无</text>
     </view>
     <image src="../../images/addCard.png" class="addCard"></image>
-  </view>
+  </view> -->
 
 </view>

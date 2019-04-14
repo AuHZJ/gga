@@ -17,7 +17,7 @@
   </view>
 
   <view class="top-right">
-    <image src="../../images/setting.png" class="top-right-setting" bindtap="tapSetting"></image>
+    <!-- <image src="../../images/setting.png" class="top-right-setting" bindtap="tapSetting"></image> -->
     <image src="../../images/whitejiantou.png" class="top-right-go" bindtap='personalData'></image>
   </view>
 </view>
@@ -30,13 +30,13 @@
   <image src="../../images/huijiantou.png" class="huijiantou"></image>
 </view>
 
-<view class="recharge" bindtap='recharge'>
+<!-- <view class="recharge" bindtap='recharge'>
   <view>
     <image src="/images/recharge.png" class="icon"></image>
     <text decode="{{true}}">&nbsp;&nbsp;充值</text>
   </view>
   <image src="../../images/huijiantou.png" class="huijiantou"></image>
-</view>
+</view> -->
 
 <view class="clearance"></view>
 

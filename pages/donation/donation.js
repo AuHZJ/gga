@@ -52,7 +52,7 @@ Page({
       method: 'GET',
       header: {
         'content-type': 'application/json;charset=utf-8',
-        'cookie': 'JSESSIONID=' + wx.getStorageSync("sessionid")
+        'cookie': 'JSESSIONID=' + wx.getorageSync("sessionid")
       },
       data:{
         key: that.data.key
