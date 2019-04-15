@@ -11,8 +11,8 @@
   <view class="coinPanel">
     <image src="../../images/money.png" class="BG"></image>
     <view>
-        <view style="font-size: 50px;color:rgba(0, 0, 0, 0.6);position:absolute;left:7vw;top:18vw;">{{gCoin}}</view>
-        <view style="font-size: 50px;color:rgba(0, 0, 0, 0.6);position:absolute;left:55vw;top:18vw;">{{aCoin}}</view>
+        <view style="font-size: 50px;color:rgba(0, 0, 0, 0.6);position:absolute;left:7vw;top:18vw;width:40%;text-align:center">{{gCoin}}</view>
+        <view style="font-size: 50px;color:rgba(0, 0, 0, 0.6);position:absolute;left:53vw;top:18vw;width:40%;text-align:center">{{aCoin}}</view>
     </view>
     <!-- <image src="../../images/chongzhi.png" class="abImage" bindtap='chongzhi'></image> -->
     <image src="../../images/duihuan.png" class="gbImage" bindtap='exchange'></image>

@@ -17,7 +17,10 @@ Page({
     title: '"我们需要更好的环境!"',
     name: '王小明',
     location: '江西省 鹰潭市 余江县 xx村',
-    content: '这是我校初三的学生，成绩在班上数一数二，就是家里特别困难，父亲又是农民。成绩在班上数一数二，就是家里特别困难，父亲又是农民。这是我校初三的学生，成绩在班上数一数二，就是家里特别困难，。这是我校初三的学生，成绩在班上数一数二，就是家里特别困难，这是我校初三的学生，成绩在班上数一数二，父亲又是农民。这是我校初三的学生，成绩在班上数一数二，就是家里特别困难，父亲又是农民。'
+    content: '这是我校初三的学生，成绩在班上数一数二，就是家里特别困难，父亲又是农民。成绩在班上数一数二，就是家里特别困难，父亲又是农民。这是我校初三的学生，成绩在班上数一数二，就是家里特别困难，。这是我校初三的学生，成绩在班上数一数二，就是家里特别困难，这是我校初三的学生，成绩在班上数一数二，父亲又是农民。这是我校初三的学生，成绩在班上数一数二，就是家里特别困难，父亲又是农民。',
+    imgLength: 0,
+    hiddenImg2: true,
+    hiddenImg3: true
   },
 
   donation: function(){
@@ -101,6 +104,9 @@ Page({
         that.setData({
           title: res.data.data.title,
           userId: res.data.data.userId,
+          imgLength: res.data.data.coverPicUrl.split(' ').length,
+          hiddenImg2: res.data.data.coverPicUrl.split(' ').length>=2 ? false: true,
+          hiddenImg3: res.data.data.coverPicUrl.split(' ').length >= 3 ? false : true,
           img0: getApp().globalData.ip + res.data.data.coverPicUrl.split(' ')[0],
           img1: getApp().globalData.ip + res.data.data.coverPicUrl.split(' ')[1],
           img2: getApp().globalData.ip + res.data.data.coverPicUrl.split(' ')[2],

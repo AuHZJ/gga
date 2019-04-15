@@ -17,9 +17,9 @@
       <image src="{{img0}}"></image>
     </view>
 
-    <view class="img2and3">
-      <image src="{{img1}}" class="img2"></image>
-      <image src="{{img2}}" class="img3"></image>
+    <view class="img2and3" hidden='{{hiddenImg2 && hiddenImg3}}'>
+      <image src="{{img1}}" class="img2" hidden='{{hiddenImg2}}'></image>
+      <image src="{{img2}}" class="img3" hidden='{{hiddenImg3}}'></image>
     </view>
 
     <view class="position">

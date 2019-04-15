@@ -17,6 +17,6 @@ App({
     userType: "管理员", //用户类型（志愿者，贫困户等）
     sessionid: '',
     // ip: 'http://192.168.43.190:8080' ,//后台ip
-    ip: 'https://www.guangguangai.com:8080' //后台ip
+    ip: 'https://www.guangguangai.com' //后台ip
   }
 })

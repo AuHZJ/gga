@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    alreadyDonated: '520.13',  //已捐赠数量
+    alreadyDonated: '0',  //已捐赠数量
     key: '',  //搜索关键字
     pageNum: 1,
     hasNextPage: true,
@@ -136,16 +136,23 @@ Page({
       },
       dataType: '其他',
       success: function (res) {
+        if(res.data.length > 10)
+          return
         that.setData({
           alreadyDonated: res.data
         })
       }
     })
-    that.findList(1, 5)
+    that.findList(1, 5, true)
   },
 
-  findList: function(pageNum, pageSize){
+  findList: function(pageNum, pageSize, reload){
     let that = this
+    if (reload){
+      that.setData({
+        info: []
+      })
+    }
     wx.request({
       url: getApp().globalData.ip + '/poor-man-info/public/list?pageNum=' + pageNum + '&pageSize='+pageSize,
       method: 'GET',
@@ -255,7 +262,7 @@ Page({
       this.setData({
         pageNum: this.data.pageNum+ 1
       })
-      this.findList(this.data.pageNum, 5)
+      this.findList(this.data.pageNum, 5, false)
     }
     
   },
