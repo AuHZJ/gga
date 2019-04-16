@@ -62,7 +62,13 @@ Page({
             duration: 2000
           })
         }
-        
+        else if (res.data.message == '金额不足') {
+          wx.showToast({
+            title: '爱币不足,捐赠失败',
+            icon: 'none',
+            duration: 2000
+          })
+        }
       },
       fail: function(){
         wx.hideLoading()
@@ -117,6 +123,9 @@ Page({
           surplus: res.data.data.needMoney - res.data.data.currentMoney,
           content: res.data.data.content
         })
+      },
+      complete: function(){
+        wx.hideLoading()
       }
     })
   },
