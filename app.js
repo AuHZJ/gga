@@ -14,7 +14,8 @@ App({
     userCity: "", //城市
     userProvince: "", //省份
     userCountry: "" ,//国家
-    userType: "管理员", //用户类型（志愿者，贫困户等）
+    userType: "", //用户类型（志愿者，贫困户等）
+    roleName: "",
     sessionid: '',
     // ip: 'http://192.168.43.190:8080' ,//后台ip
     ip: 'https://www.guangguangai.com' ,//后台ip

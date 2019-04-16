@@ -97,7 +97,7 @@ Page({
     var that = this;
     wx.chooseImage({
       count: 2,
-      sizeType: ['original', 'compressed'],
+      sizeType: [ 'compressed'],
       sourceType: [type],
       success: function (res) {
         console.log(res);
@@ -128,10 +128,15 @@ Page({
       // that.showModal('提示', '请上传餐后照片！', false, '确定', '用户点击了确定')
       return
     }
+    
     that.uploadImage(that.data.MealsPaths0,'before')
   },
 
   uploadImage: function (path,time) {
+    wx.showLoading({
+      title: '识别中...',
+      mask: true
+    })
     var that = this
     that.setData({
       loading: true,
@@ -194,6 +199,7 @@ Page({
           loading: false,
           submit: '开始识别'
         })
+        wx.hideLoading()
       }
     })
   },

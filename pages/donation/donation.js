@@ -91,7 +91,7 @@ Page({
           info: newList
         })
         for (var item in that.data.info) {  // 设置进度条宽度
-          var width = 100 * (that.data.info[item]['needMoney'] - that.data.info[item]['currentMoney']) / that.data.info[item]['needMoney'] + '%'
+          var width = 100 * (that.data.info[item]['currentMoney']) / that.data.info[item]['needMoney'] + '%'
           var animation = 'info[' + item + '].animation'
           var _animation = wx.createAnimation({ //创建动画
             duration: 700, //持续时间（毫秒为单位）
@@ -193,7 +193,7 @@ Page({
             info: that.data.info.concat(newInfo)
           })
           for (var item in that.data.info) {  // 设置进度条宽度
-            var width = 100 * (that.data.info[item]['needMoney'] - that.data.info[item]['currentMoney']) / that.data.info[item]['needMoney'] + '%'
+            var width = 100 * (that.data.info[item]['currentMoney']) / that.data.info[item]['needMoney'] + '%'
             var animation = 'info[' + item + '].animation'
             var _animation = wx.createAnimation({ //创建动画
               duration: 700, //持续时间（毫秒为单位）

@@ -73,6 +73,7 @@ Page({
               wx.setStorageSync("sessionid", res1.data.data.session)
               getApp().globalData.sessionid = res1.data.data.session
               getApp().globalData.userType = res1.data.data.description
+              getApp().globalData.roleName = res1.data.data.roleName
               if (res1.statusCode == '200') {
                 console.log('登录成功！');
                 wx.switchTab({// 授权并返回成功后，跳转进入小程序首页

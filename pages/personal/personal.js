@@ -45,7 +45,7 @@ Page({
   },
 
   info: function () { //发布信息
-    if(getApp().globalData.userType != "管理员"){
+    if(getApp().globalData.roleName != "admin"){
       wx.showModal({ // 提示框
         title: '提示',
         content: '请联系管理员发布信息',
