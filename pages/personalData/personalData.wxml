@@ -10,10 +10,10 @@
   <open-data type="userAvatarUrl" class="top-left-headImage"></open-data>
 </view>
 
-<view class="IDPanel">
+<!-- <view class="IDPanel">
   <text>ID</text>
   <text class="ID">{{sessionid}}</text>
-</view>
+</view> -->
 
 <view class="namePanel">
   <text>昵称</text>
