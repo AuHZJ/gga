@@ -10,7 +10,7 @@ Page({
     pageNum: 1,
     hasNextPage: true,
     info: [
-      // { 
+      // {
       //   headImage: '/images/headimg.png',  //头像
       //   type: '贫困户',  // 用户类型
       //   city: '江西省南昌市',  //地区
@@ -69,7 +69,7 @@ Page({
           var newInfo = {};
 
           newInfo['headImage'] = '../../images/headimg.png',  //头像
-            newInfo['animation'] = ''
+          newInfo['animation'] = ''
           newInfo['width'] = '100%'
           newInfo['type'] = '贫困户'
           newInfo['realName'] = 1
@@ -90,23 +90,23 @@ Page({
         that.setData({
           info: newList
         })
-        // console.log(that.data.info)
+        for (var item in that.data.info) {  // 设置进度条宽度
+          var width = 100 * (that.data.info[item]['needMoney'] - that.data.info[item]['currentMoney']) / that.data.info[item]['needMoney'] + '%'
+          var animation = 'info[' + item + '].animation'
+          var _animation = wx.createAnimation({ //创建动画
+            duration: 700, //持续时间（毫秒为单位）
+          })
+          _animation.width(width).step();
+          that.setData({
+            [animation]: _animation.export()
+          })
+        }
       },
       complete: function () {
         wx.hideLoading()
       }
     })
-    for (var item in that.data.info) {  // 设置进度条宽度
-      var width = 100 * (that.data.info[item]['needMoney'] - that.data.info[item]['currentMoney']) / that.data.info[item]['needMoney'] + '%'
-      var animation = 'info[' + item + '].animation'
-      var _animation = wx.createAnimation({ //创建动画
-        duration: 700, //持续时间（毫秒为单位）
-      })
-      _animation.width(width).step();
-      that.setData({
-        [animation]: _animation.export()
-      })
-    }
+    
   },
 
   viewRecord: function () { //查看记录
@@ -172,7 +172,7 @@ Page({
           var newInfo = {};
 
           newInfo['headImage'] = '../../images/headimg.png',  //头像
-            newInfo['animation'] = ''
+          newInfo['animation'] = ''
           newInfo['width'] = '100%'
           newInfo['type'] = '贫困户'
           newInfo['realName'] = 1
@@ -192,24 +192,24 @@ Page({
           that.setData({
             info: that.data.info.concat(newInfo)
           })
+          for (var item in that.data.info) {  // 设置进度条宽度
+            var width = 100 * (that.data.info[item]['needMoney'] - that.data.info[item]['currentMoney']) / that.data.info[item]['needMoney'] + '%'
+            var animation = 'info[' + item + '].animation'
+            var _animation = wx.createAnimation({ //创建动画
+              duration: 700, //持续时间（毫秒为单位）
+            })
+            _animation.width(width).step();
+            that.setData({
+              [animation]: _animation.export()
+            })
+          }
         }
-       
       },
       complete: function () {
 
       }
     })
-    for (var item in that.data.info) {  // 设置进度条宽度
-      var width = 100 * (that.data.info[item]['needMoney'] - that.data.info[item]['currentMoney']) / that.data.info[item]['needMoney'] + '%'
-      var animation = 'info[' + item + '].animation'
-      var _animation = wx.createAnimation({ //创建动画
-        duration: 700, //持续时间（毫秒为单位）
-      })
-      _animation.width(width).step();
-      that.setData({
-        [animation]: _animation.export()
-      })
-    }
+    
   },
   toDetails: function(e){
     wx.navigateTo({

@@ -20,8 +20,8 @@ Page({
     })
   },
   duihuan: function(e){
-    console.log(e.detail.value.gCoin)
-    if (e.detail.value.gCoin > this.data.gCoin){
+    console.log(e.detail.value.gCoin + "," + this.data.gCoin)
+    if (parseInt(e.detail.value.gCoin) > parseInt(this.data.gCoin)){
       wx.showToast({
         title: '余额不足',
         icon: 'none'
