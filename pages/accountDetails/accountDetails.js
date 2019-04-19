@@ -36,6 +36,7 @@ Page({
       header: { 'cookie': 'JSESSIONID=' + wx.getStorageSync("sessionid") },
       method: 'GET',
       success: function (res) {
+        console.log(res)
         that.setData({
           aCoin: res.data.data.aCoin,
           gCoin: res.data.data.gCoin
